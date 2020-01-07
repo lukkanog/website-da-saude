@@ -56,7 +56,7 @@ CREATE TABLE Usuarios(
 	IdUsuario		INT PRIMARY KEY IDENTITY,
 	IdPermissao		INT FOREIGN KEY REFERENCES Permissoes(IdPermissao) NOT NULL,
 	NomeUsuario		VARCHAR(255) NOT NULL,
-	DataNascmiento	DATE NOT NULL,
+	DataNascimento	DATE NOT NULL,
 	Email			VARCHAR(255) UNIQUE NOT NULL,
 	Senha			VARCHAR(200) NOT NULL,
 
@@ -71,6 +71,7 @@ GO
 CREATE TABLE Servicos(
 	IdServico		INT PRIMARY KEY IDENTITY,
 	IdCategoria		INT FOREIGN KEY REFERENCES Categorias(IdCategoria) NOT NULL,
+	NomeServico		VARCHAR(255) NOT NULL
 );
 GO
 
@@ -96,7 +97,8 @@ GO
 CREATE TABLE ServicosPrestados (
 	IdServico		INT FOREIGN KEY REFERENCES Servicos(IdServico) NOT NULL,
 	IdLocal			INT FOREIGN KEY REFERENCES Locais(IdLocal) NOT NULL,
-	IdSituacao		INT FOREIGN KEY REFERENCES Situacoes(IdSituacao) NOT NULL
+	IdSituacao		INT FOREIGN KEY REFERENCES Situacoes(IdSituacao) NOT NULL,
+	Ativo			BIT NOT NULL DEFAULT(1),
+	UltimaAtualizacao DATETIME NOT NULL 
 );
 GO
-
