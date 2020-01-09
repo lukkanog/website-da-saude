@@ -28,12 +28,15 @@ SELECT * FROM ServicosPrestados
 
 CREATE VIEW vwUsuarios
 AS
-	SELECT U.*,P.NomePermissao
+	SELECT U.*,P.NomePermissao,B.NomeBairro
 	FROM Usuarios U
 	INNER JOIN Permissoes P
 	ON U.IdPermissao = P.IdPermissao
+	INNER JOIN Bairros B
+	ON U.IdBairro = B.IdBairro
 
 SELECT * FROM vwUsuarios
+
 
 CREATE VIEW vwLocais
 AS
@@ -69,3 +72,19 @@ AS
 	ON SP.IdSituacao = Situacoes.IdSituacao
 
 SELECT * FROM vwServicosCompletos
+
+CREATE PROC ProcurarPorEmailESenha @Email VARCHAR(255), @Senha VARCHAR(255)
+AS
+	SELECT * FROM vwUsuarios
+	WHERE Email = @Email AND Senha = @Senha
+
+EXEC ProcurarPorEmailESenha 'fulano@email.com','123123'
+
+
+CREATE PROC ListarServicoESeusLocais @ServicoProcurado VARCHAR(255)
+AS
+	SELECT * FROM vwServicosCompletos
+	WHERE NomeServico LIKE ('%' + @ServicoProcurado + '%')
+
+
+EXEC ListarServicoESeusLocais 'pro'
