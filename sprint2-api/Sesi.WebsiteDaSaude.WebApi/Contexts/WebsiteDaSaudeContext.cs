@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Sesi.WebsiteDaSaude.WebApi.Models
 {
-    public partial class WebsiteDaSaude : DbContext
+    public partial class WebsiteDaSaudeContext : DbContext
     {
-        public WebsiteDaSaude()
+        public WebsiteDaSaudeContext()
         {
         }
 
-        public WebsiteDaSaude(DbContextOptions<WebsiteDaSaude> options)
+        public WebsiteDaSaudeContext(DbContextOptions<WebsiteDaSaudeContext> options)
             : base(options)
         {
         }
@@ -24,6 +24,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public virtual DbSet<Situacoes> Situacoes { get; set; }
         public virtual DbSet<TiposLocais> TiposLocais { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<LocaisEventos> LocaisEventos { get; set; }
 
         // Unable to generate entity type for table 'dbo.LocaisEventos'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.ServicosPrestados'. Please see the warning messages.
@@ -40,6 +41,21 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+
+            //eu que fiz
+            modelBuilder.Entity<LocaisEventos>().HasKey(x => new {x.IdEvento, x.IdLocal});
+
+            modelBuilder.Entity<LocaisEventos>()
+            .HasOne<Eventos>(x => x.IdEventoNavigation)
+            .WithMany(y => y.LocaisEventos)
+            .HasForeignKey(z => z.IdEvento);
+
+            modelBuilder.Entity<LocaisEventos>()
+            .HasOne<Locais>(x => x.IdLocalNavigation)
+            .WithMany(y => y.LocaisEventos)
+            .HasForeignKey(z => z.IdLocal);
+
+            //ate aqui
 
             modelBuilder.Entity<Bairros>(entity =>
             {

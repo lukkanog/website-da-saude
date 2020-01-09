@@ -10,5 +10,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public string Descricao { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataTermino { get; set; }
+
+        public virtual List<LocaisEventos> LocaisEventos { get; set; }
+
     }
 }
