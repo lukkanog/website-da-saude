@@ -1,0 +1,16 @@
+{
+  "FilePath": "c:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": null,
+  "RootNamespace": "Sesi.WebsiteDaSaude.WebApi",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

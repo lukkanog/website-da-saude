@@ -1,0 +1,14 @@
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.deps.json
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.runtimeconfig.json
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.runtimeconfig.dev.json
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.dll
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.pdb
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.RazorAssemblyInfo.cache
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.RazorAssemblyInfo.cs
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.AssemblyInfo.cs
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.dll
+C:\Users\USER\Desktop\website-da-saude\sprint2-api\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.pdb
