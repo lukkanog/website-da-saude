@@ -50,7 +50,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
 
                 if (idUsuarioLogado != id && permissao != "ADMINISTRADOR")
                 {
-                    throw new Exception("Você não tem permissão para isso, meu chapa");
+                    throw new Exception("Você não tem permissão para isso, camarada");
                 }
 
                 var usuario = UsuarioRepository.BuscarPorId(id);
@@ -82,7 +82,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
                 }
 
                 UsuarioRepository.Cadastrar(usuario);
-                return Ok(new {Mensagem = "Usuário cadastrado com sucesso."});
+                return Ok(new {Mensagem = "Usuário cadastrado com sucesso!"});
             }
             catch (Exception e)
             {
@@ -113,7 +113,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
                 usuario.IdUsuario = id;
 
                 UsuarioRepository.Editar(usuario);
-                return Ok(new {Mensagem = "Usuário editado com sucesso."});
+                return Ok(new {Mensagem = "Usuário editado com sucesso!"});
             }
             catch (Exception e)
             {
@@ -128,7 +128,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             try
             {
                 UsuarioRepository.Excluir(id);
-                return Ok(new { Mensagem = "Usuário excluído com sucesso." });
+                return Ok(new { Mensagem = "Usuário excluído com sucesso!" });
 
             }
             catch (Exception e)

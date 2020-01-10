@@ -63,20 +63,22 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                 if (usuarioBuscado == null)
                 {
                     throw new Exception("Usuário não encontrado no banco de dados");
+                    
+                } else
+                {
+                    usuarioBuscado.IdPermissao = usuarioPassado.IdPermissao;
+                    usuarioBuscado.NomeUsuario = usuarioPassado.NomeUsuario;
+                    usuarioBuscado.DataNascimento = usuarioPassado.DataNascimento;
+                    usuarioBuscado.Email = usuarioPassado.Email;
+                    usuarioBuscado.Senha = usuarioPassado.Senha;
+                    usuarioBuscado.IdBairro = usuarioPassado.IdBairro;
+                    usuarioBuscado.Cep = usuarioPassado.Cep;
+                    usuarioBuscado.Logradouro = usuarioPassado.Logradouro;
+                    usuarioBuscado.Numero = usuarioPassado.Numero;
+                    
+                    ctx.Update(usuarioBuscado);
+                    ctx.SaveChanges();
                 }
-
-                usuarioBuscado.IdPermissao = usuarioPassado.IdPermissao;
-                usuarioBuscado.NomeUsuario = usuarioPassado.NomeUsuario;
-                usuarioBuscado.DataNascimento = usuarioPassado.DataNascimento;
-                usuarioBuscado.Email = usuarioPassado.Email;
-                usuarioBuscado.Senha = usuarioPassado.Senha;
-                usuarioBuscado.IdBairro = usuarioPassado.IdBairro;
-                usuarioBuscado.Cep = usuarioPassado.Cep;
-                usuarioBuscado.Logradouro = usuarioPassado.Logradouro;
-                usuarioBuscado.Numero = usuarioPassado.Numero;
-                
-                ctx.Update(usuarioBuscado);
-                ctx.SaveChanges();
             }
         }
 
