@@ -18,5 +18,6 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public virtual TiposLocais IdTipoLocalNavigation { get; set; }
 
         public virtual List<LocaisEventos> LocaisEventos { get; set; }
+        public virtual List<ServicosPrestados> ServicosPrestados { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public virtual DbSet<TiposLocais> TiposLocais { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<LocaisEventos> LocaisEventos { get; set; }
+        public virtual DbSet<ServicosPrestados> ServicosPrestados { get; set; }
 
         // Unable to generate entity type for table 'dbo.LocaisEventos'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.ServicosPrestados'. Please see the warning messages.
@@ -54,6 +55,23 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
             .HasOne<Locais>(x => x.IdLocalNavigation)
             .WithMany(y => y.LocaisEventos)
             .HasForeignKey(z => z.IdLocal);
+
+            modelBuilder.Entity<ServicosPrestados>().HasKey(x => new {x.IdServico, x.IdLocal, x.IdSituacao});
+
+            modelBuilder.Entity<ServicosPrestados>()
+            .HasOne<Servicos>(x => x.IdServicoNavigation)
+            .WithMany(x => x.ServicosPrestados)
+            .HasForeignKey(z => z.IdServico);
+
+            modelBuilder.Entity<ServicosPrestados>()
+            .HasOne<Locais>(x => x.IdLocalNavigation)
+            .WithMany(x => x.ServicosPrestados)
+            .HasForeignKey(z => z.IdLocal);
+
+            modelBuilder.Entity<ServicosPrestados>()
+            .HasOne<Situacoes>(x => x.IdSituacaoNavigation)
+            .WithMany(x => x.ServicosPrestados)
+            .HasForeignKey(z => z.IdSituacao);
 
             //ate aqui
 

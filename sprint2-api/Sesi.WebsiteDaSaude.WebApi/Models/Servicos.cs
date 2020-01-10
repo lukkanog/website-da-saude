@@ -10,5 +10,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public string NomeServico { get; set; }
 
         public virtual Categorias IdCategoriaNavigation { get; set; }
+        public virtual List<ServicosPrestados> ServicosPrestados { get; set; }
+
     }
 }
