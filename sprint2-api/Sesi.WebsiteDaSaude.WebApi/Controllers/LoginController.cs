@@ -22,7 +22,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers {
         }
 
         [HttpPost]
-        public IActionResult FazerLogin ([FromBody] LoginViewModel login) 
+        public IActionResult FazerLogin (LoginViewModel login) 
         {
             try 
             {
@@ -30,7 +30,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers {
 
                 if (usuario == null) 
                 {
-                    return NotFound(new { Erro = true, MensagemErro = "Email ou senha incorretos." });
+                    return NotFound(new { Erro = true, Mensagem = "Email ou senha incorretos." });
                 }
 
                 var claims = new [] 
@@ -48,7 +48,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers {
                     issuer: "WebsiteDaSaude.WebApi",
                     audience: "WebsiteDaSaude.WebApi",
                     claims : claims,
-                    expires : DateTime.Now.AddHours (12),
+                    expires : DateTime.Now.AddDays(15),
                     signingCredentials : creds
                 );
 
@@ -56,7 +56,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers {
 
             } catch (Exception e) 
             {
-                return BadRequest(new { Erro = true, MensagemErro = e.Message });
+                return BadRequest(new { Erro = true, Mensagem = e.Message });
             }
         }
     }

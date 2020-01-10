@@ -58,6 +58,18 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
 
             modelBuilder.Entity<ServicosPrestados>().HasKey(x => new {x.IdServico, x.IdLocal, x.IdSituacao});
 
+            modelBuilder.Entity<ServicosPrestados>(entity =>
+            {
+                entity.Property(x => x.Ativo)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
+                entity.Property(x => x.UltimaAtualizacao)
+                    .HasColumnType("datetime")
+                    .IsRequired();
+
+            });
+
             modelBuilder.Entity<ServicosPrestados>()
             .HasOne<Servicos>(x => x.IdServicoNavigation)
             .WithMany(x => x.ServicosPrestados)

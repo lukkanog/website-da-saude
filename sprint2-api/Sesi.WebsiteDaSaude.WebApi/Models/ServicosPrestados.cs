@@ -1,3 +1,5 @@
+using System;
+
 namespace Sesi.WebsiteDaSaude.WebApi.Models
 {
     public class ServicosPrestados
@@ -10,6 +12,9 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
 
         public int IdSituacao { get; set; }
         public Situacoes IdSituacaoNavigation { get; set; }
+        public bool Ativo { get; set; }
+
+        public DateTime UltimaAtualizacao { get; set; }
 
     }
 }

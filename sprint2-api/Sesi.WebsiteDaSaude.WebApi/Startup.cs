@@ -97,11 +97,13 @@ namespace Sesi.WebsiteDaSaude.WebApi
             }
 
             app.UseHttpsRedirection ();
+            app.UseAuthentication();
             app.UseSwagger();
             app.UseSwaggerUI(c => 
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Website Da Saúde API");
             });
+            app.UseCors("CorsPolicy");
             app.UseMvc ();
         }
     }
