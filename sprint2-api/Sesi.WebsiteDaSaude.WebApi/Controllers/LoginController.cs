@@ -7,7 +7,8 @@ using Sesi.WebsiteDaSaude.WebApi.Interfaces;
 using Sesi.WebsiteDaSaude.WebApi.Repositories;
 using Sesi.WebsiteDaSaude.WebApi.ViewModels;
 
-namespace Sesi.WebsiteDaSaude.WebApi.Controllers {
+namespace Sesi.WebsiteDaSaude.WebApi.Controllers 
+{
     [ApiController]
     [Route ("api/[controller]")]
     [Produces ("application/json")]
