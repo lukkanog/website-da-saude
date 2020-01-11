@@ -13,8 +13,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
 
         public int IdCategoria { get; set; }
 
-        [Required]
-        [StringLength(255, MinimumLength = 2)]
+        [Required(ErrorMessage = "Informe o nome da categoria.")]
+        [StringLength(255, MinimumLength = 2,ErrorMessage = "O nome da categoria deve ter no mínimo dois caracteres e no máximo 255 caracteres.")]
         public string NomeCategoria { get; set; }
 
         public virtual ICollection<Servicos> Servicos { get; set; }
