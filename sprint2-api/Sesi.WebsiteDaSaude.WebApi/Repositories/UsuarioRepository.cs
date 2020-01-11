@@ -75,6 +75,11 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     usuarioBuscado.Cep = usuarioPassado.Cep;
                     usuarioBuscado.Logradouro = usuarioPassado.Logradouro;
                     usuarioBuscado.Numero = usuarioPassado.Numero;
+
+                    if (usuarioBuscado.Cep.Contains("-"))
+                    {
+                        usuarioBuscado.Cep = usuarioBuscado.Cep.Replace("-","");
+                    }
                     
                     ctx.Update(usuarioBuscado);
                     ctx.SaveChanges();
