@@ -10,6 +10,5 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// </summary>
         /// <returns>Lista de pemissões</returns>
         List<Permissoes> Listar();
-        
     }
 }
