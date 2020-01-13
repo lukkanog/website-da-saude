@@ -11,16 +11,16 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// <returns>Lista de tipos de locais</returns>
         List<TiposLocais> Listar();
 
-        // /// <summary>
-        // /// Cadastra um novo tipo de local no banco de dados
-        // /// </summary>
-        // /// <param name="tipo">Tipo de local a ser cadastrado.</param>
-        // void Cadastrar(TiposLocais tipo);
+        /// <summary>
+        /// Cadastra um novo tipo de local no banco de dados
+        /// </summary>
+        /// <param name="tipo">Tipo de local a ser cadastrado.</param>
+        void Cadastrar(TiposLocais tipo);
 
-        // /// <summary>
-        // /// Exclui um tipo de local determinado pelo id passado
-        // /// </summary>
-        // /// <param name="id">Id do tipo a ser excluído.</param>
-        // void Excluir(int id);
+        /// <summary>
+        /// Exclui um tipo de local determinado pelo id passado
+        /// </summary>
+        /// <param name="id">Id do tipo a ser excluído.</param>
+        void Excluir(int id);
     }
 }

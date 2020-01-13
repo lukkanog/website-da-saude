@@ -76,6 +76,19 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             }
         }
 
+        [HttpGet("buscar/{nomeBuscado}")]
+        public IActionResult BuscarPorNome(string nomeBuscado)
+        {
+            try
+            {
+                var lista = LocalRepository.BuscarPorNome(nomeBuscado);
+                return Ok(lista);
+            } catch(Exception e)
+            {
+                return BadRequest(new { Erro = true, Mensagem = e.Message });
+            }        
+        }
+
         [HttpPost]
         [Authorize(Roles="ADMINISTRADOR")]
         public IActionResult Cadastrar(Locais local)

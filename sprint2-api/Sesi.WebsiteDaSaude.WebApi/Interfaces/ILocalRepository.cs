@@ -26,6 +26,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         List<Locais> ListarPorBairro(int idBairro);
 
         /// <summary>
+        /// Busca todos os locais cujos nomes se assemelham com o nome buscado passado 
+        /// </summary>
+        /// <param name="nome">Nome buscado</param>
+        /// <returns>Lista de locais cujos nomes são iguais ou semelhantes ao buscado</returns>
+        List<Locais> BuscarPorNome(string nomeBuscado);
+
+        /// <summary>
         /// Busca um local através de seu id.
         /// </summary>
         /// <param name="id">Id do local procurado</param>

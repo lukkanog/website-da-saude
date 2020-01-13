@@ -27,6 +27,20 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             }
         }
 
+        public List<Locais> BuscarPorNome(string nomeBuscado)
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var lista = ctx.Locais
+                    .Where(x => EF.Functions.Like(x.NomeLocal, $"%{nomeBuscado}%"))
+                    .Include(x => x.IdTipoLocalNavigation)
+                    .Include(x => x.IdBairroNavigation)
+                    .ToList();
+
+                return lista;
+            }
+        }
+
         public void Cadastrar (Locais local) 
         {
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
@@ -105,7 +119,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
 
         public List<Locais> ListarPorBairro (int idBairro) 
         {
-            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext ()) 
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext()) 
             {
                 var lista = ctx.Locais
                     .Where (x => x.IdBairro == idBairro)
