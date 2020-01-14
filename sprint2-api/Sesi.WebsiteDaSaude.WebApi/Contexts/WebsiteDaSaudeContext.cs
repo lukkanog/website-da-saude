@@ -56,7 +56,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
             .WithMany(y => y.LocaisEventos)
             .HasForeignKey(z => z.IdLocal);
 
-            modelBuilder.Entity<ServicosPrestados>().HasKey(x => new {x.IdServico, x.IdLocal, x.IdSituacao});
+            // modelBuilder.Entity<ServicosPrestados>().HasKey(x => new {x.IdServico, x.IdLocal, x.IdSituacao});
+            modelBuilder.Entity<ServicosPrestados>().HasKey(x => new {x.IdServico, x.IdLocal});
 
             modelBuilder.Entity<ServicosPrestados>(entity =>
             {

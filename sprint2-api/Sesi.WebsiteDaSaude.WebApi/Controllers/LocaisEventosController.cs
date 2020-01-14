@@ -31,7 +31,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             }
         }
 
-        [HttpGet("eventos/{idEvento}")]
+        [HttpGet("evento/{idEvento}")]
         public IActionResult BuscarLocaisDeEvento(int idEvento)
         {
             try
@@ -45,7 +45,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
         
         }
 
-        [HttpGet("locais/{idLocal}")]
+        [HttpGet("local/{idLocal}")]
         public IActionResult BuscarEventosDeLocal(int idLocal)
         {
             try
