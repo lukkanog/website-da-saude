@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sesi.WebsiteDaSaude.WebApi.Models;
+using Sesi.WebsiteDaSaude.WebApi.ViewModels;
 
 namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
 {
@@ -31,6 +32,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// <param name="idSituacao">Id da situação procurada</param>
         /// <returns>Lista de vínculos entre serviço, situação e local.</returns>
         List<ServicosPrestados> BuscarPorSituacao(int idSituacao);
+
+        /// <summary>
+        /// Lista os serviços, seus locais e situações, que estejam de acordo com o filtro passado.
+        /// </summary>
+        /// <param name="filtro">Objeto de fitro com os filtros aplicados</param>
+        /// <returns>Lista de vínculos entre serviço, situação e local.</returns>
+        List<ServicosPrestados> Filtrar(FiltroServicoViewModel filtro);
 
         /// <summary>
         /// Cadastra um novo vínculo entre serviço,local e situação.

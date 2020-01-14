@@ -4,6 +4,7 @@ using Sesi.WebsiteDaSaude.WebApi.Interfaces;
 using Sesi.WebsiteDaSaude.WebApi.Repositories;
 using Sesi.WebsiteDaSaude.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
+using Sesi.WebsiteDaSaude.WebApi.ViewModels;
 
 namespace Sesi.WebsiteDaSaude.WebApi.Controllers
 {
@@ -64,6 +65,19 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             try
             {
                 var lista = ServicoPrestadoRepository.BuscarPorSituacao(idSituacao);
+                return Ok(lista);
+            } catch (Exception e)
+            {
+                return BadRequest(new {Erro = true, Mensagem = e.Message});
+            }
+        }
+
+        [HttpPost("filtrar")]
+        public IActionResult Filtrar(FiltroServicoViewModel filtro)
+        {
+            try
+            {
+                var lista = ServicoPrestadoRepository.Filtrar(filtro);
                 return Ok(lista);
             } catch (Exception e)
             {
