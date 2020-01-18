@@ -24,6 +24,18 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             }
         }
 
+        public List<Servicos> BuscarPorNome(string nomeServico)
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var lista = ctx.Servicos.Where(x => EF.Functions.Like(x.NomeServico, $"%{nomeServico}%"))
+                    .Include(x => x.IdCategoriaNavigation)
+                    .ToList();
+
+                return lista;
+            }
+        }
+
         public void Cadastrar(Servicos servico)
         {
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())

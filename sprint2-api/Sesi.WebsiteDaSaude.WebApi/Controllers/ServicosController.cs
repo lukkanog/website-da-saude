@@ -51,6 +51,19 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             }
         }
 
+        [HttpGet("buscar/{nomeServico}")]
+        public IActionResult BuscarPorNome(string nomeServico)
+        {
+            try
+            {
+                var lista = ServicoRepository.BuscarPorNome(nomeServico);
+                return Ok(lista);
+            }catch (Exception e)
+            {
+                return BadRequest(new { Erro = true, Mensagem = e.Message });
+            }        
+        }
+
         [HttpPost]
         [Authorize(Roles = "ADMINISTRADOR")]
         public IActionResult Cadastrar(Servicos servico)

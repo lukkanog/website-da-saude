@@ -19,6 +19,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         Servicos BuscarPorId(int id);
 
         /// <summary>
+        /// Busca o(s) serviço(s) que tenham o nome procurado passado como parâmetro
+        /// </summary>
+        /// <param name="nomeServico">Nome do serviço procurado</param>
+        /// <returns>Lista de serviços</returns>
+        List<Servicos> BuscarPorNome(string nomeServico);
+
+        /// <summary>
         /// Cadastra um novo serviço no banco de dados. 
         /// </summary>
         /// <param name="servico">Serviço a ser cadastrado.</param>

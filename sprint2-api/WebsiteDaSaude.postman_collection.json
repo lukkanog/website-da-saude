@@ -1,0 +1,1894 @@
+{
+	"info": {
+		"_postman_id": "23c7b89c-257e-40dd-89cf-fd22e3cf662e",
+		"name": "WebsiteDaSaude",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios.Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"lucas@email.com\",\n\t\"senha\" : \"123123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.BuscarPorId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/usuarios/4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"usuarios",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MjU5NDUsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.AYcj0CRPc_rmRsn8WupLSWVLJlWbtxGCUrS3w9OcsV0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPermissao\" : 1,\n\t\"nomeUsuario\" : \"Jorge Wagner Pereira da Silva Filho\",\n\t\"dataNascimento\" : \"1980-12-21\",\n\t\"email\" : \"jorginho2@email.com\",\n\t\"senha\" : \"123123\",\n\t\"idBairro\" : 2,\n\t\"cep\" : \"08561-000\",\n\t\"logradouro\" : \"Rua José Augusto Anselmo\",\n\t\"numero\" : 26\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MjU5NDUsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.AYcj0CRPc_rmRsn8WupLSWVLJlWbtxGCUrS3w9OcsV0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/usuarios/7",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"usuarios",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BlbWFpbC5jb20iLCJqdGkiOiIzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ09NVU0iLCJwZXJtaXNzYW8iOiJDT01VTSIsIm5vbWVVc3VhcmlvIjoiRnVsYW5vIGRhIFNpbHZhIFBlcmVpcmEiLCJleHAiOjE1Nzk5MzI3MDUsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.3nJ9N9c6CfRSmBdoKGjQQgmM3fb8ZpgZgm7BycL6lW0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPermissao\" : 1,\n    \"nomeUsuario\" : \"Beltrano Ciclano da Rocha\",\n    \"dataNascimento\" : \"2001-12-23T00:00:00\",\n    \"email\" : \"beltrano@email.com\",\n    \"senha\" : \"123123\",\n    \"idBairro\" : 2,\n    \"cep\" : \"08561000\",\n    \"logradouro\" : \"Rua José Augusto Anselmo\",\n    \"numero\" : 24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/usuarios/4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"usuarios",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Serviços, Locais e Situações",
+			"item": [
+				{
+					"name": "ServicosPrestados.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.BuscarPorLocal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados/local/1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados",
+								"local",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.BuscarPorServico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados/servico/4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados",
+								"servico",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.BuscarPorSituacao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados/situacao/5",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados",
+								"situacao",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.CriarVinculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idServico\" : 3,\n\t\"idLocal\" : 2,\n\t\"idSituacao\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idServico\" : 3,\n\t\"idLocal\" : 2,\n\t\"idSituacao\" : 5,\n\t\"ativo\" : false\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.ExcluirVinculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idServico\" : 3,\n\t\"idLocal\" : 2\n}\n\t",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ServicosPrestados.Filtrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idLocal\" : 1,\n\t\"idServico\" : 1,\n\t\"idSituacao\" : 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicosprestados/filtrar",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicosprestados",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Locais e Eventos",
+			"item": [
+				{
+					"name": "LocaisEventos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locaiseventos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locaiseventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LocaisEventos.ListarLocaisDeEvento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locaiseventos/evento/2",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locaiseventos",
+								"evento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LocaisEventos.ListarEventosDeLocal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locaiseventos/local/1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locaiseventos",
+								"local",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LocaisEventos.Vincular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idEvento\" : 3,\n\t\"idLocal\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locaiseventos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locaiseventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LocaisEventos.ExcluirVinculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idEvento\" : 3,\n\t\"idLocal\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locaiseventos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locaiseventos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Locais",
+			"item": [
+				{
+					"name": "Locais.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/2",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.BuscarPorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/buscar/guido",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"buscar",
+								"guido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.ListarPorBairro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/bairro/27",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"bairro",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.ListarPorTipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/tipo/1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"tipo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idTipoLocal\" : 3,\n\t\"nomeLocal\" : \"UBS Vereador Farid Domingues\",\n\t\"capacidade\" : 56,\n\t\"idBairro\" : 44,\n\t\"cep\" : \"08552-020\",\n\t\"logradouro\" : \"Rua Jair de Godoy\",\n\t\"numero\" : 275\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idTipoLocal\" : 3,\n\t\"nomeLocal\" : \"UBS Vereador Farid Domingues\",\n\t\"capacidade\" : 52,\n\t\"idBairro\" : 44,\n\t\"cep\" : \"08552-020\",\n\t\"logradouro\" : \"Rua Jair de Godoy\",\n\t\"numero\" : 275\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/2",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locais.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/locais/3",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"locais",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Serviços",
+			"item": [
+				{
+					"name": "Servicos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servicos.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos/22",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servicos.BuscarPorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos/buscar/pronto atendimento",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos",
+								"buscar",
+								"pronto atendimento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servicos.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idCategoria\" : 8,\n\t\"nomeServico\" : \"Limpeza de ouvido\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servicos.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idCategoria\" : 8,\n\t\"nomeServico\" : \"Limpeza de ouvidos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos/9",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servicos.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/servicos/5",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"servicos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Situações",
+			"item": [
+				{
+					"name": "Situacoes.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/situacoes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"situacoes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Eventos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos/2",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos.ListarComLocal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos/locais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos",
+								"locais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeEvento\" : \"Palestra sobre prevenção de DSTs\",\n\t\"descricao\" : \"O palestrante Fulano Beltrano da Silva prestará uma palestra sobre a prevenção de DSTs e sua importância. Todas as pessoas com mais de 13 anos estão convidadas!\",\n\t\"dataInicio\" : \"2021-04-29\",\n\t\"dataTermino\" : \"2021-04-29\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeEvento\" : \"Palestra sobre a gravidez na adolescência\",\n\t\"descricao\" : \"O palestrante Fulano Beltrano da Silva prestará uma palestra sobre a gravidez na adolescência e como isso afeta a vida dos adolescentes. Todas as pessoas com mais de 13 anos estão convidadas!\",\n\t\"dataInicio\" : \"2021-04-30\",\n\t\"dataTermino\" : \"2021-04-30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos/3",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/eventos/5",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"eventos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bairros",
+			"item": [
+				{
+					"name": "Bairros.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/bairros",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bairros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bairros.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/bairros/27",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bairros",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bairros.BuscarPorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/bairros/buscar/monteiro",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bairros",
+								"buscar",
+								"monteiro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bairros.ListarComLocais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/bairros/locais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bairros",
+								"locais"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Categorias.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias/7",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.ListarServicos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias/servicos",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias",
+								"servicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeCategoria\" : \"Fonoaudiologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeCategoria\" : \"Fonoaudiologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias/7",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/categorias/7",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"categorias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Permissões",
+			"item": [
+				{
+					"name": "Permissoes.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/permissoes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"permissoes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tipos de Locais",
+			"item": [
+				{
+					"name": "TiposLocais.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeTipoLocal\" : \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/tiposlocais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"tiposlocais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TiposLocais.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/tiposlocais",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"tiposlocais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TiposLocais.Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwicGVybWlzc2FvIjoiQURNSU5JU1RSQURPUiIsIm5vbWVVc3VhcmlvIjoiTHVjYXMgZGUgU291emEiLCJleHAiOjE1Nzk5MzEyMDQsImlzcyI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSIsImF1ZCI6IldlYnNpdGVEYVNhdWRlLldlYkFwaSJ9.yc3xwiIb8IR52eS8Kip9KDSowfT0exXHAS1kCm0nuQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.1.36:5001/api/tiposlocais/4",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"36"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"tiposlocais",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
