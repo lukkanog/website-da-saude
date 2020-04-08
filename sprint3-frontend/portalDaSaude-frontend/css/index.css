@@ -8,6 +8,27 @@
 /* PESOS DA FONTE: 400,500,600,700,800 */
 
 
+    /* FIX ME? */
+
+/* ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #7cc4f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #147CA6;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffc400;
+  } */
+
+
+
+
 .container{
     width: 75%;
     display: block;
@@ -28,8 +49,12 @@ nav{
     align-items: center;
     width: 25%;
     height: calc(100vh - 5em);
-    box-shadow: 0 10px 10px #000000;
+    box-shadow: 0 15px 30px #000000;
+    overflow: auto;
+
+    
 }
+
 
 .logo_box{
     display: flex;
@@ -100,6 +125,10 @@ main{
     height: 3px;
 }
 
+#login img{
+    transform: rotate(180deg);
+}
+
 h2{
     color: #147CA6;
     font-size: 3em;
@@ -120,4 +149,42 @@ h2{
 .text_1{
     font-size: 2em;
     color: #3C3E3E;
+}
+
+.main_link{
+    cursor: pointer;
+    transition: 2s;
+}
+
+.main_box{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    box-shadow: 15px 10px 15px #00000067;
+    height: 12em;
+    margin: 1.5em 0;
+    padding: 0.5em 2.5em;
+    transition: 0.3s ease-in-out;
+}
+
+.main_box:hover{
+    transition: 0.3s ease-in-out;
+    transform: translate(1.2em) scale(1.02,1.02);
+    background-color: #ffc400;
+}
+
+.icon{
+    height: 90%;
+    margin-right: 1em;
+}
+
+h3{
+    color: #147CA6;
+    font-size: 2.5em;
+    font-weight: 800;
+}
+
+.description{
+    font-weight: 500;
+    font-size: 1.25em;
 }
