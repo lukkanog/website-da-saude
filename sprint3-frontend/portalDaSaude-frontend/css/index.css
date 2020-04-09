@@ -10,24 +10,27 @@
 
     /* FIX ME? */
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 12px;
   }
   
-  ::-webkit-scrollbar-track {
-    background: #7cc4f1;
-  }
+::-webkit-scrollbar-track {
+    background: #CCC;
+}
   
-  ::-webkit-scrollbar-thumb {
-    background: #147CA6;
-  }
+::-webkit-scrollbar-thumb {
+    background: #44b4fa;
+}
   
-  ::-webkit-scrollbar-thumb:hover {
-    background: #ffc400;
-  } */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff9400;
+}
 
 
-
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
 
 .container{
     width: 75%;
@@ -46,13 +49,12 @@ nav{
     padding: 2.5em 0;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     align-items: center;
     width: 25%;
-    height: calc(100vh - 5em);
+    height: 100%;
     box-shadow: 0 15px 30px #000000;
-    overflow: auto;
-
-    
+    overflow: auto;    
 }
 
 
@@ -60,13 +62,14 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 100%;
     margin:1em 0px 4em 0px;
 }
 
 
 .logo{
     height: 9em;
+    margin-right: 1.5em;
 }
 
 h1{
@@ -81,6 +84,11 @@ h1 span{
 nav ul{
     list-style-type: none;
     width: 85%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    height: 70%;
+    padding-bottom: 5em;
 }
 
 .nav_link{
@@ -89,15 +97,13 @@ nav ul{
     text-decoration: none;
     color: #FFF;
     padding: 0.75em 0;
-    margin: 0.5em 0;
     font-size: 1.85em;
 }
 
 .nav_link:hover{
     transition: 0.15s;
     color: #ffc400;
-    border-top: 1px solid #FFF;
-    border-bottom: 1px solid #FFF;
+    transform: translate(7px)
 }
 
 .nav_link img{
@@ -108,25 +114,30 @@ nav ul{
 main{
     background-color: #EBEBEB;
     min-height: 100vh;
-    padding: 2em;
-    position: absolute;
-    right: 0;
+    padding: 2em 0;
+    margin-left: 25%;
 }
 
 #login{
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 #login::before{
     content: "";
+    margin-bottom: 10em;
     display: block;
     margin: auto;
     background-color : #ffffffbd;
     height: 3px;
 }
 
-#login img{
+.rotated{
     transform: rotate(180deg);
+    transition: 0.2s;
+}
+
+.not_rotated{
+    transform: none;
 }
 
 h2{
@@ -188,3 +199,140 @@ h3{
     font-weight: 500;
     font-size: 1.25em;
 }
+
+footer{
+    background-color: #00314F;
+    margin-left: 25%;
+    padding: 2em 0;
+    color: #DBDBDB;
+}
+
+#flex_textos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #ff9400;
+}
+
+#footer_title{
+    font-weight: 800;
+}
+
+
+#dev_profile{
+    color: #FF9400;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+
+.escondido{
+    display: none;
+}
+
+.exibido{
+    display: block;
+    order: 1;
+}
+
+
+/* #flex_links{
+    padding:1em 0;
+    width: 100%;
+    max-height: 7em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column{
+    display: flex;
+    flex-flow: column nowrap;
+    list-style-type: none;
+}
+
+#flex_links a{
+    text-decoration: none;
+    color: #dbdbdb;
+    margin: 3px 0;
+}
+
+.column span{
+    color: #8FA6B4;
+    text-align: left;
+}
+ */
+
+
+
+ @media screen and (max-width: 1600px){
+    nav{
+        padding: 1.5em 0;
+        box-shadow: 0 10px 10px #000000;
+    }
+
+
+    h1{
+        font-size: 2em;
+    }
+
+    .logo{
+        height: 6.5em;
+    }
+
+    .logo_box{
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+    .nav_link{
+        padding: 0.75em 0;
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    .nav_link img{
+        margin-right: 0em;
+    }
+    
+    .nav_link:hover{
+        transition: 0.15s;
+        color: #ffc400;
+        transform: translate(7px)
+    }
+    
+    .nav_link img{
+        height: 2em;
+        margin-right: 1em;
+    }
+
+    nav ul{
+        padding-bottom: 2em;
+    }
+
+    h2{
+        font-size: 2em;
+        margin-bottom: 3em;
+    }
+
+    .text_1{
+        font-size: 1.5em;
+    }
+
+    .main_box{
+        height: 8em;
+        margin: 1em 0;
+        padding: 0.5em 2.5em;
+        transition: 0.3s ease-in-out;
+    }
+
+    h3{
+        font-size: 2em;
+    }
+
+    .description{
+        font-size: 1em;
+    }
+
+ }

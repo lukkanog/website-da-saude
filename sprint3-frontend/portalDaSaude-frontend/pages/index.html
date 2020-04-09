@@ -9,14 +9,16 @@
 </head>
 <body>
     <nav class="sidebar">
-        <div class="logo_box">
-            <img class="logo" src="../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
-            <h1>
-                Portal da 
-                <br/> 
-                <span>Saúde</span>
-            </h1>
-        </div>
+        <a href="#">
+            <div class="logo_box">
+                <img class="logo" src="../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
+                <h1>
+                    Portal da 
+                    <br/> 
+                    <span>Saúde</span>
+                </h1>
+            </div>
+        </a>
         
         <ul>
             <li>
@@ -43,18 +45,25 @@
                     <p>Eventos</p>
                 </a>
             </li>
-            <li  id="login">
+            <li id="login">
                 <a href="#" class="nav_link">
-                    <img src="../assets/img/logout-icon.png" alt=""/>
-                    <p>Login</p>
+                    <img  class="not_rotated" id="login-logout_icon" src="../assets/img/logout-icon.png" alt=""/>
+                    <p id="login_text">Sair</p>
                 </a>
             </li>
-            <li>
+            <li id="cadastro">
                 <a href="#" class="nav_link">
                     <img src="../assets/img/register-icon.png" alt=""/>
                     <p>Cadastrar-se</p>
                 </a>
             </li>
+            <li id="bairro" class="escondido">
+                <a href="#" class="nav_link">
+                    <img src="../assets/img/bairro-icon.png" alt=""/>
+                    <p>Meu Bairro</p>
+                </a>
+            </li>
+
             
         </ul>
     </nav>
@@ -69,7 +78,7 @@
             <section class="conteudos">
                 <p class="text_1">Olá! O que você procura?</p>
 
-                <a class="main_link">
+                <a class="main_link" href="#" >
                     <div class="main_box">
                         <img src="../assets/img/hospital-better_icon.png" alt="" class="icon">
                         <div class="textgroup">
@@ -79,7 +88,7 @@
                     </div>
                 </a>
 
-                <a class="main_link">
+                <a class="main_link" href="#" >
                     <div class="main_box">
                         <img src="../assets/img/servicos-better_icon.png" alt="" class="icon">
                         <div class="textgroup">
@@ -89,7 +98,7 @@
                     </div>
                 </a>
 
-                <a class="main_link">
+                <a class="main_link" href="#" >
                     <div class="main_box">
                         <img src="../assets/img/categorias-better_icon.png" alt="" class="icon">
                         <div class="textgroup">
@@ -99,7 +108,7 @@
                     </div>
                 </a>
 
-                <a class="main_link">
+                <a class="main_link" href="#" >
                     <div class="main_box">
                         <img src="../assets/img/calendar-better_icon.png" alt="" class="icon">
                         <div class="textgroup">
@@ -108,13 +117,61 @@
                         </div>
                     </div>
                 </a>
-
-
             </section>
         </div>
     </main>
-    <footer>
+    <footer class="container">
+        <div class="content">
+            <div id="flex_textos">
+                <p>2020 © Todos os direitos reservados </p>
+                <p id="footer_title"> Portal da Saúde de Poá</p>
+                <p>Desenvolvido por <a id="dev_profile" href="https://www.linkedin.com/in/lucas-nogueira-de-souza/">Lucas Nogueira</a></p>
+            </div>
 
+            <!-- <div id="flex_links">
+                <ul class="column" id="column_1">
+                    <li>
+                        <a href="#">Locais de atendimento</a>
+                    </li>
+                    <li>
+                        <a href="#">Áreas de atendimento</a>
+                    </li>
+                    <li>
+                        <a href="#">Serviços oferecidos</a>
+                    </li>
+                    <li>
+                        <a href="#">Eventos e campanhas</a>
+                    </li>
+                </ul>
+                <ul class="column" id="column_2">
+                    <li>
+                        <a href="#">Cadastrar-se</a>
+                    </li>
+                    <li>
+                        <a href="#">Fazer Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Prefeitura de Poá</a>
+                    </li>
+                    <li>
+                        <a href="#">Secretaria da Saúde</a>
+                    </li>
+                </ul>
+                <ul class="column" id="column_3">
+                    <li>
+                        <a href="#">Github do autor</a>
+                    </li>
+                    <li>
+                        <a href="#">Relatar um erro</a>
+                    </li>
+                    <li>
+                        <span>Ícones por <a class="icon_link" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> do <a class="icon_link" href="https://www.flaticon.com/" title="Flaticon">FlatIcon</a></span>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
     </footer>
+
+    <script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>
