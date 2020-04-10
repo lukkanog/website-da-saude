@@ -408,11 +408,44 @@ footer{
 }
 
 
-
+ /* Aqui inverte o nav pelo nav escondido. Ou seja, o nav estará escondido, e o "nav escondido" é o que será exibido */
 @media only screen and (max-width: 800px){
     nav{
         height: 100vh;
         left: -100%;
+    }
+
+    #mobile_title{
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 60%;
+        margin: auto;
+        margin-bottom: 2em;
+    }
+
+    #subtitle::before{
+        content: "";
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: #0080ce;
+        margin-bottom: 0.5em;
+    }
+
+    #mobile_title h2{
+        margin: 0;
+        text-align: left;
+        font-size: 3em;
+        font-weight: 600;
+    }
+
+    #mobile_title h2 span{
+        font-weight: 800;
+    }
+
+    #mobile_title img{
+        height: 9em;
     }
 
     .logo_box{
@@ -429,6 +462,7 @@ footer{
 
     h2{
         font-size: 1.75em;
+        text-align: left;
     }
 
     .text_1{
@@ -492,12 +526,24 @@ footer{
     #flex_textos{
         font-size: 1em;
     }
+
+    #mobile_title img{
+        height: 6em;
+    }
+
+    #mobile_title h2{
+        font-size: 2em;
+    }
 }
 
 
 @media only screen and (max-width: 450px){
     .hidden_nav{
         width: 85%;
+    }
+
+    .content{
+        width: 90%;
     }
 
     .logo_box{
@@ -517,15 +563,24 @@ footer{
         padding:2em 1em;
     }
 
-    h2{
-        margin-top:2em;
+    #mobile_title{
+        margin: 2em 0;
+        width: 100%;
+    }
+
+    #mobie_title h2{
+        font-size: 2em;
+    }
+    
+    
+
+    #subtitle{
+        font-size: 1.5em;
         text-align: left;
         margin-bottom: 2em;
-        font-weight: 700;
     }
 
     h2 span{
-        font-weight: 800;
     }
 
     .icon{
@@ -551,7 +606,7 @@ footer{
     }
 
     .nav_link img{
-        height: 1.5em;
+        height: 2em;
     }
 
     #flex_textos{
