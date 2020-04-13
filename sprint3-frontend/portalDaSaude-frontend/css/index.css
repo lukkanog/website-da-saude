@@ -619,10 +619,6 @@ footer{
 
 }
 
-
-
-
-
 @media only screen and (min-height: 1000px) and (orientation: portrait){
 
     .logo_box{
@@ -653,13 +649,4 @@ footer{
     nav ul{
         height: 50%;
     }
-
-    /* .nav_link{
-        font-size: 2em;
-        padding:1em 0;
-    }
-
-    .nav_link img{
-        height: 2em;
-    } */
 }
