@@ -81,7 +81,7 @@ nav{
 
 .menu_hidden_icon{
     left: 0px !important;
-    transition: 0.95s ease-in-out;
+    transition: 0.9s ease-in-out;
 }
 
 #menu_icon img{
@@ -371,8 +371,34 @@ footer{
 
 }
 
-
+ /* Aqui inverte o nav pelo nav escondido. Ou seja, o nav estará escondido, e o "nav escondido" é o que será exibido */
 @media only screen and (max-width:1100px){
+    nav{
+        height: 100vh;
+        left: -100%;
+    }
+
+    #menu_icon{
+        left: 0% !important;
+        position: fixed;
+        transition: 0.5s;
+    }
+
+    #menu_icon img{
+        height: 2em;
+    }
+
+    .hidden_nav{
+        width: 80%;
+        left: calc(80% + 2.5em);
+        transition: 0.5s;
+    }
+
+    .menu_hidden_icon{
+        transform: rotate(180deg);
+        transition: 0.5s;
+    }
+    
     h2{
         font-size: 2.5em;
     }
@@ -408,12 +434,8 @@ footer{
 }
 
 
- /* Aqui inverte o nav pelo nav escondido. Ou seja, o nav estará escondido, e o "nav escondido" é o que será exibido */
 @media only screen and (max-width: 800px){
-    nav{
-        height: 100vh;
-        left: -100%;
-    }
+   
 
     #mobile_title{
         display: flex;
@@ -429,6 +451,7 @@ footer{
         display: block;
         height: 3px;
         width: 100%;
+        margin: auto;
         background: #0080ce;
         margin-bottom: 0.5em;
     }
@@ -483,26 +506,6 @@ footer{
         font-size: 0.8em;
     }
 
-    #menu_icon{
-        left: 0% !important;
-        position: fixed;
-        transition: 0.5s;
-    }
-
-    #menu_icon img{
-        height: 3em;
-    }
-
-    .hidden_nav{
-        width: 80%;
-        left: calc(80% + 2.5em);
-        transition: 0.5s;
-    }
-
-    .menu_hidden_icon{
-        transform: rotate(180deg);
-        transition: 0.5s;
-    }
 
     .nav_link{
         font-size: 2em;

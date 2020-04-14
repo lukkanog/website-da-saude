@@ -6,33 +6,10 @@ var divsExibidas = document.getElementsByClassName("local_box");
 var locaisExibidos;
 
 carregarLocais();
-carregarTipos();
-carregarBairros();
+// carregarTipos();
+// carregarBairros();
 
 //   FIX ME - arruma os filtro
-
-
-filtroBairro.addEventListener("change",() => {
-    event.preventDefault();
-    
-    // for (let i = 0; i < divsExibidas.length; i++) {
-    //     const element = divsExibidas[i];
-    //     section.remove("div");
-    // }
-
-    var filtro = locaisExibidos.filter(item => item.idBairro == event.target.value);
-    console.log(filtro);
-    preencherConteudo(filtro);
-})
-
-filtroTipo.addEventListener("change",() =>{
-    event.preventDefault();
-
-    var filtro = locaisExibidos.filter(item => item.idTipoLocal == event.target.value);
-    console.log(filtro);
-    preencherConteudo(filtro);
-
-})
 
 function carregarLocais(){
     var url = "http://localhost:5000/api/locais";
@@ -85,7 +62,7 @@ function preencherConteudo(locais){
             divBairro.appendChild(bairro);
 
             var link = document.createElement("a");
-            link.href = "#";
+            link.href = gerarUrl(item);
             link.textContent = "Ver serviços";
 
             box.appendChild(titulo);
@@ -101,39 +78,73 @@ function preencherConteudo(locais){
     })
 }
 
-function carregarTipos(){
-    var url = "http://localhost:5000/api/tiposlocais";
-    fetch(url)
-    .then(response => response.json())
-    .then(data => preencherTiposDeLocais(data))
-    .catch(error => console.log(error))
+gerarUrl = (local) =>{
+    var url = "local.html?idLocal=" + local.idLocal;
+    return url;
 }
 
-function carregarBairros(){
-    var url = "http://localhost:5000/api/bairros";
-    fetch(url)
-    .then(response => response.json())
-    .then(data => preencherBairros(data))
-    .catch(error => console.log(error))
-}
 
-preencherTiposDeLocais = (tipos) =>{
-    console.log(tipos)
-    tipos.forEach(item =>{
-        var option = document.createElement("option");
-        option.value = item.idTipoLocal;
-        option.label = item.nomeTipolocal;
+// filtroBairro.addEventListener("change",() => {
+//     event.preventDefault();
+//     limparExibidos();
 
-        filtroTipo.appendChild(option);
-    })
-}
+//     var filtro = locaisExibidos.filter(item => item.idBairro == event.target.value);
+//     console.log(filtro);
+//     preencherConteudo(filtro);
+// })
 
-preencherBairros = (bairros) =>{
-    bairros.forEach(item =>{
-        var option = document.createElement("option");
-        option.value = item.idBairro;
-        option.label = item.nomeBairro;
+// filtroTipo.addEventListener("change",() =>{
+//     event.preventDefault();
+//     limparExibidos();
 
-        filtroBairro.appendChild(option);
-    })
-}
+
+//     var filtro = locaisExibidos.filter(item => item.idTipoLocal == event.target.value);
+//     console.log(filtro);
+//     preencherConteudo(filtro);
+
+// })
+
+// function carregarTipos(){
+//     var url = "http://localhost:5000/api/tiposlocais";
+//     fetch(url)
+//     .then(response => response.json())
+//     .then(data => preencherTiposDeLocais(data))
+//     .catch(error => console.log(error))
+// }
+
+// function carregarBairros(){
+//     var url = "http://localhost:5000/api/bairros";
+//     fetch(url)
+//     .then(response => response.json())
+//     .then(data => preencherBairros(data))
+//     .catch(error => console.log(error))
+// }
+
+// preencherTiposDeLocais = (tipos) =>{
+//     console.log(tipos)
+//     tipos.forEach(item =>{
+//         var option = document.createElement("option");
+//         option.value = item.idTipoLocal;
+//         option.label = item.nomeTipolocal;
+
+//         filtroTipo.appendChild(option);
+//     })
+// }
+
+// preencherBairros = (bairros) =>{
+//     bairros.forEach(item =>{
+//         var option = document.createElement("option");
+//         option.value = item.idBairro;
+//         option.label = item.nomeBairro;
+
+//         filtroBairro.appendChild(option);
+//     })
+// }
+
+// function limparExibidos(){
+//     for (let i = 0; i < divsExibidas.length; i++) {
+//         const element = divsExibidas[i];
+//         element.remove();
+//         return;
+//     }
+// }
