@@ -13,11 +13,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
     [Produces("application/json")]
     public class ServicosPrestadosController : ControllerBase
     {
-        private IServicoPrestadoRepository ServicoPrestadoRepository { get; set;}
+        private IServicoPrestadoRepository ServicoPrestadoRepository { get; set; }
+        private ILocalRepository LocalRepository { get; set; }
 
         public ServicosPrestadosController()
         {
             ServicoPrestadoRepository = new ServicoPrestadoRepository();
+            LocalRepository = new LocalRepository();
         }
 
         [HttpGet]
@@ -38,7 +40,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             try
             {
                 var lista = ServicoPrestadoRepository.BuscarPorLocal(idLocal);
-                return Ok(lista);
+                var local = LocalRepository.BuscarPorId(idLocal);
+                return Ok(new {Local = local,Servicos = lista});
             } catch (Exception e)
             {
                 return BadRequest(new {Erro = true, Mensagem = e.Message});
