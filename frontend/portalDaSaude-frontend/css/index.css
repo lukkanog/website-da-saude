@@ -11,7 +11,7 @@
     /* FIX ME? */
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
   
 ::-webkit-scrollbar-track {
@@ -24,6 +24,37 @@
   
 ::-webkit-scrollbar-thumb:hover {
     background: #ff9400;
+}
+
+.loader {
+    margin: auto;
+    border: 0.75em solid #9cd9ff;
+    border-radius: 50%;
+    border-top: 0.75em solid #023c58;
+    width: 5em;
+    height: 5em;
+    animation: spin 0.75s linear infinite;
+    -webkit-animation: spin 0.75s linear infinite; /* Safari */
+}
+
+#loading{
+    margin:2em auto;
+    text-align: center;
+}
+
+#loading p{
+    margin-top: 0.5em;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 

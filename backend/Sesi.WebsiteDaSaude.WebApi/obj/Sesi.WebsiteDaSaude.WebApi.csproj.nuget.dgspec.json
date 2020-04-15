@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj": {}
+    "C:\\Users\\USER\\Desktop\\website-da-saude\\backend\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj": {
+    "C:\\Users\\USER\\Desktop\\website-da-saude\\backend\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\website-da-saude\\backend\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj",
         "projectName": "Sesi.WebsiteDaSaude.WebApi",
-        "projectPath": "C:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\website-da-saude\\backend\\Sesi.WebsiteDaSaude.WebApi\\Sesi.WebsiteDaSaude.WebApi.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\website-da-saude\\sprint2-api\\Sesi.WebsiteDaSaude.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\website-da-saude\\backend\\Sesi.WebsiteDaSaude.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

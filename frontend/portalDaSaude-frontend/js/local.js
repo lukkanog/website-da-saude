@@ -1,4 +1,5 @@
 const title = document.querySelector("title");
+const loading = document.querySelector("#loading");
 const nomeDoLocal = document.querySelector("#subtitle");
 const divEndereco = document.querySelector("#endereco_group");
 const divBairro = document.querySelector("#bairro_group");
@@ -25,10 +26,13 @@ function obterParametro() {
 }
 
 function buscarLocal(id) {
-    var url = "http:localhost:5000/api/ServicosPrestados/local/" + id;
+    var url = "http://localhost:5000/api/ServicosPrestados/local/" + id;
     fetch(url)
         .then(response => response.json())
-        .then(data => preencherConteudo(data))
+        .then(data => {
+            pararDeCarregar();
+            preencherConteudo(data);
+        })
         .catch(error => console.log(error))
 
 }
@@ -148,4 +152,8 @@ exibirNaoEncontrado = () => {
 
     mainContent.appendChild(alerta);
     mainContent.appendChild(linkVoltar);
+}
+
+pararDeCarregar = () => {
+    loading.remove();
 }

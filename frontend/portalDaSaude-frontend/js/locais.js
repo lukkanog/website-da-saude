@@ -1,7 +1,9 @@
+const loading = document.querySelector("#loading");
 const section = document.querySelector("#locais_de_atendimento");
 const filtroBairro = document.querySelector("#bairros");
 const filtroTipo = document.querySelector("#tipos");
 var divsExibidas = document.getElementsByClassName("local_box");
+
 
 var locaisExibidos;
 
@@ -16,6 +18,7 @@ function carregarLocais(){
     fetch(url)
     .then(response => response.json())
     .then(data => {
+        pararDeCarregar();
         preencherConteudo(data);
     })
     .catch(error => console.log(error))
@@ -81,6 +84,10 @@ function preencherConteudo(locais){
 gerarUrl = (local) =>{
     var url = "local.html?idLocal=" + local.idLocal;
     return url;
+}
+
+pararDeCarregar = () => {
+    loading.remove();
 }
 
 
