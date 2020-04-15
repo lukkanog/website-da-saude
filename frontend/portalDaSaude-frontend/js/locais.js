@@ -63,7 +63,7 @@ function preencherConteudo(locais){
 
             var link = document.createElement("a");
             link.href = gerarUrl(item);
-            link.textContent = "Ver serviços";
+            link.textContent = "Ver mais";
 
             box.appendChild(titulo);
             box.appendChild(divEndereco);

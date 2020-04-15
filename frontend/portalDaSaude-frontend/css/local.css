@@ -65,7 +65,6 @@ h3{
 
 .normal{
     color: #08B22A;
-
 }
 
 .rapido{
@@ -77,15 +76,23 @@ h3{
 }
 
 .falta{
-    color: #FF9400;
+    color: #B20808;
 }
 
 .indisponivel{
+    color: #525151;
+}
+
+.superlotado{
     color: #B20808;
 }
 
 .situacao_descricao{
     font-size: 1em;
+}
+
+.data{
+    font-size: 0.8em;
 }
 
 @media only screen and (max-width: 1600px){
