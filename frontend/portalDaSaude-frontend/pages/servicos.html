@@ -5,140 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
-    <title>Home | Portal da Saúde</title>
+    <link href="../css/servicos.css" rel="stylesheet">
+    <title>Serviços | Portal da Saúde</title>
 </head>
 <body>
     <span id="menu_icon">
         <img src="../assets/img/menu-icon.png" alt="Abrir/fechar o menu de navegação">
     </span>
     <nav class="sidebar">
-        <a href="#">
+        <a href="index.html">
             <div class="logo_box">
                 <img class="logo" src="../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
                 <h1>
-                    Portal da 
-                    <br/> 
+                    Portal da
+                    <br />
                     <span>Saúde</span>
                 </h1>
             </div>
         </a>
-        
+
         <ul>
             <li>
                 <a href="locais.html" class="nav_link">
-                    <img src="../assets/img/hospital-icon.png" alt=""/>
+                    <img src="../assets/img/hospital-icon.png" alt="" />
                     <p>Locais de atendimento</p>
                 </a>
             </li>
             <li>
-                <a href="servicos.html" class="nav_link">
-                    <img src="../assets/img/servicos-icon.png" alt=""/>
+                <a href="#" class="nav_link">
+                    <img src="../assets/img/servicos-icon.png" alt="" />
                     <p>Serviços de saúde</p>
                 </a>
             </li>
             <li>
                 <a href="#" class="nav_link">
-                    <img src="../assets/img/categorias-icon.png" alt=""/>
+                    <img src="../assets/img/categorias-icon.png" alt="" />
                     <p>Áreas de atendimento</p>
                 </a>
             </li>
             <li>
                 <a href="#" class="nav_link">
-                    <img src="../assets/img/calendar-icon.png" alt=""/>
+                    <img src="../assets/img/calendar-icon.png" alt="" />
                     <p>Eventos</p>
                 </a>
             </li>
             <li id="login">
                 <a href="#" class="nav_link">
-                    <img  class="not_rotated" id="login-logout_icon" src="../assets/img/logout-icon.png" alt=""/>
+                    <img class="not_rotated" id="login-logout_icon" src="../assets/img/logout-icon.png" alt="" />
                     <p id="login_text">Sair</p>
                 </a>
             </li>
             <li id="cadastro">
                 <a href="#" class="nav_link">
-                    <img src="../assets/img/register-icon.png" alt=""/>
+                    <img src="../assets/img/register-icon.png" alt="" />
                     <p>Cadastrar-se</p>
                 </a>
             </li>
             <li id="bairro" class="escondido">
                 <a href="#" class="nav_link">
-                    <img src="../assets/img/bairro-icon.png" alt=""/>
+                    <img src="../assets/img/bairro-icon.png" alt="" />
                     <p>Meu Bairro</p>
                 </a>
             </li>
-
-            
         </ul>
     </nav>
-    
     <main class="container">
         <div class="content">
             <div id="mobile_title" class="escondido">
                 <img class="logo" src="../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
                 <h2>
-                    Portal da 
-                    <br/> 
+                    Portal da
+                    <br />
                     <span>Saúde</span>
                 </h2>
             </div>
 
-            <h2 id="subtitle">
-                Chegou sua mais nova fonte de informações
-                <br>
-                sobre a <span id="saude">SAÚDE</span> de <span id="poa">POÁ</span>
-            </h2>
+            <div class="titulo_e_filtros">
+                <h2>Serviços de Saúde</h2>
+            </div>
 
-            <section class="conteudos">
-                <p class="text_1">Olá! O que você procura?</p>
+            <section id="servicos_de_saude">
+                <div id="loading">
+                    <div class="loader"></div>
+                    <p>Carregando</p>
+                </div>
 
-                <a class="main_link" href="locais.html" >
-                    <div class="main_box">
-                        <img src="../assets/img/hospital-better_icon.png" alt="" class="icon">
-                        <div class="textgroup">
-                            <h3>Locais de atendimento</h3>
-                            <p class="description">Descubra todos os locais de atendimento presentes na cidade de poá, como Unidades Básicas de Saúde, Unidades de Pronto Atendimento, hospitais, etc.</p>
-                        </div>
+                <!-- <div class="box">
+                    <h3>Pronto Atendimento</h3>
+                    <div>
+                        <p class="smaller">Categoria</p>
+                        <p class="valor">Clínico Geral</p>
                     </div>
-                </a>
-
-                <a class="main_link" href="servicos.html" >
-                    <div class="main_box">
-                        <img src="../assets/img/servicos-better_icon.png" alt="" class="icon">
-                        <div class="textgroup">
-                            <h3>Serviços de Saúde</h3>
-                            <p class="description">Veja todos os serviços oferecidos ao redor da cidade, encontre onde eles são oferecidos e saiba da situação atual dos mesmos</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a class="main_link" href="#" >
-                    <div class="main_box">
-                        <img src="../assets/img/categorias-better_icon.png" alt="" class="icon">
-                        <div class="textgroup">
-                            <h3>Áreas de atendimento</h3>
-                            <p class="description">Descubra todas as áreas da saúde que estão presentes em nossa cidade e os serviços relacionados a cada uma.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a class="main_link" href="#" >
-                    <div class="main_box">
-                        <img src="../assets/img/calendar-better_icon.png" alt="" class="icon">
-                        <div class="textgroup">
-                            <h3>Eventos e campanhas</h3>
-                            <p class="description">Veja todos os eventos, palestras, campanhas e muito mais que ocorrem ao redor da cidade.</p>
-                        </div>
-                    </div>
-                </a>
+                    <a href="#">Ver locais de atendimento</a>
+                </div> -->
             </section>
         </div>
     </main>
+
     <footer class="container">
         <div class="content">
             <div id="flex_textos">
                 <p>2020 © Todos os direitos reservados </p>
                 <p id="footer_title"> Portal da Saúde de Poá</p>
-                <p>Desenvolvido por <a id="dev_profile" href="https://www.linkedin.com/in/lucas-nogueira-de-souza/">Lucas Nogueira</a></p>
+                <p>Desenvolvido por <a id="dev_profile"
+                        href="https://www.linkedin.com/in/lucas-nogueira-de-souza/">Lucas Nogueira</a></p>
             </div>
 
             <!-- <div id="flex_links">
@@ -186,5 +156,6 @@
     </footer>
 
     <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/servicos.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@ const loading = document.querySelector("#loading");
 const section = document.querySelector("#locais_de_atendimento");
 const filtroBairro = document.querySelector("#bairros");
 const filtroTipo = document.querySelector("#tipos");
-var divsExibidas = document.getElementsByClassName("local_box");
+var divsExibidas = document.getElementsByClassName("box");
 
 
 var locaisExibidos;
@@ -31,7 +31,7 @@ function preencherConteudo(locais){
     locais.forEach(item => {
         try {
             var box = document.createElement("div");
-            box.className = "local_box";
+            box.className = "box";
             
             var titulo = document.createElement("h3");
             titulo.textContent = item.nomeLocal;        

@@ -13,47 +13,30 @@ h2{
     max-width: 100%;
 }
 
-/* .filtros{
-    width: 20%;
+#servicos_de_saude{
     display: flex;
-    justify-content: space-between;
-} */
-
-
-.filtro{
-    padding: 0.5em;
-    border: none;
-    box-shadow: 5px 5px 5px #00000031;
-    /* font-size: 0.8em; */
-}
-
-#locais_de_atendimento{
-    display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .box{
     background-color: #FFF;
     box-shadow: 0px 10px 15px #00000051;
-    max-width: 30%;
-    padding: 1.5em;
+    min-width: 20%;
+    max-width: 25%;
+    padding: 1em;
     margin-bottom: 2.5em;
-    text-align: center;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
 }
 
-
-h3{
-    font-size: 1.75em;
-}
-
-.caracteristica{
-    text-align: left;
-    margin: 0.75em 0;
+.smaller{
+    font-weight: 600;
+    font-size: 1em;
+    color: #858585;
+    margin-top: 0.5em;
 }
 
 .valor{
@@ -61,16 +44,16 @@ h3{
     font-weight: 600;
 }
 
-.smaller{
-    font-weight: 600;
-    font-size: 1em;
-    color: #858585;
+.box h3{
+    font-size: 1.5em;
+    text-align: left;
 }
 
 .box a{
-    font-size: 1.5em;
+    text-align: center;
+    font-size: 1.25em;
     font-weight: 600;
-    margin-top: 0.5em;
+    margin-top: 0.75em;
     text-decoration: none;
     color: #CF4B15;
 }
@@ -80,12 +63,13 @@ h3{
     text-decoration: underline;
 }
 
+
 @media only screen and (max-width: 1600px){
     .box{
-        padding: 1.25em;
+        max-width: 20%;
     }
-
-    h3{
+    
+    .box h3{
         font-size: 1.25em;
     }
 
@@ -98,48 +82,44 @@ h3{
     }
 
     .box a{
-        font-size: 1.2em;
+        font-size: 0.8em;
     }
 }
 
-@media only screen and (max-width: 800px){
-    .content{
-        width: 90%;
-    }
-    
-    h2{
-        font-size: 2em;
-    }
-
-    .filtro{
-        font-size: 1em;
-    }
-
+@media only screen and (max-width: 1100px){
     .box{
-        max-width: 42%
+        max-width: none;
+        min-width: none;
+        width: 42%;
     }
 
-    h3{
+    .box h3{
         font-size: 1.75em;
-        font-weight: 700;
     }
 
     .smaller{
+        margin-top: 1em;
         font-size: 1em;
     }
 
     .valor{
         font-size: 1.5em;
     }
-    
+
     .box a{
         font-size: 1.5em;
     }
 }
 
-@media only screen and (max-width: 620px){
+@media only screen and (max-width:800px){
+    .box a{
+        font-size: 1.25em;
+    }
+}
+
+@media only screen and (max-width: 600px){
     h2{
-        font-size: 1.75em;
+        font-size: 2em;
     }
     
     .titulo_e_filtros{
@@ -153,26 +133,32 @@ h3{
         justify-content: space-between;
     }
 
-    #locais_de_atendimento{
+    #servicos_saude{
         flex-flow: column;
+        align-items: center;
     }
 
     .box{
-        max-width: 100%;
-        width: 90%;
+        width: 100%;
+        margin-bottom: 1em;
+        padding:0.5em;
     }
 
-    h3{
-        font-size: 1.5em;
-    }
-
-    .valor{
+    .box h3{
         font-size: 1.25em;
     }
 
-    .smaller{
-        font-size: 0.9em;
+    .valor{
+        font-size: 1em;
     }
 
-    
+    .smaller{
+        font-size: 0.8em;
+        margin: 0px;
+    }
+
+    .box a{
+        font-size: 1em;
+    }
 }
+
