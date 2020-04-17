@@ -46,7 +46,6 @@ preencherConteudo = (servicos) =>{
         divCategoria.appendChild(textoCategoria);
         divCategoria.appendChild(categoria);
         box.appendChild(divCategoria);
-        box.appendChild(categoria);
         box.appendChild(link);
 
         section.appendChild(box)

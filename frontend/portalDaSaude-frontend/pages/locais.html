@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/locais.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Locais de atendimento | Portal da Saúde</title>
 </head>
 
@@ -88,18 +89,16 @@
             <div class="titulo_e_filtros">
                 <h2>Locais de atendimento</h2>
 
-                <!-- <form class="filtros" method="GET">
-                    <select class="filtro" id="tipos" name="tipos">
-                        <option disabled selected>Filtrar por tipo</option>
-                    </select>
+                <form class="filtros" method="GET">
 
                     <select class="filtro" id="bairros" name="bairros">
                         <option disabled selected>Filtrar por bairro</option>
+                        <option value="0">Todos os bairros</option>
                     </select>
-                </form> -->
+                </form>
             </div>
 
-            <section id="locais_de_atendimento">
+            <div id="locais_de_atendimento">
                 <div id="loading">
                     <div class="loader"></div>
                     <p>Carregando</p>
@@ -118,7 +117,7 @@
                     </div>
                     <a href="#">Ver mais</a>
                 </div> -->
-            </section>
+            </div>
 
         </div>
     </main>
