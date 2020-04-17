@@ -8,12 +8,12 @@ var locaisIniciais = [];
 
 try {
     carregarLocais();
+    carregarTipos();
     carregarBairros();
 } catch (error) {
     console.log(error)
 }
 
-//   FIX ME - arruma os filtro
 function carregarLocais(){
     var url = "http://localhost:5000/api/locais";
     fetch(url)
@@ -25,7 +25,7 @@ function carregarLocais(){
     .catch(error => console.log(error))
 }
 
-function preencherConteudo(locais){
+preencherConteudo = (locais) => {
     if (locais.length <= 0){
         exibirNaoEncontrado();
     }
@@ -99,27 +99,6 @@ pararDeCarregar = () => {
     loading.remove();
 }
 
-//FILTRO POR BAIRRO
-$("#bairros").change(function(){
-    var opcaoSelecionada = $(this).children("option:selected").val();
-
-    //SE A OPÇÃO SELECIONADA NAO FOR "TODOS", FILTRAR PELA OPCAO SELECIONADA
-    if (opcaoSelecionada != 0){
-        var filtro = locaisExibidos.filter(item => item.idBairro == opcaoSelecionada);
-        limparExibidos();
-        preencherConteudo(filtro);
-    } else{
-        limparExibidos();
-        preencherConteudo(locaisIniciais);
-    }
-})
-
-$("#clear").click(() =>{
-    limparFiltros();
-    preencherConteudo(locaisIniciais);
-
-})
-
 function carregarBairros(){
     var url = "http://localhost:5000/api/bairros";
     fetch(url)
@@ -127,6 +106,7 @@ function carregarBairros(){
     .then(data => preencherBairros(data))
     .catch(error => console.log(error))
 }
+
 
 preencherBairros = (bairros) =>{
     bairros.forEach(item =>{
@@ -138,6 +118,63 @@ preencherBairros = (bairros) =>{
         filtroBairro.appendChild(option);
     })
 }
+
+function carregarTipos(){
+    var url = "http://localhost:5000/api/tiposlocais";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => preencherTiposDeLocais(data))
+    .catch(error => console.log(error))
+}
+
+preencherTiposDeLocais = (tipos) =>{
+    tipos.forEach(item =>{
+        var option = document.createElement("option");
+        option.value = item.idTipoLocal;
+        option.label = item.nomeTipolocal;
+        option.className = "tipo_option"
+
+        filtroTipo.appendChild(option);
+    })
+}
+
+//#region FILTRO
+$(".filtro").change(function(){
+    filtrar();
+})
+
+filtrar = () =>{
+    var idFiltroBairro = $("#bairros").children("option:selected").val();
+    var idFiltroTipo = $("#tipos").children("option:selected").val();
+    
+    
+    var novaLista = [];
+    
+    if (idFiltroBairro == 0 && idFiltroTipo >= 0){
+        //filtra só pelo tipo
+        novaLista = locaisIniciais.filter(item => item.idTipoLocal == idFiltroTipo);
+    } else if (idFiltroTipo == 0 && idFiltroBairro >= 0){
+        //filtra só pelo bairro
+        novaLista = locaisIniciais.filter(item => item.idBairro == idFiltroBairro);
+    } else if (idFiltroBairro >= 0 && idFiltroTipo >= 0){
+        //filtra pelos dois (tipo e bairro)
+        novaLista = locaisIniciais.filter(item => {return item.idBairro == idFiltroBairro && item.idTipoLocal == idFiltroTipo});
+    } else{
+        // se tudo der errado, ele limpa os filtros
+        limparFiltros();
+        novaLista = locaisIniciais;
+    }
+
+    limparExibidos();
+    preencherConteudo(novaLista);
+}
+
+limparFiltros = () =>{
+    $("#bairros").val(0);
+    $("#tipos").val(0);
+}
+//#endregion
+
 
 limparExibidos = () => {
     $("#locais_de_atendimento").empty();
@@ -159,42 +196,3 @@ exibirNaoEncontrado = () =>{
 
     section.appendChild(div);
 }
-
-limparFiltros = () =>{
-    $("#bairros").val(0);
-
-}
-
-// function carregarTipos(){
-//     var url = "http://localhost:5000/api/tiposlocais";
-//     fetch(url)
-//     .then(response => response.json())
-//     .then(data => preencherTiposDeLocais(data))
-//     .catch(error => console.log(error))
-// }
-
-// preencherTiposDeLocais = (tipos) =>{
-//     console.log(tipos)
-//     tipos.forEach(item =>{
-//         var option = document.createElement("option");
-//         option.value = item.idTipoLocal;
-//         option.label = item.nomeTipolocal;
-//         option.className = "tipo_option"
-
-//         filtroTipo.appendChild(option);
-//     })
-// }
-
-// $("#tipos").change(function(){
-//     var opcaoSelecionada = $(this).children("option:selected").val();
-
-//     if (opcaoSelecionada != 0){
-//         $("#bairros").val(0);
-//         var filtro = locaisExibidos.filter(item => item.idTipoLocal == opcaoSelecionada);
-
-//         limparExibidos();
-//         preencherConteudo(filtro);
-//     } else{
-//         preencherConteudo(locaisIniciais);
-//     }
-// })

@@ -91,8 +91,12 @@
 
                 <form class="filtros" method="GET">
 
+                    <select class="filtro" id="tipos" name="tipos">
+                        <option disabled selected value="-1">Filtrar por tipo</option>
+                        <option value="0">Todos os tipos</option>
+                    </select>
                     <select class="filtro" id="bairros" name="bairros">
-                        <option disabled selected>Filtrar por bairro</option>
+                        <option disabled selected value="-1">Filtrar por bairro</option>
                         <option value="0">Todos os bairros</option>
                     </select>
                 </form>
@@ -175,8 +179,8 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="../js/index.js"></script>
-    <script type="text/javascript" src="../js/locais.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/locais.js"></script>
 </body>
 
 </html>

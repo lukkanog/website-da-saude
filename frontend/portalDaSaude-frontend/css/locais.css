@@ -24,6 +24,7 @@ h2{
     padding: 0.5em;
     border: none;
     box-shadow: 5px 5px 5px #00000031;
+    /* max-width: 50%; */
     /* font-size: 0.8em; */
 }
 
@@ -40,7 +41,7 @@ h2{
 .box{
     background-color: #FFF;
     box-shadow: 0px 10px 15px #00000051;
-    max-width: 30%;
+    width: 28%;
     padding: 1.5em;
     margin-bottom: 2.5em;
     text-align: center;
@@ -97,6 +98,15 @@ h3{
         font-size: 1.25em;
     }
 
+    .filtros{
+        max-width: 35%;
+        justify-content: flex-end;
+    }
+
+    #bairros{
+        max-width: 50%;
+    }
+
     .valor{
         font-size: 1em;
     }
@@ -119,9 +129,17 @@ h3{
         font-size: 2em;
     }
 
+    .box{
+        width: 48%;
+    }
+
+    .filtros{
+        max-width: unset;
+    }
+
     .filtro{
         font-size: 1em;
-        width: 45%;
+        width: 48%;
     }
 
     .titulo_e_filtros{
@@ -132,7 +150,7 @@ h3{
         margin-top: 2em;
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
 
     .titulo_e_filtros::after{
@@ -142,7 +160,7 @@ h3{
         width: 100%;
         height: 5px;
         margin-top: 1em;
-        box-shadow: 0px 3px 5px #073547;
+        box-shadow: 0px 3px 5px #07354750;
     }
 
     .box{
