@@ -25,9 +25,9 @@ function obterParametro() {
     }
 }
 
-function buscarLocal(id) {
+async function buscarLocal(id) {
     var url = "http://localhost:5000/api/ServicosPrestados/local/" + id;
-    fetch(url)
+    await fetch(url)
         .then(response => response.json())
         .then(data => {
             pararDeCarregar();

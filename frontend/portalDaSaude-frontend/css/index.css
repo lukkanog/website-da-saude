@@ -197,7 +197,6 @@ main{
 
 .rotated{
     transform: rotate(180deg);
-    transition: 0.2s;
 }
 
 .not_rotated{
@@ -301,6 +300,12 @@ footer{
     display: block;
     order: 1;
 }
+
+#nao_encontrado{
+    font-size: 1.5em;
+    color: #B20808;
+}
+
 
 
 /* #flex_links{

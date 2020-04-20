@@ -1,14 +1,17 @@
 const section = document.querySelector("#servicos_de_saude");
 const loading = document.querySelector("#loading");
+const filtroCategoria = document.querySelector("#categorias");
 
+var servicosIniciais = [];
 var servicosExibidos = [];
 
 carregarServicos();
+carregarCategorias();
 
-function carregarServicos(){
+async function carregarServicos(){
     var url = "http://localhost:5000/api/servicos";
-    fetch(url)
-    .then(response => response.json())
+    await fetch(url)
+    .then(response =>response.json())
     .then(data => {
         pararDeCarregar();
         preencherConteudo(data);
@@ -17,8 +20,15 @@ function carregarServicos(){
 }
 
 preencherConteudo = (servicos) =>{
+    if (servicos.length <= 0){
+        exibirNaoEncontrado();
+    }
+    
     servicosExibidos = servicos;
-    console.log(servicos)
+
+    if (servicosIniciais.length == 0){
+        servicosIniciais = servicos;
+    }
 
     servicos.forEach(item => {
         var box = document.createElement("div");
@@ -49,9 +59,50 @@ preencherConteudo = (servicos) =>{
         box.appendChild(link);
 
         section.appendChild(box)
-
     });
 }
+
+async function carregarCategorias(){
+    var url = "http://localhost:5000/api/categorias";
+
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        pararDeCarregar();
+        preencherCategorias(data);
+    })
+    .catch(error => console.log(error))
+}
+
+preencherCategorias = (categorias) =>{
+    console.table(categorias)
+    categorias.forEach(item =>{
+        ({idCategoria, nomeCategoria} = item);
+
+        var option = document.createElement("option");
+        option.value = idCategoria;
+        option.label = nomeCategoria;
+
+        filtroCategoria.appendChild(option);
+    })
+}
+
+
+// FILTRO
+$("#categorias").change(function(){
+    var idFiltroTipo = $(this).children("option:selected").val();
+    var novaLista = [];
+
+    if (idFiltroTipo > 0){
+        novaLista = servicosIniciais.filter(item => item.idCategoria == idFiltroTipo); 
+    } else{
+        novaLista = servicosIniciais;
+    }
+
+    limparExibidos();
+    preencherConteudo(novaLista);
+})
+
 
 gerarUrl = (servico) =>{
     var url = "servico.html?idServico=" + servico.idServico;
@@ -60,4 +111,19 @@ gerarUrl = (servico) =>{
 
 pararDeCarregar = () => {
     loading.remove();
+}
+
+limparExibidos = () => {
+    $("#servicos_de_saude").empty();
+}
+
+exibirNaoEncontrado = () =>{
+    var div = document.createElement("div");
+    div.id = "nao_encontrado";
+
+    var aviso = document.createElement("p");
+    aviso.className = "aviso";
+    aviso.textContent = "Resultado não encontrado";
+    div.appendChild(aviso);
+    section.appendChild(div);
 }

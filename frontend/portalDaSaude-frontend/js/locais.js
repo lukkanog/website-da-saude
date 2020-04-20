@@ -14,9 +14,9 @@ try {
     console.log(error)
 }
 
-function carregarLocais(){
+async function carregarLocais(){
     var url = "http://localhost:5000/api/locais";
-    fetch(url)
+    await fetch(url)
     .then(response => response.json())
     .then(data => {
         pararDeCarregar();
@@ -99,9 +99,9 @@ pararDeCarregar = () => {
     loading.remove();
 }
 
-function carregarBairros(){
+async function carregarBairros(){
     var url = "http://localhost:5000/api/bairros";
-    fetch(url)
+    await fetch(url)
     .then(response => response.json())
     .then(data => preencherBairros(data))
     .catch(error => console.log(error))
@@ -119,9 +119,9 @@ preencherBairros = (bairros) =>{
     })
 }
 
-function carregarTipos(){
+async function carregarTipos(){
     var url = "http://localhost:5000/api/tiposlocais";
-    fetch(url)
+    await fetch(url)
     .then(response => response.json())
     .then(data => preencherTiposDeLocais(data))
     .catch(error => console.log(error))
@@ -147,16 +147,15 @@ filtrar = () =>{
     var idFiltroBairro = $("#bairros").children("option:selected").val();
     var idFiltroTipo = $("#tipos").children("option:selected").val();
     
-    
     var novaLista = [];
     
-    if (idFiltroBairro == 0 && idFiltroTipo >= 0){
+    if (idFiltroBairro <= 0 && idFiltroTipo > 0){
         //filtra só pelo tipo
         novaLista = locaisIniciais.filter(item => item.idTipoLocal == idFiltroTipo);
-    } else if (idFiltroTipo == 0 && idFiltroBairro >= 0){
+    } else if (idFiltroTipo <= 0 && idFiltroBairro > 0){
         //filtra só pelo bairro
         novaLista = locaisIniciais.filter(item => item.idBairro == idFiltroBairro);
-    } else if (idFiltroBairro >= 0 && idFiltroTipo >= 0){
+    } else if (idFiltroBairro > 0 && idFiltroTipo > 0){
         //filtra pelos dois (tipo e bairro)
         novaLista = locaisIniciais.filter(item => {return item.idBairro == idFiltroBairro && item.idTipoLocal == idFiltroTipo});
     } else{

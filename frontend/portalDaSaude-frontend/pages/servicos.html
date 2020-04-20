@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/servicos.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Serviços | Portal da Saúde</title>
 </head>
 <body>
@@ -82,6 +83,11 @@
 
             <div class="titulo_e_filtros">
                 <h2>Serviços de Saúde</h2>
+                <form class="filtros" method="GET">
+                    <select class="filtro" id="categorias" name="categorias">
+                        <option selected value="0">Todas as áreas de atendimento</option>
+                    </select>
+                </form>
             </div>
 
             <section id="servicos_de_saude">
