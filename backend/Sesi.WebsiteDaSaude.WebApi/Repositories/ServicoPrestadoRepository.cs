@@ -37,7 +37,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             {
                 var lista = ctx.ServicosPrestados
                     .Where(x => x.IdServico == idServico)
-                    .Include(x => x.IdLocalNavigation)
+                    .Include(x => x.IdLocalNavigation.IdBairroNavigation)
                     .Include(x => x.IdSituacaoNavigation)
                     .ToList();
 

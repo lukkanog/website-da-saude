@@ -8,7 +8,12 @@ const divDosServicos = document.querySelector("#flex");
 const contents = document.getElementsByClassName("content");
 const mainContent = contents[0];
 
-obterParametro();
+carregarLocal();
+
+async function carregarLocal(){   
+    var id = await obterParametro();
+    buscarLocal(id);
+}
 
 function obterParametro() {
     var queryString = window.location.search;
@@ -18,10 +23,10 @@ function obterParametro() {
         if (parametro.has("idLocal")) {
             var id = parametro.get("idLocal");
             console.log(id);
-            buscarLocal(id);
+            return id;
         }
     } else {
-        window.location.href = "index.html"
+        window.location.href = "locais.html"
     }
 }
 
