@@ -65,12 +65,12 @@ a{
 }
 
 .container{
-    width: 75%;
+    width: 75% !important;
     display: block;
 }
 
 .content{
-    width: 80%;
+    width: 80% !important;
     margin: auto;
 }
 
