@@ -26,7 +26,7 @@ async function carregarLocais(){
 }
 
 preencherConteudo = (locais) => {
-    if (locais.length <= 0){
+    if (locais.length <= 0 || locais == null){
         exibirNaoEncontrado();
     }
     
