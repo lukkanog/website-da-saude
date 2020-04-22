@@ -77,8 +77,16 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
             {
                 servicoPrestado.UltimaAtualizacao = DateTime.Now;
-                ctx.Add(servicoPrestado);
-                ctx.SaveChanges();
+                var servicoBuscado = ctx.ServicosPrestados.FirstOrDefault(x => x.IdLocal == servicoPrestado.IdLocal && x.IdServico == servicoPrestado.IdServico);
+
+                if (servicoBuscado == null)
+                {
+                    ctx.Add(servicoPrestado);
+                    ctx.SaveChanges();
+                } else 
+                {
+                    throw new Exception("Este vínculo já existe.");
+                }
             }        
         }
 
