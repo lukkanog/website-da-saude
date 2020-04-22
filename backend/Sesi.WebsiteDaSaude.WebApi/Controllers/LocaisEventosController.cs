@@ -13,10 +13,12 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
     public class LocaisEventosController : ControllerBase
     {
         private ILocalEventoRepository LocalEventoRepository { get; set; }
+        private IEventoRepository EventoRepository { get; set; }
 
         public LocaisEventosController()
         {
             LocalEventoRepository = new LocalEventoRepository();
+            EventoRepository = new EventoRepository();
         }
 
         [HttpGet]
@@ -36,8 +38,9 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
         {
             try
             {
-                var lista = LocalEventoRepository.BuscarLocaisDeEvento(idEvento);
-                return Ok(lista);
+                var evento = EventoRepository.BuscarPorId(idEvento);
+                var locais = LocalEventoRepository.BuscarLocaisDeEvento(idEvento);
+                return Ok(new {Evento = evento, Locais = locais});
             } catch (Exception e)
             {
                 return BadRequest(new {Erro = true, Mensagem = e.Message});
