@@ -3,6 +3,7 @@ const loading = document.querySelector("#loading");
 const nomeDoLocal = document.querySelector("#subtitle");
 const divEndereco = document.querySelector("#endereco_group");
 const divBairro = document.querySelector("#bairro_group");
+const divCep = document.querySelector("#cep_group");
 const sectionPrincipal = document.querySelector("#servicos");
 const divDosServicos = document.querySelector("#flex");
 const contents = document.getElementsByClassName("content");
@@ -22,7 +23,6 @@ function obterParametro() {
         var parametro = new URLSearchParams(queryString);
         if (parametro.has("idLocal")) {
             var id = parametro.get("idLocal");
-            console.log(id);
             return id;
         }
     } else {
@@ -57,11 +57,22 @@ preencherConteudo = (conteudo) => {
         endereco.textContent = conteudo.local.logradouro + ", " + conteudo.local.numero;
         divEndereco.appendChild(endereco);
 
+        var cep = document.createElement("p");
+        cep.className = "caracteristica";
+        cep.textContent = conteudo.local.cep;
+        divCep.appendChild(cep);
+
         var bairro = document.createElement("p");
         bairro.className = "caracteristica";
         bairro.textContent = conteudo.local.idBairroNavigation.nomeBairro;
         divBairro.appendChild(bairro);
 
+        var linkMaps = document.createElement("a");
+        linkMaps.textContent = "Ver no Google Maps";
+        linkMaps.className = "link_maps";
+        linkMaps.href = gerarUrlMaps(conteudo.local);
+        linkMaps.target = "_blank";
+        mainContent.insertBefore(linkMaps, sectionPrincipal);
 
         conteudo.servicos.forEach(item => {
             if (item.ativo === true) {
@@ -135,7 +146,6 @@ obterClasseDeSituacao = (situacao) => {
             classe = "demorado";
             break;
         default:
-            console.log("achou a situacao nao rapaiz");
             break;
     }
 
@@ -161,4 +171,10 @@ exibirNaoEncontrado = () => {
 
 pararDeCarregar = () => {
     loading.remove();
+}
+
+
+gerarUrlMaps = (local) =>{
+    ({nomeLocal} = local);
+    return "https://google.com.br/maps/search/" + nomeLocal;
 }
