@@ -95,9 +95,10 @@ GO
 INSERT INTO TiposLocais 
 	VALUES	('Hospital'),
 			('UPA'),
-			('UBS')
+			('UBS'),
+			('USF'),
+			('Outro')
 GO
-
 
 INSERT INTO Categorias
 	VALUES	('Pediatria'),
