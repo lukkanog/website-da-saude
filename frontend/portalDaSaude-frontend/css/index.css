@@ -28,9 +28,10 @@
 
 .loader {
     margin: auto;
-    border: 0.75em solid #9cd9ff;
+    border: 0.5em solid #dbdbdb;
     border-radius: 50%;
-    border-top: 0.75em solid #023c58;
+    border-top: 0.5em solid #023c58;
+    border-right: 0.5em solid #023c58;
     width: 5em;
     height: 5em;
     animation: spin 0.75s linear infinite;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet">
+    <title>Entrar | Portal da Saúde</title>
+</head>
+<body>
+    <div id="login_box">
+        <div class="logo_box">
+            <img class="logo" src="../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
+            <h1>
+                Portal da
+                <br />
+                <span>Saúde</span>
+            </h1>
+        </div>
+
+        <div id="loading" class="escondido">
+            <div class="loader"></div>
+            <p>Carregando</p>
+        </div>
+
+        <form id="form_login">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control input" id="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Senha</label>
+                <input type="password" class="form-control input" id="pwd">
+              </div>
+
+              <button type="submit" class="btn btn-default">Entrar</button>
+        </form>
+    </div>
+    <script src="../js/login.js"></script>
+</body>
+</html>
