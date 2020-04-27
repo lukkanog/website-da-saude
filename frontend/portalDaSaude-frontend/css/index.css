@@ -8,7 +8,6 @@
 /* PESOS DA FONTE: 400,500,600,700,800 */
 
 
-    /* FIX ME? */
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -266,6 +265,8 @@ h3{
     font-size: 1.25em;
 }
 
+
+
 footer{
     background-color: #00314F;
     margin-left: 25%;
@@ -279,6 +280,15 @@ footer{
     align-items: center;
     padding-bottom: 0.5em;
     border-bottom: 2px solid #ff9400;
+}
+
+#flex_textos p{
+    width: 33.33%;
+}
+
+#direitos{
+    font-size: 0.8em;
+    width: 40% !important;
 }
 
 #footer_title{
@@ -307,34 +317,45 @@ footer{
     color: #B20808;
 }
 
-
-
-/* #flex_links{
+#flex_links{
     padding:1em 0;
     width: 100%;
-    max-height: 7em;
+    max-height: 10em;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .column{
     display: flex;
     flex-flow: column nowrap;
     list-style-type: none;
+    width: 33.34%;
+}
+
+#flex_links li{
+    padding: 0.1em 0;
+
 }
 
 #flex_links a{
     text-decoration: none;
-    color: #dbdbdb;
+    color: #e1e2e4;
     margin: 3px 0;
+}
+
+#flex_links a:hover{
+    text-decoration: underline;
 }
 
 .column span{
     color: #8FA6B4;
     text-align: left;
 }
- */
+
+#column_1{
+    width: 40% !important;
+}
+
 
 
 
@@ -557,6 +578,7 @@ footer{
     .main_box{
         height: 12em;
     }
+    
 
     .icon{
         height: 70%;
@@ -615,8 +637,6 @@ footer{
         font-size: 2em;
     }
     
-    
-
     #subtitle{
         font-size: 1.5em;
         text-align: left;
@@ -649,11 +669,38 @@ footer{
         height: 2em;
     }
 
+    #direitos{
+        width: unset !important;
+    }
+
+    footer{
+        padding-bottom: 6em;
+    }
+
     #flex_textos{
         flex-flow: column nowrap;
         align-items: flex-start;
         text-align: left;
-        height: 15vh;
+        height: 12.5vh;
+    }
+
+    #flex_links{
+        flex-flow: column;
+        font-size: 0.7em;
+    }
+
+
+    #column_1{
+        width: unset !important;
+    }
+
+    .column{
+        width: 100%;
+        padding: 0.5em 0;
+    }
+
+    #flex_textos p{
+        width: unset;
     }
 
 
