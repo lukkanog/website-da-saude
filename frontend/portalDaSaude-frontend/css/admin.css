@@ -1,0 +1,43 @@
+h2{
+    text-align: left;
+    margin:1em 0;
+    font-weight: 800;
+}
+
+nav, #menu_icon{
+    background-color: #012840;
+    border: none;
+}
+
+nav p{
+    color: #FFF;
+}
+
+.titulo_e_botao{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #147CA6;
+}
+
+#add_button{
+    max-height: 3em;
+    box-shadow: 10px 10px 15px #00000051;
+    padding: 0.5em 1em 0.5em 0.75em;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#add_button:hover{
+    filter: brightness(120%);
+}
+
+#add_button img{
+    height: 2em;
+    margin-right: 0.5em;
+}

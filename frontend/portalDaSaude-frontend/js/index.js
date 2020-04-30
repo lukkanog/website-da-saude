@@ -32,8 +32,8 @@ function verificarUsuarioLogado(){
 
     } else{
         //se o usuario estiver logado:
-        cadastro.className="escondido"
-        bairro.className="exibido";
+        // cadastro.className="escondido"
+        // bairro.className="exibido";
 
         //fazer logout
         linkLogin.addEventListener("click",() =>{

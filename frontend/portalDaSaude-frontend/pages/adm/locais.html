@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="../../css/index.css" rel="stylesheet">
+    <link href="../../css/admin.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Administrar Locais | Portal da Saúde</title>
+</head>
+<body>
+    <span id="menu_icon">
+        <img src="../../assets/img/menu-icon.png" alt="Abrir/fechar o menu de navegação">
+    </span>
+    <nav class="sidebar">
+        <a href="admin.html">
+            <div class="logo_box">
+                <img class="logo" src="../../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
+                <h1>
+                    Portal da
+                    <br />
+                    <span>Saúde</span>
+                </h1>
+            </div>
+        </a>
+
+        <ul>
+            <li>
+                <a href="../locais.html" class="nav_link">
+                    <img src="../../assets/img/hospital-icon.png" alt="" />
+                    <p>Locais de atendimento</p>
+                </a>
+            </li>
+            <li>
+                <a href="../servicos.html" class="nav_link">
+                    <img src="../../assets/img/servicos-icon.png" alt="" />
+                    <p>Serviços de saúde</p>
+                </a>
+            </li>
+            <li>
+                <a href="../../areas.html" class="nav_link">
+                    <img src="../../assets/img/categorias-icon.png" alt="" />
+                    <p>Áreas de atendimento</p>
+                </a>
+            </li>
+            <li>
+                <a href="../eventos.html" class="nav_link">
+                    <img src="../../assets/img/calendar-icon.png" alt="" />
+                    <p>Eventos</p>
+                </a>
+            </li>
+            <li id="login">
+                <a href="../login.html" class="nav_link">
+                    <img class="not_rotated" id="login-logout_icon" src="../../assets/img/logout-icon.png" alt="" />
+                    <p id="login_text">Sair</p>
+                </a>
+            </li>
+
+            <!-- <li id="cadastro">
+                <a href="../../#" class="nav_link">
+                    <img src="../../assets/img/register-icon.png" alt="" />
+                    <p>Cadastrar-se</p>
+                </a>
+            </li>
+            <li id="bairro" class="escondido">
+                <a href="../../#" class="nav_link">
+                    <img src="../../assets/img/bairro-icon.png" alt="" />
+                    <p>Meu Bairro</p>
+                </a>
+            </li> -->
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="content">
+            <div id="mobile_title" class="escondido">
+                <img class="logo" src="../../assets/img/poa-logo.png" alt="Símbolo da Estância Hidromineral de Poá" />
+                <h2>
+                    Portal da
+                    <br />
+                    <span>Saúde</span>
+                </h2>
+            </div>
+
+            <div class="titulo_e_botao">
+                <h2>Administrar Locais</h2>
+                <span id="add_button">
+                    <img src="../../assets/img/add-icon.png" alt="">
+                    Cadastrar local
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <div class="content">
+            <div id="flex_textos">
+                <p id="direitos">2020 © Todos os direitos reservados </p>
+                <p id="footer_title"> Portal da Saúde de Poá</p>
+                <p>Desenvolvido por <a id="dev_profile"
+                        href="https://www.linkedin.com/in/lucas-nogueira-de-souza/">Lucas Nogueira</a></p>
+            </div>
+
+            <div id="flex_links">
+                <ul class="column" id="column_1">
+                    <li>
+                        <a href="../locais.html">Locais de atendimento</a>
+                    </li>
+                    <li>
+                        <a href="../areas.html">Áreas de atendimento</a>
+                    </li>
+                    <li>
+                        <a href="../servicos.html">Serviços oferecidos</a>
+                    </li>
+                    <li>
+                        <a href="../eventos.html">Eventos e campanhas</a>
+                    </li>
+                </ul>
+                <ul class="column" id="column_2">
+                    <li>
+                        <a href="../login.html">Fazer Login</a>
+                    </li>
+                    <li>
+                        <a href="https://saude.gov.br/" target="_blank">Ministério da Saúde</a>
+                    </li>
+                    <li>
+                        <a href="https://prefeituradepoa.sp.gov.br/" target="_blank">Prefeitura de Poá</a>
+                    </li>
+                    <li>
+                        <a href="https://prefeituradepoa.sp.gov.br/secretaria-de-saude/" target="_blank">Secretaria da
+                            Saúde</a>
+                    </li>
+                </ul>
+                <ul class="column" id="column_3">
+                    <li>
+                        <a href="../sobre.html">Sobre o Portal da Saúde</a>
+                    </li>
+                    <li>
+                        <span>Ícones por <a class="icon_link" href="https://www.flaticon.com/authors/freepik"
+                                title="Freepik">Freepik</a> do <a class="icon_link" href="https://www.flaticon.com/"
+                                title="Flaticon">FlatIcon</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../../js/index.js"></script>
+    <script src="../../js/admin.js"></script>
+</body>
+</html>
