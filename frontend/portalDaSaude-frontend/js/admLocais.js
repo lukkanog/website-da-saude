@@ -8,5 +8,5 @@ $(".btn_dropdown").click(function(){
     // $(this).parent().children(".description").slideToggle();
 
     //vira a setinha pra cima/pra baixo
-    $(this).children("span").children("img").toggleClass("turned");
+    $(this).children(".ver_mais").children("img").toggleClass("turned");
 })

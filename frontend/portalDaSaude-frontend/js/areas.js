@@ -27,9 +27,9 @@ async function carregarAreas(){
             var box = document.createElement("div");
             box.className = "dropdown";
 
-            var botao = document.createElement("span");
+            var botao = document.createElement("div");
             botao.className = "btn_dropdown";
-            botao.setAttribute("type", "button");
+            botao.setAttribute("role", "button");
             botao.setAttribute("aria-label", "expandir categoria para mais informações");
             botao.setAttribute("aria-haspopup", "true");
             botao.setAttribute("aria-expanded", "false");
@@ -41,7 +41,7 @@ async function carregarAreas(){
             textos.appendChild(titulo);
             botao.appendChild(textos);
 
-            var seta = document.createElement("span");
+            var seta = document.createElement("div");
             seta.className = "ver_mais";
 
             var verMais = document.createElement("p");
@@ -81,12 +81,12 @@ async function carregarAreas(){
             //#endregion
 
             $(botao).click(function(){
-                console.log("aoba");
+
                 // mostra/ esconde a lista de locais e a descricao
                 $(this).parent().children("ul").slideToggle();
             
                 //vira a setinha pra cima/pra baixo
-                $(this).children("span").children("img").toggleClass("turned");
+                $(this).children(".ver_mais").children("img").toggleClass("turned");
             })
 
             section.appendChild(box)

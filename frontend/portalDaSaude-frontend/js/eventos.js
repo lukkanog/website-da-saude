@@ -61,9 +61,9 @@ preencherConteudo = () =>{
         var box = document.createElement("div");
         box.className = "dropdown";
 
-        var botao = document.createElement("span");
+        var botao = document.createElement("div");
         botao.className = "btn_dropdown";
-        botao.setAttribute("type","button");
+        botao.setAttribute("role","button");
         botao.setAttribute("aria-label","expandir evento para mais informações");
         botao.setAttribute("aria-haspopup","true");        
         botao.setAttribute("aria-expanded","false");  
@@ -77,7 +77,7 @@ preencherConteudo = () =>{
         textos.append(titulo, data);
         botao.appendChild(textos);
 
-        var seta = document.createElement("span");
+        var seta = document.createElement("div");
         seta.className = "ver_mais";
 
         var iconeSeta = document.createElement("img");
@@ -89,13 +89,13 @@ preencherConteudo = () =>{
 
 
         $(botao).click(function(){
-            console.log("aoba");
+
             // mostra/ esconde a lista de locais e a descricao
             $(this).parent().children("ul").slideToggle();
             $(this).parent().children(".event_description").slideToggle();
         
             //vira a setinha pra cima/pra baixo
-            $(this).children("span").children("img").toggleClass("turned");
+            $(this).children(".ver_mais").children("img").toggleClass("turned");
         })
         //#endregion
 
