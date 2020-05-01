@@ -7,6 +7,7 @@ h2{
 nav, #menu_icon{
     background-color: #012840;
     border: none;
+    z-index: 900;
 }
 
 nav p{
@@ -78,6 +79,60 @@ nav p{
     transition: 0.25s;
     margin-left: 0.5em;
     height: 1em;
+}
+
+.modal{
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #000000cc;
+    display: flex;
+    align-items: center;
+}
+
+.modal_content{
+    margin: auto auto;
+    width: 35%;
+    background-color: #FFF;
+    padding: 2em;
+}
+
+input{
+    margin-bottom: 1.5em;
+    padding: 0.25em;
+}
+
+label{
+    margin-bottom: 0.2em;
+}
+
+.close_icon{
+    height: 2em;
+    filter: grayscale(100%);
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.close_icon:hover{
+    filter: grayscale(100%) brightness(50%);
+}
+
+.modal_content .titulo_e_botao{
+    margin-bottom: 2em;
+}
+
+.form_title{
+    margin: 0em;
+}
+
+
+.admin_form{
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 .opcoes{
