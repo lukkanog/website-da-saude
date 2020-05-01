@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Administrar Locais | Portal da Saúde</title>
 </head>
+
 <body>
     <span id="menu_icon">
         <img src="../../assets/img/menu-icon.png" alt="Abrir/fechar o menu de navegação">
@@ -90,6 +92,74 @@
                     Cadastrar local
                 </span>
             </div>
+
+            <section id="locais_cadastrados">
+                <div id="loading">
+                    <div class="loader"></div>
+                    <p>Carregando</p>
+                </div>
+
+                <div class="dropdown">
+                    <span class="btn_dropdown" type="button" aria-haspopup="true" aria-expanded="false">
+                        <div>
+                            <h3>Hospital Guido Guida</h3>
+                            <!-- <p>16/05/2020 até 18/05/2020</p> -->
+                        </div>
+                        <span class="ver_mais">
+                            <!-- <p>Ver mais</p> -->
+                            <img src="../../assets/img/arrow-icon.png.png" alt="">
+                        </span>
+                    </span>
+                    <div class="dropdown_content">
+                        <div class="dropdown_flex">
+ 
+                            <div class="caracteristicas">
+                                <div class="caracteristica">
+                                    <p class="smaller">Id do local</p>
+                                    <p class="valor">1</p>
+                                </div>
+                                <div class="caracteristica">
+                                    <p class="smaller">Endereço</p>
+                                    <p class="valor">Rua blablabla de tanana, 25</p>
+                                </div>
+                                <div class="caracteristica">
+                                    <p class="smaller">Bairro</p>
+                                    <p class="valor">Jardim Medina</p>
+                                </div>
+                                <div class="caracteristica">
+                                    <p class="smaller">CEP</p>
+                                    <p class="valor">09754802</p>
+                                </div>
+                            </div>
+
+                            <div class="opcoes">
+                                <span class="option edit">
+                                    <img class="option_icon" src="../../assets/img/edit-icon.png" alt="Editar local">
+                                </span>
+                                <span class="option delete">
+                                    <img class="option_icon" src="../../assets/img/delete-icon.png" alt="Excluir local">
+                                </span>
+                            </div>
+                           
+                        </div>
+                            
+                        <p class="dropdown-header">Serviços oferecidos</p>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item add_item">
+                                <img src="../../assets/img/add-icon.png" alt="">
+                            </li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                            <li class="dropdown-item">Pronto Atendimento</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -147,5 +217,7 @@
     </footer>
     <script src="../../js/index.js"></script>
     <script src="../../js/admin.js"></script>
+    <script src="../../js/admLocais.js"></script>
 </body>
+
 </html>
