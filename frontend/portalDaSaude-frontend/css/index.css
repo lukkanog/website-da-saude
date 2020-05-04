@@ -86,7 +86,9 @@ nav{
     width: 25%;
     height: 100%;
     box-shadow: 0 15px 30px #000000;
-    overflow: auto;    
+    overflow: auto;
+    transition: 0.9s ease-in-out;
+
 }
 
 
@@ -109,6 +111,8 @@ nav{
     cursor: pointer;
     z-index: 1000;
     background-color: #0080CE;
+    transition: 0.9s ease-in-out;
+
 }
 
 .menu_hidden_icon{
@@ -169,6 +173,8 @@ main{
     min-height: 100vh;
     padding: 2em 0;
     margin-left: 25%;
+    transition: 1s ease-in-out;
+
 }
 
 .full_width{
@@ -272,6 +278,8 @@ footer{
     margin-left: 25%;
     padding: 2em 0;
     color: #DBDBDB;
+    transition: 1s ease-in-out;
+
 }
 
 #flex_textos{

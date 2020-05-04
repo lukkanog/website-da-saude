@@ -93,16 +93,33 @@ nav p{
     align-items: center;
 }
 
+.escondido{
+    display: none;
+}
+
 .modal_content{
     margin: auto auto;
-    width: 35%;
+    width: 30%;
     background-color: #FFF;
     padding: 2em;
 }
 
-input{
-    margin-bottom: 1.5em;
+input, select{
+    margin-bottom: 1em;
     padding: 0.25em;
+}
+
+.submit{
+    background-color: #0080Ce;
+    color: #FFF;
+    border: none;
+    padding: 0.75em 0;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.submit:hover{
+    filter: brightness(120%);
 }
 
 label{

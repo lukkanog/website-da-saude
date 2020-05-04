@@ -85,26 +85,44 @@
                 </h2>
             </div>
 
-            <!-- <div class="modal">
+            <div class="modal escondido" id="modal_local">
                 <div class="modal_content">
                     <div class="titulo_e_botao">    
                         <h2 class="form_title">Local</h2>
                         <img class="close_icon" src="../../assets/img/add-icon.png" alt="Fechar formulário">
                     </div>
+
                     <form id="local_form" class="admin_form">
+
                         <label for="nome_local">Nome do local</label>
-                        <input type="text" name="nome_local" id="nome_local" maxlength="100" minlength="8" placeholder="Ex: Hospital Guido Guida">
+                        <input type="text" name="nome_local" id="nome_local" maxlength="100" minlength="8" placeholder="Ex: Hospital Guido Guida" required>
 
                         <label for="tipo_local">Tipo do local</label>
-                        <select name="tipo_local" id="tipo_local">
-                            <option value="a">Hospital</option>
-                            <option value="a">Hospital</option>
-                            <option value="a">Hospital</option>
-                            <option value="a">Hospital</option>
+                        <select name="tipo_local" id="tipo_local" required>
+                            <option disabled selected>Selecione o tipo</option>
                         </select>
+
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" maxLength="9" minlength="8" required />
+
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" name="logradouro" id="logradouro" maxlength="150" minlength="8" required>
+                        
+                        <label for="bairro">Bairro</label>
+                        <select name="bairro" id="bairro">
+                            <option disabled selected>Selecione o bairro</option>
+                        </select>
+
+                        <label for="numero">Nº</label>
+                        <input type="number" name="numero" id="numero" max="5000" min="1" required>
+
+                        <label for="capacidade">Capacidade máxima de pessoas atendidas (opcional)</label>
+                        <input type="number" name="capacidade" id="capacidade" max="15000">
+
+                        <input type="submit" value="Salvar" class="submit">
                     </form>
                 </div>
-            </div> -->
+            </div>
 
             <div class="titulo_e_botao">
                 <h2>Administrar Locais</h2>
@@ -283,6 +301,7 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="../../assets/jquery-plugins/jquery.mask.min.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../js/admin.js"></script>
     <script src="../../js/admLocais.js"></script>
