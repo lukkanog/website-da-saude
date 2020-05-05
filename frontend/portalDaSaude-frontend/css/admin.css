@@ -4,10 +4,15 @@ h2{
     font-weight: 800;
 }
 
-nav, #menu_icon{
-    background-color: #012840;
+
+nav{
+    background-color: #147CA6;
     border: none;
     z-index: 900;
+}
+
+#menu_icon{
+    background-color: #147CA6;
 }
 
 nav p{
@@ -106,8 +111,12 @@ nav p{
 }
 
 input, select{
-    margin-bottom: 1em;
-    padding: 0.25em;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+}
+
+label{
+    font-size: 1.2em;
 }
 
 .submit{
@@ -289,17 +298,6 @@ label{
     filter: unset !important;
 }
 
-/* .dropdown-item::after{
-    content: "";
-    display: block;
-    margin: auto;
-    width: 100%;
-    background-color: #8b8b8b;
-    height: 2px;
-    margin-top: 0.5em;
-} */
-
-
 h3{
     font-size: 1.5em;
 }
@@ -309,9 +307,62 @@ h3{
         width: 9.25em;
         /* height: 7em; */
     }
+
+    input, select{
+        padding: 0.25em;
+        margin-bottom: 1em;
+    }
+
+    label{
+        font-size: 0.9em;
+    }
+}
+
+
+@media only screen and (max-width: 1100px){
+    .modal_content{
+        width: 60%;
+    }
+    
+    input, select{
+        padding: 0.75em;
+        margin-bottom: 1em;
+        font-size: 1.25em;
+    }
+
+    label{
+        font-size: 1.5em;
+    }
+
+    .submit{
+        font-size: 1.5em;
+        padding: 0.5em 0;
+        margin-top: 1em;
+    }
 }
 
 @media only screen and (max-width:800px){
+    input, select{
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        font-size: 1em;
+    }
+
+    .form_title{
+        font-size: 2.25em;
+    }
+
+    label{
+        font-size: 1em;
+    }
+
+    .submit{
+        font-size: 1.25em;
+        padding: 0.65em 0;
+        
+    }
+    
+    
     .dropdown-item{
         width: 9em;
         height: 7em;
@@ -323,7 +374,22 @@ h3{
     }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px){    
+    #add_button{
+        position: fixed;
+        top: 90vh;
+        right: 0;
+        border: 1px solid #b4b4b4;
+        border-radius: 15px 0 0 15px;     
+        box-shadow: 5px 15px 25px #00000075;
+    }
+    
+    .modal_content{
+        width: calc(90% - 1.5em);
+        padding: 1.5em;
+        max-height: 95vh;
+    }
+
     .submenu_icon{
         margin-bottom: 0.5em;
     }
@@ -336,7 +402,26 @@ h3{
         width: 6.5em;
         height: 6.5em
     }
+}
 
+@media only screen and (max-width: 400px){
+    .modal_content{
+        width: calc(90% - 1em);
+        padding: 1em;
+    }
+
+    label{
+        font-size: 0.8em;
+    }
+
+    input,select{
+        padding: 0.25em;
+    }
+
+    .submit{
+        font-size: 1em;
+        padding: 0.5em;
+    }
 }
 
 

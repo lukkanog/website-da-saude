@@ -11,9 +11,14 @@ var tiposCadastrados = [];
 
 var listaExibida = [];
 
-carregarLocaisEServicos();
-carregarBairros();
-carregarTipos();
+try{
+    carregarLocaisEServicos();
+    carregarBairros();
+    carregarTipos();
+} catch(error){
+    alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+    window.location.href = "../index.html";
+}
 
 
 async function carregarLocaisEServicos(){
