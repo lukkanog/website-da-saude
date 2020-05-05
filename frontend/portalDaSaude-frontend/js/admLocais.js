@@ -9,9 +9,219 @@ const selectTipo = document.querySelector("#tipo_local");
 var bairrosCadastrados = [];
 var tiposCadastrados = [];
 
+var listaExibida = [];
 
+carregarLocaisEServicos();
 carregarBairros();
 carregarTipos();
+
+
+async function carregarLocaisEServicos(){
+    let url = "http://localhost:5000/api/servicosprestados";
+    
+    await fetch(url)
+        .then(response => response.json())
+        .then(data =>{
+            pararDeCarregar();
+            formatarLista(data);
+            preencherConteudo();
+        })
+        .catch(error => console.log(error))
+}
+
+formatarLista = (lista) => {
+    if (lista !== null && lista !== undefined && lista.length >=1){
+
+        lista.forEach(item => {
+            ({idLocalNavigation : local, idServicoNavigation : servico, idSituacaoNavigation : situacao} = item)
+            
+            var novoServico = {
+                servico : servico,
+                situacao : situacao,
+            }
+
+            if (listaExibida.some(item => item.idLocal == local.idLocal)){
+                var localExistente = listaExibida.find(x => x.idLocal == item.idLocal);
+                localExistente.servicos = localExistente.servicos.concat(novoServico);
+            } else{
+                local.servicos = [];
+                local.servicos.push(novoServico);
+                listaExibida.push(local);
+            }
+        });
+        console.log(listaExibida);
+
+    }
+}
+
+preencherConteudo = () =>{
+    listaExibida.forEach(item =>{
+        ({idLocal : id, nomeLocal, cep, logradouro, numero, idBairroNavigation, servicos } = item);
+
+        var dropdown = document.createElement("div");
+        dropdown.className = "dropdown";
+        
+        var botao = document.createElement("div");
+        botao.className = "btn_dropdown";
+        botao.setAttribute("role", "button");
+        botao.setAttribute("aria-haspopup","true");
+        botao.setAttribute("aria-expanded","false");
+
+        var titulo = document.createElement("h3");
+        titulo.textContent = nomeLocal;
+
+        var verMais = document.createElement("div");
+        verMais.className = "ver_mais";
+        
+        var setinha = document.createElement("img");
+        setinha.src="../../assets/img/arrow-icon.png.png";
+        setinha.alt = "";
+
+        verMais.appendChild(setinha);
+        botao.append(titulo, verMais);
+
+        // conteudo que expande/minimiza
+        var conteudo = document.createElement("div");
+        conteudo.className="dropdown_content";
+
+        var flex = document.createElement("div");
+        flex.className = "dropdown_flex";
+
+        var caracteristicasGroup = document.createElement("div");
+        caracteristicasGroup.className = "caracteristicas";
+
+        var divId = document.createElement("div");
+        divId.className = "caracteristica";
+
+        var idTexto = document.createElement("p");
+        idTexto.className = "smaller";
+        idTexto.textContent = "Id";
+
+        var idValor = document.createElement("p");
+        idValor.className = "valor";
+        idValor.textContent = id;
+        
+        divId.append(idTexto,idValor);
+
+        var divEndereco = document.createElement("div");
+        divId.className = "caracteristica";
+
+        var enderecoTexto = document.createElement("p");
+        enderecoTexto.className = "smaller";
+        enderecoTexto.textContent = "Endereço";
+
+        var enderecoValor = document.createElement("p");
+        enderecoValor.className = "valor";
+        enderecoValor.textContent = logradouro + ", " + numero;
+
+        divEndereco.append(enderecoTexto,enderecoValor);
+
+        var divBairro = document.createElement("div");
+        divBairro.className = "caracteristica";
+
+        var bairroTexto = document.createElement("p");
+        bairroTexto.className = "smaller";
+        bairroTexto.textContent = "Bairro";
+
+        var bairroValor = document.createElement("p");
+        bairroValor.className = "valor";
+        bairroValor.textContent = idBairroNavigation.nomeBairro;
+
+        divBairro.append(bairroTexto,bairroValor);
+
+        var divCep = document.createElement("div");
+        divCep.className = "caracteristica";
+
+        var cepTexto = document.createElement("p");
+        cepTexto.className = "smaller";
+        cepTexto.textContent = "CEP";
+
+        var cepValor = document.createElement("p");
+        cepValor.className = "valor";
+        cepValor.textContent = cep;
+        
+        divCep.append(cepTexto,cepValor);
+
+        caracteristicasGroup.append(divId,divEndereco,divBairro,divCep)
+        
+        var opcoesGroup = document.createElement("div");
+        opcoesGroup.className = "opcoes";
+
+        var botaoEditar = document.createElement("span");
+        botaoEditar.className="option edit";
+
+        var editIcon = document.createElement("img");
+        editIcon.className = "option_icon";
+        editIcon.src = "../../assets/img/edit-icon.png";
+        
+        botaoEditar.appendChild(editIcon);
+
+        var botaoExcluir = document.createElement("span");
+        botaoExcluir.className="option edit";
+
+        var deleteIcon = document.createElement("img");
+        deleteIcon.className = "option_icon";
+        deleteIcon.src = "../../assets/img/delete-icon.png";
+        botaoExcluir.appendChild(deleteIcon);
+        
+        opcoesGroup.append(botaoEditar,botaoExcluir);
+
+        flex.append(caracteristicasGroup,opcoesGroup);
+        
+        var servicosTitulo = document.createElement("p");
+        servicosTitulo.className = "dropdown-header";
+        servicosTitulo.textContent = "Serviços oferecidos";
+
+
+        var listaServicos = document.createElement("ul");
+        listaServicos.className = "dropdown-menu";
+
+        var addServico = document.createElement("li");
+        addServico.className = "dropdown-item add_item";
+        var addIcon = document.createElement("img");
+        addIcon.src="../../assets/img/add-icon.png"
+        addIcon.alt = "Adicionar serviço";
+        
+        addServico.appendChild(addIcon);
+        listaServicos.appendChild(addServico);
+
+        servicos.forEach(element => {
+            var opcao = document.createElement("li");
+            opcao.className = "dropdown-item";
+
+            var submenu = document.createElement("img");
+            submenu.className = "submenu_icon";
+            submenu.src = "../../assets/img/submenu-icon.png";
+            submenu.alt = "Opções";
+
+            var nomeServico = document.createElement("p");
+            nomeServico.className = "item_title";
+            nomeServico.textContent = element.servico.nomeServico;
+
+            var nomeCategoria = document.createElement("p");
+            nomeCategoria.className = "item_subtitle";
+            nomeCategoria.textContent = element.servico.idCategoriaNavigation.nomeCategoria;
+
+            opcao.append(submenu, nomeServico, nomeCategoria);
+            listaServicos.appendChild(opcao);
+        })
+
+        conteudo.append(flex, servicosTitulo, listaServicos);
+        dropdown.append(botao,conteudo);
+        
+
+        $(botao).click(function () {
+
+            // mostra/ esconde a lista de servicos e etc
+            $(this).parent().children(".dropdown_content").slideToggle();
+        
+            //vira a setinha pra cima/pra baixo
+            $(this).children(".ver_mais").children("img").toggleClass("turned");
+        });
+        
+        section.appendChild(dropdown);
+    })
+}
 
 
 async function carregarBairros() {
@@ -141,16 +351,6 @@ $(".close_icon").click(function () {
     $("#modal_local").toggleClass("escondido");
 })
 
-
-
-$(".btn_dropdown").click(function () {
-
-    // mostra/ esconde a lista de servicos e etc
-    $(this).parent().children(".dropdown_content").slideToggle();
-
-    //vira a setinha pra cima/pra baixo
-    $(this).children(".ver_mais").children("img").toggleClass("turned");
-});
 
 pararDeCarregar = () => {
     loading.remove();
