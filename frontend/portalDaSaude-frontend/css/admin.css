@@ -28,6 +28,7 @@ nav p{
 }
 
 #add_button{
+    border: none;
     max-height: 3em;
     box-shadow: 10px 10px 15px #00000051;
     padding: 0.5em 1em 0.5em 0.75em;
@@ -382,6 +383,10 @@ h3{
         border: 1px solid #b4b4b4;
         border-radius: 15px 0 0 15px;     
         box-shadow: 5px 15px 25px #00000075;
+    }
+
+    h3{
+        text-align: left;
     }
     
     .modal_content{

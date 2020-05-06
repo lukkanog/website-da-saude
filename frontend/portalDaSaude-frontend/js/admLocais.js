@@ -22,46 +22,49 @@ try{
 
 
 async function carregarLocaisEServicos(){
-    let url = "http://localhost:5000/api/servicosprestados";
+    let url = "http://localhost:5000/api/locais/servicos";
     
     await fetch(url)
         .then(response => response.json())
         .then(data =>{
             pararDeCarregar();
-            formatarLista(data);
+            // formatarLista(data);
+
+            listaExibida = data;
             preencherConteudo();
         })
         .catch(error => console.log(error))
 }
 
 formatarLista = (lista) => {
-    if (lista !== null && lista !== undefined && lista.length >=1){
+    console.log(lista);
+    // if (lista !== null && lista !== undefined && lista.length >=1){
 
-        lista.forEach(item => {
-            ({idLocalNavigation : local, idServicoNavigation : servico, idSituacaoNavigation : situacao} = item)
+    //     lista.forEach(item => {
+    //         ({idLocalNavigation : local, idServicoNavigation : servico, idSituacaoNavigation : situacao} = item)
             
-            var novoServico = {
-                servico : servico,
-                situacao : situacao,
-            }
+    //         var novoServico = {
+    //             servico : servico,
+    //             situacao : situacao,
+    //         }
 
-            if (listaExibida.some(item => item.idLocal == local.idLocal)){
-                var localExistente = listaExibida.find(x => x.idLocal == item.idLocal);
-                localExistente.servicos = localExistente.servicos.concat(novoServico);
-            } else{
-                local.servicos = [];
-                local.servicos.push(novoServico);
-                listaExibida.push(local);
-            }
-        });
-        console.log(listaExibida);
+    //         if (listaExibida.some(item => item.idLocal == local.idLocal)){
+    //             var localExistente = listaExibida.find(x => x.idLocal == item.idLocal);
+    //             localExistente.servicos = localExistente.servicos.concat(novoServico);
+    //         } else{
+    //             local.servicos = [];
+    //             local.servicos.push(novoServico);
+    //             listaExibida.push(local);
+    //         }
+    //     });
+    //     console.log(listaExibida);
 
-    }
+    //}
 }
 
 preencherConteudo = () =>{
     listaExibida.forEach(item =>{
-        ({idLocal : id, nomeLocal, cep, logradouro, numero, idBairroNavigation, servicos } = item);
+        ({idLocal : id, nomeLocal, cep, logradouro, numero, idBairro, idTipoLocal, capacidade, idBairroNavigation, servicosPrestados : servicos } = item);
 
         var dropdown = document.createElement("div");
         dropdown.className = "dropdown";
@@ -162,7 +165,7 @@ preencherConteudo = () =>{
         botaoEditar.appendChild(editIcon);
 
         var botaoExcluir = document.createElement("span");
-        botaoExcluir.className="option edit";
+        botaoExcluir.className="option delete";
 
         var deleteIcon = document.createElement("img");
         deleteIcon.className = "option_icon";
@@ -191,6 +194,7 @@ preencherConteudo = () =>{
         listaServicos.appendChild(addServico);
 
         servicos.forEach(element => {
+            console.log(element)
             var opcao = document.createElement("li");
             opcao.className = "dropdown-item";
 
@@ -201,11 +205,11 @@ preencherConteudo = () =>{
 
             var nomeServico = document.createElement("p");
             nomeServico.className = "item_title";
-            nomeServico.textContent = element.servico.nomeServico;
+            nomeServico.textContent = element.idServicoNavigation.nomeServico;
 
             var nomeCategoria = document.createElement("p");
             nomeCategoria.className = "item_subtitle";
-            nomeCategoria.textContent = element.servico.idCategoriaNavigation.nomeCategoria;
+            nomeCategoria.textContent = element.idServicoNavigation.idCategoriaNavigation.nomeCategoria;
 
             opcao.append(submenu, nomeServico, nomeCategoria);
             listaServicos.appendChild(opcao);
@@ -223,6 +227,22 @@ preencherConteudo = () =>{
             //vira a setinha pra cima/pra baixo
             $(this).children(".ver_mais").children("img").toggleClass("turned");
         });
+
+        $(botaoEditar).click(function () {
+
+            $("#nome_local").val(item.nomeLocal);
+            $("#bairro").val(item.idBairro);
+            $("#tipo_local").val(item.idTipoLocal);
+            $("#cep").val(item.cep);
+            $("#logradouro").val(item.logradouro);
+            $("#numero").val(item.numero);
+            item.capacidade == null ? null : $("#capacidade").val(item.capacidade);
+
+            $("#modal_local").toggleClass("escondido");
+            // faz com que o formulario nao cadastre, e sim edite o local
+            form.removeEventListener("submit", cadastrarLocal);
+            form.addEventListener("submit",() => editarLocal(item.idLocal));
+        })
         
         section.appendChild(dropdown);
     })
@@ -382,6 +402,8 @@ cadastrarLocal = async(event) =>{
         capacidade : capacidade == null || capacidade == "" || capacidade == undefined ? null : capacidade,
     }
 
+    console.log(requestBody);
+
     let token = localStorage.getItem("portalDaSaude-token");
     let url = "http://localhost:5000/api/locais";
 
@@ -394,7 +416,61 @@ cadastrarLocal = async(event) =>{
         body : JSON.stringify(requestBody)
     })
     .then(response => response.json())
-    .then(data => alert(data.mensagem))
-    .catch(error => alert(error))
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        } else{
+            alert("Ocorreu um erro inesperado.")
+        }
+    }) 
+    .catch(error => console.log(error))
 
+}
+
+
+editarLocal = async(id) =>{
+    event.preventDefault();
+    let nomeLocal = document.querySelector("#nome_local").value;
+    let idTipoLocal = document.querySelector("#tipo_local").value;
+    let idBairro = document.querySelector("#bairro").value;
+    let cep = document.querySelector("#cep").value;
+    let logradouro = document.querySelector("#logradouro").value;
+    let numero = document.querySelector("#numero").value;
+    let capacidade = document.querySelector("#capacidade").value;
+
+    let requestBody = {
+        nomeLocal : nomeLocal,
+        idTipoLocal : idTipoLocal,
+        idBairro : idBairro,
+        cep : cep,
+        logradouro : logradouro,
+        numero : numero,
+        capacidade : capacidade == null || capacidade == "" || capacidade == undefined ? null : capacidade,
+    }
+
+    let token = localStorage.getItem("portalDaSaude-token");
+    let url = "http://localhost:5000/api/locais/" + id;
+
+
+    console.log(requestBody)
+
+    await fetch (url,{
+        method: "PUT",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + token
+        },
+        body : JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        } else{
+            alert("Ocorreu um erro inesperado.")
+        }
+    })    
+    .catch(error => console.log(error))
 }
