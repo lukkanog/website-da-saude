@@ -125,13 +125,14 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     .Include (x => x.IdTipoLocalNavigation)
                     .Include (x => x.IdBairroNavigation)
                     .Include (x => x.ServicosPrestados).ThenInclude(y => y.IdSituacaoNavigation)
-                    .Include (x => x.ServicosPrestados).ThenInclude(y => y.IdServicoNavigation)
+                    .Include (x => x.ServicosPrestados).ThenInclude(y => y.IdServicoNavigation).ThenInclude(z => z.IdCategoriaNavigation)
                     .ToList ();
 
                 foreach (var item in lista)
                 {
                     foreach (var servico in item.ServicosPrestados)
                     {
+                        servico.IdServicoNavigation.IdCategoriaNavigation.Servicos = null;
                         servico.IdServicoNavigation.ServicosPrestados = null;
                         servico.IdSituacaoNavigation.ServicosPrestados = null;
                     }
