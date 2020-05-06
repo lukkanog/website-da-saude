@@ -117,6 +117,30 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             }
         }
 
+        public List<Locais> ListarComServicos()
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var lista = ctx.Locais
+                    .Include (x => x.IdTipoLocalNavigation)
+                    .Include (x => x.IdBairroNavigation)
+                    .Include (x => x.ServicosPrestados).ThenInclude(y => y.IdSituacaoNavigation)
+                    .Include (x => x.ServicosPrestados).ThenInclude(y => y.IdServicoNavigation)
+                    .ToList ();
+
+                foreach (var item in lista)
+                {
+                    foreach (var servico in item.ServicosPrestados)
+                    {
+                        servico.IdServicoNavigation.ServicosPrestados = null;
+                        servico.IdSituacaoNavigation.ServicosPrestados = null;
+                    }
+                }
+
+                return lista;
+            }
+        }
+
         public List<Locais> ListarPorBairro (int idBairro) 
         {
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext()) 

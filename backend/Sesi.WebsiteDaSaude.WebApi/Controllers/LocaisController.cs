@@ -31,6 +31,19 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
             }
         }
 
+        [HttpGet("servicos")]
+        public IActionResult ListarComServicos()
+        {
+            try{
+
+                return Ok(LocalRepository.ListarComServicos());
+
+            } catch (Exception e){
+                return BadRequest(new { Erro = true, Mensagem = e.Message });
+            }
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {

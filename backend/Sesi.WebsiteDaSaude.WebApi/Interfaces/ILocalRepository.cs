@@ -12,6 +12,12 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         List<Locais> Listar();
 
         /// <summary>
+        /// Lista todos os locais e os serviços oferecidos em cada um junto com sua situação de atendimento.
+        /// </summary>
+        /// <returns>Lista de locais incluindo serviços e situação.</returns>
+        List<Locais> ListarComServicos();
+
+        /// <summary>
         /// Lista todos os locais que tenham certo tipo de local.
         /// </summary>
         /// <param name="idTipoLocal">Id do tipo de local procurado.</param>
