@@ -31,10 +31,8 @@ function verificarUsuarioLogado(){
         iconeLogin.className="rotated";
 
     } else{
-        //se o usuario estiver logado:
-        // cadastro.className="escondido"
-        // bairro.className="exibido";
-
+        linkLogin.firstChild.href = "index.html";
+        
         //fazer logout
         linkLogin.addEventListener("click",() =>{
             localStorage.removeItem("portalDaSaude-token");

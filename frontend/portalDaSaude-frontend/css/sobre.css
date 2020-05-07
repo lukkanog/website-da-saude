@@ -1,0 +1,21 @@
+main .content{
+    width: 70%;
+}
+
+#subtitle{
+    margin-bottom: 1em;
+}
+
+.paragrafo_com_titulo{
+    margin: auto;
+    padding: 1em 0;
+}
+
+.paragrafo{
+    text-align: justify;
+}
+
+.titulo_paragrafo{
+    font-size: 1.75em;
+    margin-bottom: 0.25em;
+}

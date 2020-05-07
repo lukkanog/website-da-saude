@@ -57,7 +57,7 @@ efetuarLogin = async() =>{
 
 salvarToken = (token) =>{
     localStorage.setItem("portalDaSaude-token", token);
-    window.location.href = "index.html";
+    window.location.href = "adm/admin.html";
 }
 
 começarACarregar = () => {
