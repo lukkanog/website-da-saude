@@ -188,11 +188,11 @@ main{
     transition: 1s ease-in-out;
 }
 
-#sobre{
+#login{
     margin-top: 1em;
 }
 
-#sobre::before{
+#login::before{
     content: "";
     margin-bottom: 10em;
     display: block;
