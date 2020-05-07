@@ -50,7 +50,11 @@ async function carregarLocaisEServicos(){
             listaExibida = data;
             preencherConteudo();
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "admin.html";
+        })
 }
 
 preencherConteudo = () =>{
@@ -299,7 +303,11 @@ async function excluirLocal(id){
         $("#modal_excluir").remove();
         window.location.reload();
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "admin.html";
+    })
 }
 
 
@@ -308,7 +316,11 @@ async function carregarBairros() {
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherBairros(data))
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "admin.html";
+        })
 }
 
 
@@ -330,7 +342,11 @@ async function carregarTipos() {
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherTiposDeLocais(data))
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "admin.html";
+        })
 }
 
 preencherTiposDeLocais = (tipos) => {
@@ -453,7 +469,11 @@ cadastrarLocal = async(event) =>{
             alert("Ocorreu um erro inesperado.")
         }
     }) 
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "admin.html";
+    })
 
 }
 
@@ -501,5 +521,9 @@ editarLocal = async(id) =>{
             alert("Ocorreu um erro inesperado.")
         }
     })    
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "admin.html";
+    })
 }

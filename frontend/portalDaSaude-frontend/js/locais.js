@@ -22,7 +22,11 @@ async function carregarLocais(){
         pararDeCarregar();
         preencherConteudo(data);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "index.html";
+    })
 }
 
 preencherConteudo = (locais) => {
@@ -104,7 +108,11 @@ async function carregarBairros(){
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherBairros(data))
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "index.html";
+    })
 }
 
 
@@ -124,7 +132,11 @@ async function carregarTipos(){
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherTiposDeLocais(data))
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "index.html";
+    })
 }
 
 preencherTiposDeLocais = (tipos) =>{

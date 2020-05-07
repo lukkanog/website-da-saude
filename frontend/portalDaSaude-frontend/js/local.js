@@ -38,7 +38,11 @@ async function buscarLocal(id) {
             pararDeCarregar();
             preencherConteudo(data);
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        })
 
 }
 

@@ -25,7 +25,11 @@ async function carregarEventos() {
             formatarLista(data);
             preencherConteudo();
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        })
 }
 
 

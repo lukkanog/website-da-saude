@@ -16,7 +16,11 @@ async function carregarServicos(){
         pararDeCarregar();
         preencherConteudo(data);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "index.html";
+    })
 }
 
 preencherConteudo = (servicos) =>{
@@ -71,7 +75,11 @@ async function carregarCategorias(){
         pararDeCarregar();
         preencherCategorias(data);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error);
+        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        window.location.href = "index.html";
+    })
 }
 
 preencherCategorias = (categorias) =>{

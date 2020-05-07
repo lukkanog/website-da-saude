@@ -48,10 +48,8 @@ h1{
 }
 
 button:hover{
-    background-image: unset;
-    background-color: #ff9400;
-    color: #000;
-    transition: 0.5s;
+    filter: brightness(120%);
+    transition: 0.3s;
 }
 
 @media only screen and (max-width: 1400px){
