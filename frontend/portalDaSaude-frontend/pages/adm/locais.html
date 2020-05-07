@@ -29,26 +29,26 @@
 
         <ul>
             <li>
-                <a href="../locais.html" class="nav_link">
-                    <img src="../../assets/img/hospital-icon.png" alt="" />
+                <a href="locais.html" class="nav_link">
+                    <img src="../../assets/img/adm-icon.png" alt="" />
                     <p>Locais de atendimento</p>
                 </a>
             </li>
             <li>
                 <a href="../servicos.html" class="nav_link">
-                    <img src="../../assets/img/servicos-icon.png" alt="" />
+                    <img src="../../assets/img/adm-icon.png" alt="" />
                     <p>Serviços de saúde</p>
                 </a>
             </li>
             <li>
                 <a href="../../areas.html" class="nav_link">
-                    <img src="../../assets/img/categorias-icon.png" alt="" />
+                    <img src="../../assets/img/adm-icon.png" alt="" />
                     <p>Áreas de atendimento</p>
                 </a>
             </li>
             <li>
                 <a href="../eventos.html" class="nav_link">
-                    <img src="../../assets/img/calendar-icon.png" alt="" />
+                    <img src="../../assets/img/adm-icon.png" alt="" />
                     <p>Eventos</p>
                 </a>
             </li>
@@ -85,6 +85,16 @@
                 </h2>
             </div>
 
+            <!-- <div class="modal" id="modal_excluir">
+                <div class="modal_content">
+                    <h2 class="form_title">Deseja excluir o local?</h2>
+                    <div class="delete_options">
+                        <button class="botao" id="botao_excluir">Excluir</button>
+                        <button class="botao" id="botao_cancelar">Cancelar</button>
+                    </div>
+                </div>
+            </div> -->
+
             <div class="modal escondido" id="modal_local">
                 <div class="modal_content">
                     <div class="titulo_e_botao">    
@@ -99,7 +109,7 @@
 
                         <label for="tipo_local">Tipo do local</label>
                         <select name="tipo_local" id="tipo_local" required>
-                            <option disabled selected>Selecione o tipo</option>
+                            <option disabled selected label="Selecione o tipo"></option>
                         </select>
 
                         <label for="cep">CEP</label>
@@ -110,7 +120,7 @@
                         
                         <label for="bairro">Bairro</label>
                         <select name="bairro" id="bairro">
-                            <option disabled selected>Selecione o bairro</option>
+                            <option disabled selected label="Selecione o bairro"></option>
                         </select>
 
                         <label for="numero">Nº</label>
@@ -119,7 +129,7 @@
                         <label for="capacidade">Capacidade máxima de pessoas atendidas (opcional)</label>
                         <input type="number" name="capacidade" id="capacidade" max="15000" placeholder="Este campo é opcional">
 
-                        <input type="submit" value="Salvar" class="submit">
+                        <input type="submit" value="Salvar" class="submit" id="submit_local">
                     </form>
                 </div>
             </div>
@@ -128,7 +138,7 @@
                 <h2>Administrar Locais</h2>
                 <button id="add_button">
                     <img src="../../assets/img/add-icon.png" alt="">
-                    <p>Cadastrar local</p>
+                    Cadastrar local
                 </button>
             </div>
 
@@ -137,8 +147,8 @@
                     <div class="loader"></div>
                     <p>Carregando</p>
                 </div>
-<!-- 
-                <div class="dropdown">
+
+                <!-- <div class="dropdown">
                     <div class="btn_dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <h3>Hospital Guido Guida</h3>
                         <div class="ver_mais">
@@ -273,7 +283,7 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="../../assets/jquery-plugins/jquery.mask.min.js"></script>
+    <script src="../../assets/jquery-plugins/jquery.mask.min.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../js/admin.js"></script>
     <script src="../../js/admLocais.js"></script>

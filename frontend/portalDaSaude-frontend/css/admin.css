@@ -13,6 +13,7 @@ nav{
 
 #menu_icon{
     background-color: #147CA6;
+    border : none;
 }
 
 nav p{
@@ -301,6 +302,37 @@ label{
 
 h3{
     font-size: 1.5em;
+}
+
+.delete_options{
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao{
+    width: 48.5%;
+    height: 8vh;
+    font-size: 1em;
+    border: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.botao:hover{
+    /* filter: brightness(80%); */
+    border: 2px solid #ff9400;
+}
+
+#botao_excluir{
+    background-color: #147ca6;
+    color: #bfecfd
+}
+
+#botao_cancelar{
+    background-color: #757575;
+    color: #fff;
 }
 
 @media only screen and (max-width: 1400px){

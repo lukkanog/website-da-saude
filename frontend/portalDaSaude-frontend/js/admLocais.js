@@ -20,6 +20,25 @@ try{
     window.location.href = "../index.html";
 }
 
+$("#add_button").click(function () {
+    console.log("add")
+    $("#modal_local").toggleClass("escondido");
+
+    // faz com que o formulario seja usado para salvar um novo local e nao editar um existente
+    try {
+        form.removeEventListener("submit",editarLocal);
+    } catch (error) {
+        
+    }
+    form.addEventListener("submit", cadastrarLocal);
+})
+
+
+$(".close_icon").click(function () {
+    $("#modal_local").toggleClass("escondido");
+})
+
+
 
 async function carregarLocaisEServicos(){
     let url = "http://localhost:5000/api/locais/servicos";
@@ -28,38 +47,10 @@ async function carregarLocaisEServicos(){
         .then(response => response.json())
         .then(data =>{
             pararDeCarregar();
-            // formatarLista(data);
-
             listaExibida = data;
             preencherConteudo();
         })
         .catch(error => console.log(error))
-}
-
-formatarLista = (lista) => {
-    console.log(lista);
-    // if (lista !== null && lista !== undefined && lista.length >=1){
-
-    //     lista.forEach(item => {
-    //         ({idLocalNavigation : local, idServicoNavigation : servico, idSituacaoNavigation : situacao} = item)
-            
-    //         var novoServico = {
-    //             servico : servico,
-    //             situacao : situacao,
-    //         }
-
-    //         if (listaExibida.some(item => item.idLocal == local.idLocal)){
-    //             var localExistente = listaExibida.find(x => x.idLocal == item.idLocal);
-    //             localExistente.servicos = localExistente.servicos.concat(novoServico);
-    //         } else{
-    //             local.servicos = [];
-    //             local.servicos.push(novoServico);
-    //             listaExibida.push(local);
-    //         }
-    //     });
-    //     console.log(listaExibida);
-
-    //}
 }
 
 preencherConteudo = () =>{
@@ -194,7 +185,6 @@ preencherConteudo = () =>{
         listaServicos.appendChild(addServico);
 
         servicos.forEach(element => {
-            console.log(element)
             var opcao = document.createElement("li");
             opcao.className = "dropdown-item";
 
@@ -229,7 +219,6 @@ preencherConteudo = () =>{
         });
 
         $(botaoEditar).click(function () {
-
             $("#nome_local").val(item.nomeLocal);
             $("#bairro").val(item.idBairro);
             $("#tipo_local").val(item.idTipoLocal);
@@ -243,9 +232,74 @@ preencherConteudo = () =>{
             form.removeEventListener("submit", cadastrarLocal);
             form.addEventListener("submit",() => editarLocal(item.idLocal));
         })
+
+        $(botaoExcluir).click(function () {
+            gerarModalExcluir(item.idLocal);
+        })
         
         section.appendChild(dropdown);
     })
+}
+
+gerarModalExcluir = (idLocal) =>{
+    var localSelecionado = listaExibida.find(x => x.idLocal == idLocal);
+    console.log(localSelecionado)
+
+    var modal = document.createElement("div");
+    modal.className = "modal";
+    modal.id = "modal_excluir";
+    var modalContent = document.createElement("div");
+    modalContent.className = "modal_content";
+    var titulo = document.createElement("h2");
+    titulo.className = "form_title";
+    titulo.textContent = 'Deseja excluir o local "'  + localSelecionado.nomeLocal + '"?';
+    var botoes = document.createElement("div");
+    botoes.className = "delete_options";
+
+    var botaoExcluir = document.createElement("button");
+    botaoExcluir.className = "botao";
+    botaoExcluir.id = "botao_excluir";
+    botaoExcluir.textContent = "Excluir";
+
+    var botaoCancelar = document.createElement("button");
+    botaoCancelar.className = "botao";
+    botaoCancelar.id = "botao_cancelar";
+    botaoCancelar.textContent = "Cancelar";
+
+    $(botaoCancelar).click(function(){
+        $(this).parent().parent().parent().remove();
+    });
+
+    $(botaoExcluir).click(function(){
+        excluirLocal(idLocal);
+    })
+
+    
+    botoes.append(botaoExcluir, botaoCancelar);
+    modalContent.append(titulo, botoes);
+    modal.appendChild(modalContent);
+    
+    $(modal).insertBefore($("#modal_local"));
+}
+
+async function excluirLocal(id){
+    let token = localStorage.getItem("portalDaSaude-token");
+    let url = "http://localhost:5000/api/locais/" + id;
+
+    await fetch (url,{
+        method: "DELETE",
+        headers: {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.mensagem);
+        $("#modal_excluir").remove();
+        window.location.reload();
+    })
+    .catch(error => console.log(error))
 }
 
 
@@ -290,8 +344,6 @@ preencherTiposDeLocais = (tipos) => {
         selectTipo.appendChild(option);
     })
 }
-
-
 
 //criado com o plugin do jquery presente nos assets
 $("#cep").mask("99999-999");
@@ -353,29 +405,6 @@ function limpa_formulario_cep() {
     // $("#uf").val("");
     // $("#ibge").val("");
 }
-
-$("#add_button").click(function () {
-    console.log("add")
-    $("#modal_local").toggleClass("escondido");
-
-    // faz com que o formulario seja usado para salvar um novo local e nao editar um existente
-    try {
-        form.removeEventListener("submit",editarLocal);
-    } catch (error) {
-        
-    }
-
-
-    form.addEventListener("submit", cadastrarLocal);
-
-
-})
-
-
-$(".close_icon").click(function () {
-    $("#modal_local").toggleClass("escondido");
-})
-
 
 pararDeCarregar = () => {
     loading.remove();
