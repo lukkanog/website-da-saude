@@ -35,7 +35,10 @@ $("#add_button").click(function () {
 
 
 $(".close_icon").click(function () {
+    // esconde o formulario
     $("#modal_local").toggleClass("escondido");
+    // limpa todos os campos do formulario
+    $("#local_form").trigger("reset");
 })
 
 
