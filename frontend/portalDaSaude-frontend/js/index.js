@@ -13,6 +13,7 @@ verificarUsuarioLogado();
 
 var menuEstaAberto = true;
 
+// js puro
 botaoMenu.addEventListener("click",() =>{
     if (!menuEstaAberto){
         abrirMenu();
@@ -20,6 +21,15 @@ botaoMenu.addEventListener("click",() =>{
         fecharMenu();
     }
 })
+
+// jquery
+// $("#menu_icon").click(() => {
+//     $("main").toggleClass("full_width");
+//     $("footer").toggleClass("full_width");
+//     $("nav").toggleClass("hidden_nav");
+//     $("#menu_icon").toggleClass("menu_hidden_icon");
+// })
+
 
 function verificarUsuarioLogado(){
     
