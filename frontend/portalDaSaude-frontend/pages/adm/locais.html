@@ -135,6 +135,31 @@
                 </div>
             </div>
 
+            <div class="modal escondido" id="modal_servico">
+                <div class="modal_content">
+                    <div class="titulo_e_botao">    
+                        <h2 class="form_title">Serviço</h2>
+                        <img class="close_icon" src="../../assets/img/add-icon.png" alt="Fechar formulário">
+                    </div>
+
+                    <form id="servico_form" class="admin_form">
+
+                        <label for="servico">Serviço</label>
+                        <select name="servico" id="servico" required>
+                            <option disabled selected label="Selecione o serviço"></option>
+                        </select>
+    
+                        <label for="situacao">Situação</label>
+                        <select name="situacao" id="situacao">
+                            <option disabled selected label="Selecione a situação"></option>
+                        </select>
+
+                        <input type="submit" value="Salvar" class="submit" id="submit_servico">
+                    </form>
+                </div>
+            </div>
+
+
             <div class="titulo_e_botao">
                 <h2>Administrar Locais</h2>
                 <button id="add_button">

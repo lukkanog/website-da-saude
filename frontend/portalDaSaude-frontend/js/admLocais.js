@@ -6,8 +6,14 @@ const inputCep = document.querySelector("#cep");
 const selectBairro = document.querySelector("#bairro");
 const selectTipo = document.querySelector("#tipo_local");
 
+const selectServico = document.querySelector("#servico");
+const selectSituacao = document.querySelector("#situacao");
+
 var bairrosCadastrados = [];
 var tiposCadastrados = [];
+
+var servicosCadastrados = [];
+var situacoesCadastradas = [];
 
 var listaExibida = [];
 
@@ -36,9 +42,11 @@ $("#add_button").click(function () {
 
 $(".close_icon").click(function () {
     // esconde o formulario
-    $("#modal_local").toggleClass("escondido");
+    $(this).parent().parent().parent().toggleClass("escondido");
+
     // limpa todos os campos do formulario
     $("#local_form").trigger("reset");
+    $("#servico_form").trigger("reset");
 })
 
 
@@ -243,10 +251,65 @@ preencherConteudo = () =>{
         $(botaoExcluir).click(function () {
             gerarModalExcluir(item.idLocal);
         })
+
+        $(addServico).click(function(){
+            $("#modal_servico").toggleClass("escondido");
+            preencherModalServico(item);
+        })
         
         section.appendChild(dropdown);
     })
 }
+
+preencherModalServico = (local) =>{
+    if (servicosCadastrados.length <= 0 || situacoesCadastradas.length <= 0){
+        carregarServicos();
+        carregarSituacoes();
+    }
+
+
+
+}
+
+
+async function carregarServicos(){
+    let url = "http://localhost:5000/api/servicos";
+
+    await fetch (url)
+    .then(response => response.json())
+    .then(data => {
+        servicosCadastrados = data;
+        servicosCadastrados.forEach(item => {
+            var option = document.createElement("option");
+            option.value = item.idServico;
+            option.label = item.nomeServico + " - " + item.idCategoriaNavigation.nomeCategoria;
+            option.className = "servico_option";
+
+            selectServico.appendChild(option);
+        })
+    })
+    .catch(error => console.log(error))
+}
+
+async function carregarSituacoes(){
+    let url = "http://localhost:5000/api/situacoes";
+
+    await fetch (url)
+    .then(response => response.json())
+    .then(data => {
+        situacoesCadastradas = data;
+        situacoesCadastradas.forEach(item => {
+            var option = document.createElement("option");
+            option.value = item.idSituacao;
+            option.label = item.nomeSituacao + " (" + item.descricao + ")";
+            option.className = "situacao_option";
+
+            selectSituacao.appendChild(option);
+        })
+    })
+    .catch(error => console.log(error))
+}
+
 
 gerarModalExcluir = (idLocal) =>{
     var localSelecionado = listaExibida.find(x => x.idLocal == idLocal);
