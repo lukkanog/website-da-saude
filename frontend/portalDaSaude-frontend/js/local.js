@@ -26,7 +26,7 @@ function obterParametro() {
             return id;
         }
     } else {
-        window.location.href = "locais.html"
+        window.location.href = "locais.html";
     }
 }
 
@@ -47,7 +47,8 @@ async function buscarLocal(id) {
 }
 
 preencherConteudo = (conteudo) => {
-    if (conteudo !== null && conteudo !== undefined && conteudo.servicos.length >= 1) {
+    console.log(conteudo);
+    if (conteudo !== null && conteudo !== undefined) {
         title.textContent = conteudo.local.nomeLocal;
 
         var h2 = document.createElement("h2");

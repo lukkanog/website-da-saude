@@ -2,6 +2,7 @@ const section = document.querySelector("#locais_cadastrados");
 const loading = document.querySelector("#loading");
 
 const form = document.querySelector("#local_form");
+const formServico = document.querySelector("#servico_form");
 const inputCep = document.querySelector("#cep");
 const selectBairro = document.querySelector("#bairro");
 const selectTipo = document.querySelector("#tipo_local");
@@ -23,7 +24,7 @@ try{
     carregarTipos();
 } catch(error){
     alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
 }
 
 $("#add_button").click(function () {
@@ -63,8 +64,8 @@ async function carregarLocaisEServicos(){
         })
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            window.location.href = "admin.html";
+            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // window.location.href = "admin.html";
         })
 }
 
@@ -267,6 +268,7 @@ preencherModalServico = (local) =>{
         carregarSituacoes();
     }
 
+    $("#servico-submit").onClick
 
 
 }
@@ -371,8 +373,8 @@ async function excluirLocal(id){
     })
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "admin.html";
+        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        // window.location.href = "admin.html";
     })
 }
 
@@ -384,8 +386,8 @@ async function carregarBairros() {
         .then(data => preencherBairros(data))
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            window.location.href = "admin.html";
+            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // window.location.href = "admin.html";
         })
 }
 
@@ -410,8 +412,8 @@ async function carregarTipos() {
         .then(data => preencherTiposDeLocais(data))
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            window.location.href = "admin.html";
+            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // window.location.href = "admin.html";
         })
 }
 
@@ -532,13 +534,13 @@ cadastrarLocal = async(event) =>{
             alert(data.mensagem);
             window.location.reload();
         } else{
-            alert("Ocorreu um erro inesperado.")
+            // alert("Ocorreu um erro inesperado.")
         }
     }) 
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "admin.html";
+        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        // window.location.href = "admin.html";
     })
 
 }
@@ -584,12 +586,12 @@ editarLocal = async(id) =>{
             alert(data.mensagem);
             window.location.reload();
         } else{
-            alert("Ocorreu um erro inesperado.")
+            // alert("Ocorreu um erro inesperado.");
         }
     })    
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "admin.html";
+        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        // window.location.href = "admin.html";
     })
 }
