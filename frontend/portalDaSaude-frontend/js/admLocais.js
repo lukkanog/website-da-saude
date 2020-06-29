@@ -219,6 +219,10 @@ preencherConteudo = () =>{
 
             opcao.append(submenu, nomeServico, nomeCategoria);
             listaServicos.appendChild(opcao);
+
+            $(submenu).click(() =>  {
+                gerarModalEditarServico(element);
+            })
         })
 
         conteudo.append(flex, servicosTitulo, listaServicos);
@@ -262,14 +266,82 @@ preencherConteudo = () =>{
     })
 }
 
+
+// TO DO 
+gerarModalEditarServico = (servico) => {
+    ( { idServicoNavigation : servico, idLocalNavigation : local, idLocal, idServico, idSituacao } = servico)
+
+    var modal = document.createElement("div");
+    modal.className = "modal";
+    modal.id = "modal_editar_servico";
+    var modalContent = document.createElement("div");
+    modalContent.className = "modal_content";
+    var tituloEBotao = document.createElement("div");
+    tituloEBotao.className = "titulo_e_botao";
+    var titulo = document.createElement("h2");
+    titulo.className =  "form_title";
+    titulo.textContent = "Editar " + servico.nomeServico;
+
+    var form = document.createElement("form");
+}
+
+async function editarServico(){
+
+}
+
+async function excluirServico(){
+    
+}
+
+
 preencherModalServico = (local) =>{
     if (servicosCadastrados.length <= 0 || situacoesCadastradas.length <= 0){
         carregarServicos();
         carregarSituacoes();
     }
 
-    $("#servico-submit").onClick
+    formServico.addEventListener("submit", () => {
+        event.preventDefault();
+        cadastrarServico(local);
+    });
+}
 
+async function cadastrarServico(local){
+    console.log(local)
+    
+    let servico = document.querySelector("#servico").value;
+    let situacao = document.querySelector("#situacao").value;
+
+    var servicoJaExistente = local.servicosPrestados.find(x => x.idServico == servico);
+
+    if (servicoJaExistente === null || servicoJaExistente === undefined){
+        let requestBody = {
+            idLocal: local.idLocal,
+            idServico: servico,
+            idSituacao: situacao,
+        }
+
+        let url = "http://localhost:5000/api/ServicosPrestados";
+        let token = localStorage.getItem("portalDaSaude-token");
+
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(requestBody),
+        })
+            .then(response => response.json())
+            .then(data => alert(data.mensagem))
+            .catch(error => alert(error))
+
+        window.location.reload();
+    } else {
+        alert("Esse serviço já existe nesse local.");
+    }
+    
+    
 
 }
 
