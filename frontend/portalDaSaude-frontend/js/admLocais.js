@@ -24,7 +24,7 @@ try{
     carregarTipos();
 } catch(error){
     alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-    // window.location.href = "../index.html";
+    window.location.href = "../index.html";
 }
 
 $("#add_button").click(function () {
@@ -220,7 +220,7 @@ preencherConteudo = () =>{
             opcao.append(submenu, nomeServico, nomeCategoria);
             listaServicos.appendChild(opcao);
 
-            $(submenu).click(() =>  {
+            $(submenu).click(function(){
                 gerarModalEditarServico(element);
             })
         })
@@ -269,23 +269,59 @@ preencherConteudo = () =>{
 
 // TO DO 
 gerarModalEditarServico = (servico) => {
-    ( { idServicoNavigation : servico, idLocalNavigation : local, idLocal, idServico, idSituacao } = servico)
+    if (servicosCadastrados.length <= 0 || situacoesCadastradas.length <= 0){
+        carregarServicos();
+        carregarSituacoes();
+    }
+    
+    ( { idServicoNavigation, idLocalNavigation : local, idLocal, idServico, idSituacao } = servico)
 
-    var modal = document.createElement("div");
-    modal.className = "modal";
-    modal.id = "modal_editar_servico";
-    var modalContent = document.createElement("div");
-    modalContent.className = "modal_content";
-    var tituloEBotao = document.createElement("div");
-    tituloEBotao.className = "titulo_e_botao";
-    var titulo = document.createElement("h2");
-    titulo.className =  "form_title";
-    titulo.textContent = "Editar " + servico.nomeServico;
+    console.log(idServico + " " + idSituacao)
+    //FIX ME - na primeira vez q abre o modal ele da erro
+    $("#servico").val(idServico);
+    $("#situacao").val(idSituacao);
 
-    var form = document.createElement("form");
+        
+    $("#modal_servico").toggleClass("escondido");
+
+    // formServico.removeEventListener("submit",() => cadastrarServico);
+    formServico.addEventListener("submit",() => {
+        event.preventDefault();
+        editarServico(idLocal);
+        
+    });
+
 }
 
-async function editarServico(){
+async function editarServico(idLocal){
+
+    let servico = document.querySelector("#servico").value;
+    let situacao = document.querySelector("#situacao").value;
+
+    let requestBody = {
+        idLocal: idLocal,
+        idServico: servico,
+        idSituacao: situacao,
+    }
+
+    console.log(requestBody);
+
+    let url = "http://localhost:5000/api/ServicosPrestados";
+    let token = localStorage.getItem("portalDaSaude-token");
+
+    await fetch(url, {
+        method: "PUT",
+        headers: {
+            "Authorization": "Bearer " + token,
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+    })
+        .then(response => response.json())
+        .then(data => alert(data.mensagem))
+        .catch(error => alert(error))
+
+    window.location.reload();
 
 }
 
@@ -300,13 +336,12 @@ preencherModalServico = (local) =>{
         carregarSituacoes();
     }
 
-    formServico.addEventListener("submit", () => {
-        event.preventDefault();
-        cadastrarServico(local);
-    });
+    formServico.addEventListener("submit",() => cadastrarServico(local));
 }
 
-async function cadastrarServico(local){
+
+
+cadastrarServico = async(local) => {
     console.log(local)
     
     let servico = document.querySelector("#servico").value;
