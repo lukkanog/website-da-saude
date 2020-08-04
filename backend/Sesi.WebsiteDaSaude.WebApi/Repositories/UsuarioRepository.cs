@@ -49,8 +49,16 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     usuario.Cep = usuario.Cep.Replace("-","");
                 }
 
-                ctx.Usuarios.Add(usuario);
-                ctx.SaveChanges();
+                var usuarioExistente =  ctx.Usuarios.FirstOrDefault(x => x.Email == usuario.Email);
+
+                if (usuarioExistente != null)
+                {
+                    throw new Exception("Esse email ja está cadastrado no sistema.");
+                } else
+                {
+                    ctx.Usuarios.Add(usuario);
+                    ctx.SaveChanges();
+                }
             }
         }
 
