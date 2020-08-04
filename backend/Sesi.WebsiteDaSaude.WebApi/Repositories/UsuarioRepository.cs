@@ -107,7 +107,11 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                 {
                     item.Senha = null;
                     item.IdPermissaoNavigation.Usuarios = null;
-                    item.IdBairroNavigation.Usuarios = null;
+
+                    if (item.IdBairro != null)
+                    {
+                        item.IdBairroNavigation.Usuarios = null;
+                    }
                 }
 
                 return lista;
