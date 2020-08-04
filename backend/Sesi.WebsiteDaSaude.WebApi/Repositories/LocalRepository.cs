@@ -113,6 +113,11 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     .Include (x => x.IdBairroNavigation)
                     .ToList ();
 
+                foreach (var item in lista)
+                {
+                    item.IdTipoLocalNavigation.Locais = null;
+                }
+
                 return lista;
             }
         }
@@ -136,6 +141,9 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                         servico.IdServicoNavigation.ServicosPrestados = null;
                         servico.IdSituacaoNavigation.ServicosPrestados = null;
                     }
+                    
+                    item.IdTipoLocalNavigation.Locais = null;
+
                 }
 
                 return lista;
