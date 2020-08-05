@@ -1,5 +1,6 @@
 const selectBairro = document.querySelector("#bairro");
 const form = document.querySelector("#cadastrar_usuario");
+const submit = document.querySelector("#submit_user");
 // // const section = document.querySelector("#locais_cadastrados");
 // const loading = document.querySelector("#loading");
 
@@ -9,7 +10,7 @@ $("#cep").mask("99999-999");
 
 cadastrarUsuario = async(event) => {
     event.preventDefault();
-
+    submit.setAttribute("enabled","false");
 
     if ($("#senha").val() !== $("#confirmar_senha").val()) {
         alert("Por favor, confirme sua senha corretamente")
@@ -44,18 +45,27 @@ cadastrarUsuario = async(event) => {
             body : JSON.stringify(requestBody)
         })
         .then(resposta => resposta.json())
-        .then(data => alert(data.mensagem))
+        .then(data => {
+            alert(data.mensagem);
+            submit.setAttribute("enabled","true");
+            limparFormulario();
+
+        })
         .catch(error => {
             console.log(error);
+            window.location.reload();
         })
 
-        window.location.reload();
 
     }
 }
 
 form.addEventListener("submit",cadastrarUsuario);
 
+
+limparFormulario = () => {
+    $("#cadastrar_usuario").trigger("reset");
+}
 
 
 async function carregarBairros() {
@@ -65,7 +75,7 @@ async function carregarBairros() {
         .then(data => preencherBairros(data))
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            alert("Ocorreu um erro ao carregar os bairros cadastrados. Tente novamente mais tarde.");
             window.location.href = "admin.html";
         })
 }

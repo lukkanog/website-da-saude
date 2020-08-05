@@ -96,7 +96,11 @@
 
         <p>Adicionar usuário com permissão de administrar as informações do Portal da Saúde</p>
 
-        <form id="cadastrar_usuario" class="admin_form">
+        <form id="cadastrar_usuario" class="admin_form normal_form">
+            
+            <h3>Novo Usuário</h3>
+            <p class="label_required obrigatorios">Campos Obrigatórios</p>
+
             <label for="nome_usuario" class="label_required">Nome completo</label>
             <input type="text" name="nome_usuario" id="nome_usuario" maxlength="100" minlength="8" placeholder="Digite aqui o nome completo do usuário" required>
 
@@ -118,7 +122,7 @@
             <input type="number" name="numero" id="numero" max="5000" min="1" placeholder="Ex: 43">
 
             <label for="email" class="label_required">Email de acesso</label>
-            <input type="email" name="email" id="email" max="100" min="6" required placeholder="Ex: email@email.com">
+            <input type="email" name="email" id="email" required placeholder="Ex: email@email.com">
 
             <label for="senha" class="label_required">Nova senha</label>
             <input type="password" name="senha" id="senha" max="100" min="5" placeholder="Digite a senha do novo usuário" required>
