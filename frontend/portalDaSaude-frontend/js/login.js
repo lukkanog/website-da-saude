@@ -7,7 +7,7 @@ const token = localStorage.getItem("portalDaSaude-token")
 
 
 if (token != null || token != undefined){
-    window.location.href = "index.html"
+    window.location.href = "adm/admin.html";
 }
 
 form.addEventListener("submit",() =>{
@@ -55,7 +55,7 @@ efetuarLogin = async() =>{
 }
 
 
-salvarToken = (token) =>{
+salvarToken = (token) => {
     localStorage.setItem("portalDaSaude-token", token);
     window.location.href = "adm/admin.html";
 }
@@ -65,7 +65,7 @@ começarACarregar = () => {
     loading.classList.remove("escondido");
 }
 
-pararDeCarregar = () =>{
+pararDeCarregar = () => {
     form.classList.remove("escondido");
     loading.className = "escondido";
 }
