@@ -1,5 +1,6 @@
 const section = document.querySelector("#servicos_cadastrados");
 const loading = document.querySelector("#loading");
+const formLoading = document.querySelector(".form_loading");
 const form = document.querySelector("#servico_form");
 const selectCategorias = document.querySelector("#categoria_servico");
 
@@ -194,16 +195,17 @@ gerarModalExcluir = (idServico) =>{
     botaoCancelar.id = "botao_cancelar";
     botaoCancelar.textContent = "Cancelar";
 
+
     $(botaoCancelar).click(function(){
         $(this).parent().parent().parent().remove();
     });
 
     $(botaoExcluir).click(function(){
-        excluirLocal(idLocal);
+        excluirServico(idServico);
     })
 
     
-    botoes.append(botaoExcluir, botaoCancelar);
+    botoes.append(botaoExcluir, botaoCancelar, loader);
     modalContent.append(titulo, botoes);
     modal.appendChild(modalContent);
     
@@ -242,6 +244,7 @@ preencherCategorias = (categorias) => {
 
 cadastrarServico = async() => {
     event.preventDefault();
+    começarACarregarForm();
 
     let url = "http://localhost:5000/api/servicos";
     let token = localStorage.getItem("portalDaSaude-token");
@@ -268,4 +271,40 @@ cadastrarServico = async() => {
         }
     })
     .catch(error => console.log(error))
+}
+
+excluirServico = async(idServico) => {
+    event.preventDefault();
+
+    let url = "http://localhost:5000/api/servicos/" + idServico;
+    let token = localStorage.getItem("portalDaSaude-token");
+
+
+    await fetch(url,{
+        method : "DELETE",
+        headers : {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json",
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        }
+    })
+    .catch(error => alert(error))
+}
+
+
+
+começarACarregarForm = () => {
+    form.className = "escondido";
+    formLoading.classList.remove("escondido");
+}
+
+pararDeCarregarForm = () => {
+    form.classList.remove("escondido");
+    formLoading.className = "escondido";
 }
