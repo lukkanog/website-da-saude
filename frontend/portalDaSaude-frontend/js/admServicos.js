@@ -160,6 +160,17 @@ preencherConteudo = (servicos) => {
 
         $(botaoExcluir).click(function () {
             gerarModalExcluir(item.idServico);
+        });
+
+        $(botaoEditar).click(function () {
+            $("#nome_servico").val(item.nomeServico);
+            $("#categoria_servico").val(item.idCategoria);
+           
+
+            $("#modal_servico").toggleClass("escondido");
+            // faz com que o formulario nao cadastre, e sim edite o local
+            form.removeEventListener("submit", cadastrarServico);
+            form.addEventListener("submit",() => editarServico(item.idServico));
         })
 
         
@@ -168,6 +179,69 @@ preencherConteudo = (servicos) => {
 
 
     })
+}
+
+cadastrarServico = async() => {
+    event.preventDefault();
+    começarACarregarForm();
+
+    let url = "http://localhost:5000/api/servicos";
+    let token = localStorage.getItem("portalDaSaude-token");
+
+    let requestbody = {
+        idCategoria : $("#categoria_servico").val(),
+        nomeServico : $("#nome_servico").val()
+    }
+
+    await fetch(url,{
+        method : "POST",
+        headers : {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json",
+            "Accept" : "application/json"
+        },
+        body : JSON.stringify(requestbody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        }
+    })
+    .catch(error => console.log(error))
+}
+
+
+editarServico = async(idServico) => {
+    event.preventDefault();
+    começarACarregarForm();
+
+    let url = "http://localhost:5000/api/servicos/" + idServico;
+    let token = localStorage.getItem("portalDaSaude-token");
+
+    let requestbody = {
+        idCategoria : $("#categoria_servico").val(),
+        nomeServico : $("#nome_servico").val()
+    }
+
+    await fetch(url,{
+        method : "PUT",
+        headers : {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json",
+            "Accept" : "application/json"
+        },
+        body : JSON.stringify(requestbody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        }
+    })
+    .catch(error => console.log(error))
 }
 
 
@@ -205,12 +279,38 @@ gerarModalExcluir = (idServico) =>{
     })
 
     
-    botoes.append(botaoExcluir, botaoCancelar, loader);
+    botoes.append(botaoExcluir, botaoCancelar);
     modalContent.append(titulo, botoes);
     modal.appendChild(modalContent);
     
     $(modal).insertBefore($("#servicos_cadastrados"));
 }
+
+
+excluirServico = async(idServico) => {
+    event.preventDefault();
+
+    let url = "http://localhost:5000/api/servicos/" + idServico;
+    let token = localStorage.getItem("portalDaSaude-token");
+
+
+    await fetch(url,{
+        method : "DELETE",
+        headers : {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json",
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        }
+    })
+    .catch(error => alert(error))
+}
+
 
 
 async function carregarCategorias(){
@@ -240,61 +340,6 @@ preencherCategorias = (categorias) => {
 
         selectCategorias.appendChild(option);
     })
-}
-
-cadastrarServico = async() => {
-    event.preventDefault();
-    começarACarregarForm();
-
-    let url = "http://localhost:5000/api/servicos";
-    let token = localStorage.getItem("portalDaSaude-token");
-
-    let requestbody = {
-        idCategoria : $("#categoria_servico").val(),
-        nomeServico : $("#nome_servico").val()
-    }
-
-    await fetch(url,{
-        method : "POST",
-        headers : {
-            "Authorization" : "Bearer " + token,
-            "Content-type" : "application/json",
-            "Accept" : "application/json"
-        },
-        body : JSON.stringify(requestbody)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.erro === undefined){
-            alert(data.mensagem);
-            window.location.reload();
-        }
-    })
-    .catch(error => console.log(error))
-}
-
-excluirServico = async(idServico) => {
-    event.preventDefault();
-
-    let url = "http://localhost:5000/api/servicos/" + idServico;
-    let token = localStorage.getItem("portalDaSaude-token");
-
-
-    await fetch(url,{
-        method : "DELETE",
-        headers : {
-            "Authorization" : "Bearer " + token,
-            "Content-type" : "application/json",
-        },
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.erro === undefined){
-            alert(data.mensagem);
-            window.location.reload();
-        }
-    })
-    .catch(error => alert(error))
 }
 
 
