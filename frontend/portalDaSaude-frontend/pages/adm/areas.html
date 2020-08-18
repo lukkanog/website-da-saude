@@ -9,7 +9,7 @@
     <link href="../../css/index.css" rel="stylesheet">
     <link href="../../css/admin.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Administrar Serviços | Portal da Saúde</title>
+    <title>Administrar Categorias | Portal da Saúde</title>
 </head>
 <span id="menu_icon">
     <img src="../../assets/img/menu-icon.png" alt="Abrir/fechar o menu de navegação">
@@ -91,25 +91,20 @@
         </div>
 
 
-        <div class="modal escondido" id="modal_servico">
+        <div class="modal escondido" id="modal_categoria">
             <div class="modal_content">
                 <div class="titulo_e_botao">    
-                    <h2 class="form_title">Serviço</h2>
+                    <h2 class="form_title">Área de atendimento</h2>
                     <img class="close_icon" src="../../assets/img/add-icon.png" alt="Fechar formulário">
                 </div>
 
-                <form id="servico_form" class="admin_form">
+                <form id="categoria_form" class="admin_form">
 
-                    <label for="nome_servico">Nome do serviço</label>
-                    <input type="text" name="nome_servico" id="nome_servico" maxlength="100" minlength="2" placeholder="Ex: Pronto Atendimento" required>
+                    <label for="nome_categoria">Nome da nova categoria</label>
+                    <input type="text" name="nome_categoria" id="nome_categoria" maxlength="100" minlength="2" placeholder="Ex: Clínico geral, pediatria, etc." required>
 
-                    <label for="categoria_servico">Área de atendimento (categoria) do serviço</label>
-                    <select name="categoria_servico" id="categoria_servico" required>
-                        <option disabled selected label="Selecione o tipo"></option>
-                    </select>
-                    <p class="form-observation">Observação: Caso não encontre a área de atendimento desejada, você pode cadastrar uma nova categoria na página <a href="areas.html">Áreas de atendimento</a></p>
-
-                    <input type="submit" value="Salvar" class="submit" id="submit_servico">
+                   
+                    <input type="submit" value="Salvar" class="submit" id="submit_categoria">
                 </form>
                 <div class="escondido form_loading">
                     <div class="loader"></div>
@@ -118,10 +113,10 @@
         </div>
 
         <div class="titulo_e_botao">
-            <h2>Administrar Serviços</h2>
+            <h2>Administrar áreas de atendimento</h2>
             <button id="add_button">
                 <img src="../../assets/img/add-icon.png" alt="">
-                Cadastrar serviço
+                Cadastrar área
             </button>
         </div>
        
@@ -131,7 +126,7 @@
             <p>Carregando</p>
         </div>
 
-        <div id="servicos_cadastrados">
+        <div id="categorias_cadastradas">
             
         </div>
 
@@ -196,7 +191,7 @@
 </footer>
 <script src="../../js/index.js"></script>
 <script src="../../js/admin.js"></script>
-<script src="../../js/admServicos.js"></script>
+<script src="../../js/admAreas.js"></script>
     
 </body>
 </html>
