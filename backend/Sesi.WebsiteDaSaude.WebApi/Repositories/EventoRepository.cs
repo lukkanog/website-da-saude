@@ -86,7 +86,16 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
         {
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
             {
-                var lista = ctx.Eventos.Include(x => x.LocaisEventos).ToList();
+                var lista = ctx.Eventos.Include(x => x.LocaisEventos).ThenInclude(x => x.IdLocalNavigation).ToList();
+
+                foreach (var item in lista)
+                {
+                    foreach (var local in item.LocaisEventos)
+                    {
+                        local.IdLocalNavigation.LocaisEventos = null;
+                    }
+                }
+
                 return lista;
             }        
         }
