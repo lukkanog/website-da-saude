@@ -103,6 +103,7 @@
                     <label for="nome_evento">Nome da campanha</label>
                     <input type="text" name="nome_evento" id="nome_evento" maxlength="100" minlength="2" placeholder="Insira aqui o nome do evento / campanha" required>
 
+
                     <label for="data_inicio">Data de início</label>
                     <input type="date" required name="data_inicio" id="data_inicio">
                     
@@ -111,6 +112,7 @@
 
                     <label for="descricao">Descrição</label>
                     <textarea required name="descricao" id="descricao" cols="10" rows="5" form="evento_form" placeholder="Descreva brevemente a campanha a ser cadastrada"></textarea>
+                    <p class="form-observation">Observação: Caso ocorra em uma data única, escolha a data de início e a data de término com o mesmo dia desejado.</p>
 
                     <input type="submit" value="Salvar" class="submit" id="submit_evento">
                 </form>
@@ -136,6 +138,9 @@
 
                     <input type="submit" value="Salvar" class="submit" id="submit_servico">
                 </form>
+                <div class="escondido form_loading">
+                    <div class="loader"></div>
+                </div>
             </div>
         </div>
 

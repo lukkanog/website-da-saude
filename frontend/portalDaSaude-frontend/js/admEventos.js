@@ -1,15 +1,16 @@
 const section = document.querySelector("#eventos_cadastrados");
 const loading = document.querySelector("#loading");
 const formLoading = document.querySelector(".form_loading");
-
+const selectLocal = document.querySelector("#local");
 const form = document.querySelector("#evento_form");
-
+const formLocal = document.querySelector("#local_form");
 
 var listaExibida = [];
+var locaisCadastrados = [];
 
 try {
     carregarEventos();
-    // carregarLocais();
+    carregarLocais();
 } catch (error) {
     alert("Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.");
     window.location.href = "../index.html";
@@ -243,35 +244,105 @@ preencherConteudo = () => {
         });
 
         // FIXME
-        // $(botaoEditar).click(function () {
-        //     $("#nome_local").val(item.nomeLocal);
-        //     $("#bairro").val(item.idBairro);
-        //     $("#tipo_local").val(item.idTipoLocal);
-        //     $("#cep").val(item.cep);
-        //     $("#logradouro").val(item.logradouro);
-        //     $("#numero").val(item.numero);
-        //     item.capacidade == null ? null : $("#capacidade").val(item.capacidade);
+        $(botaoEditar).click(function () {
+            $("#nome_evento").val(item.nomeEvento);
+            $("#data_inicio").val(item.dataInicio);
+            $("#data_termino").val(item.dataTermino);
+            $("#descricao").val(item.descricao);
 
-        //     $("#modal_local").toggleClass("escondido");
-        //     // faz com que o formulario nao cadastre, e sim edite o local
-        //     form.removeEventListener("submit", cadastrarLocal);
-        //     form.addEventListener("submit",() => editarLocal(item.idLocal));
-        // })
+            $("#modal_evento").toggleClass("escondido");
+            // faz com que o formulario nao cadastre, e sim edite o local
+            form.removeEventListener("submit", cadastrarEvento);
+            form.addEventListener("submit",() => editarEvento(item.idEvento));
+        })
 
         $(botaoExcluir).click(function () {
             gerarModalExcluir(item.idEvento);
         })
 
-        // $(addServico).click(function(){
-        //     $("#modal_evento").toggleClass("escondido");
-        //     preencherModalServico(item);
-        // })
+        $(addLocal).click(function(){
+            $("#modal_local").toggleClass("escondido");
+            preencherModalLocal(item);
+        })
         
         section.appendChild(dropdown);
     })
 }
 
+preencherModalLocal = (evento) => {
+    formLocal.addEventListener("submit",() => vincularLocal(evento));
 
+}
+
+vincularLocal = async(evento) => {
+    event.preventDefault();
+    console.log(evento);
+    let idEvento = evento.idEvento;
+    let idLocal = $("#local").val();
+
+    let localJaExistente = evento.locaisEventos.find(x => x.idLocal == idLocal);
+
+    if (localJaExistente === null || localJaExistente === undefined){
+        let requestBody = {
+            idLocal: idLocal,
+            idEvento : idEvento,
+        }
+
+        let url = "http://localhost:5000/api/locaiseventos";
+        let token = localStorage.getItem("portalDaSaude-token");
+
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(requestBody),
+        })
+            .then(response => response.json())
+            .then(data => alert(data.mensagem))
+            .catch(error => alert(error))
+
+        window.location.reload();
+    } else {
+        alert("Esse serviço já existe nesse local.");
+    }
+}
+
+editarEvento = async(idEvento) => {
+    event.preventDefault();
+    começarACarregarForm();
+
+    let token = localStorage.getItem("portalDaSaude-token");
+    let url = "http://localhost:5000/api/eventos/" + idEvento;
+
+    let requestBody = {
+        nomeEvento : $("#nome_evento").val(),
+        dataInicio : $("#data_inicio").val(),
+        dataTermino : $("#data_termino").val(),
+        descricao : $("#descricao").val()
+    };
+
+
+    await fetch (url,{
+        method: "PUT",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + token
+        },
+        body : JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.mensagem);
+    })    
+    .catch(error => {
+        console.log(error);
+        alert(error);
+    })
+
+    window.location.reload();
+}
 
 gerarModalExcluir = (idEvento) =>{
     var eventoSelecionado = listaExibida.find(x => x.idEvento == idEvento);
@@ -317,7 +388,6 @@ gerarModalExcluir = (idEvento) =>{
 
 excluirEvento = async(idEvento) => {
     event.preventDefault();
-    event.preventDefault();
 
     let url = "http://localhost:5000/api/eventos/" + idEvento;
     let token = localStorage.getItem("portalDaSaude-token");
@@ -334,10 +404,34 @@ excluirEvento = async(idEvento) => {
     .then(data => {
         if (data.erro === undefined){
             alert(data.mensagem);
-            window.location.reload();
+        } else{
+            alert("Ocorreu um erro inesperado: " + data.mensagem)
         }
     })
     .catch(error => alert(error))
+
+    window.location.reload();
+
+}
+
+async function carregarLocais(){
+    let url = "http://localhost:5000/api/locais";
+
+
+    await fetch (url)
+    .then(response => response.json())
+    .then(data => {
+        locaisCadastrados = data;
+        locaisCadastrados.forEach(item => {
+            var option = document.createElement("option");
+            option.value = item.idLocal;
+            option.label = item.nomeLocal;
+            option.className = "local_option";
+
+            selectLocal.appendChild(option);
+        })
+    })
+    .catch(error => console.log(error))
 }
 
 formatarData = (evento) =>{

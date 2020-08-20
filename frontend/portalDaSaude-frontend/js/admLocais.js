@@ -22,6 +22,8 @@ try{
     carregarLocaisEServicos();
     carregarBairros();
     carregarTipos();
+    carregarServicos();
+    carregarSituacoes();
 } catch(error){
     alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
     window.location.href = "../index.html";
@@ -269,14 +271,10 @@ preencherConteudo = () =>{
 
 // TO DO 
 gerarModalEditarServico = (servico) => {
-    if (servicosCadastrados.length <= 0 || situacoesCadastradas.length <= 0){
-        carregarServicos();
-        carregarSituacoes();
-    }
+
     
     ( { idServicoNavigation, idLocalNavigation : local, idLocal, idServico, idSituacao } = servico)
 
-    console.log(idServico + " " + idSituacao)
     //FIX ME - na primeira vez q abre o modal ele da erro
     $("#servico").val(idServico);
     $("#situacao").val(idSituacao);
@@ -331,10 +329,6 @@ async function excluirServico(){
 
 
 preencherModalServico = (local) =>{
-    if (servicosCadastrados.length <= 0 || situacoesCadastradas.length <= 0){
-        carregarServicos();
-        carregarSituacoes();
-    }
 
     formServico.addEventListener("submit",() => cadastrarServico(local));
 }
