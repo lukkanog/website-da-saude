@@ -1,5 +1,6 @@
 const section = document.querySelector("#eventos_cadastrados");
 const loading = document.querySelector("#loading");
+const formLoading = document.querySelector(".form_loading");
 
 const form = document.querySelector("#evento_form");
 
@@ -47,6 +48,38 @@ async function carregarEventos(){
         // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
         // window.location.href = "admin.html";
     })
+}
+
+
+cadastrarEvento = async() => {
+    event.preventDefault();
+    começarACarregarForm();
+
+
+    let url = "http://localhost:5000/api/eventos";
+    let token = localStorage.getItem("portalDaSaude-token");
+
+    let requestBody = {
+        nomeEvento : $("#nome_evento").val(),
+        dataInicio : $("#data_inicio").val(),
+        dataTermino : $("#data_termino").val(),
+        descricao : $("#descricao").val()
+    };
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Authorization": "Bearer " + token,
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+    })
+        .then(response => response.json())
+        .then(data => alert(data.mensagem))
+        .catch(error => alert(error))
+
+    window.location.reload();
+
 }
 
 
@@ -169,7 +202,7 @@ preencherConteudo = () => {
         var addLocal = document.createElement("li");
         addLocal.className = "dropdown-item add_item";
         var addIcon = document.createElement("img");
-        addIcon.src="../../assets/img/add-icon.png"
+        addIcon.src="../../assets/img/add-icon.png";
         addIcon.alt = "Adicionar local";
         
         addLocal.appendChild(addIcon);
@@ -194,8 +227,6 @@ preencherConteudo = () => {
 
             opcao.append(submenu, nomeLocal);
             listaLocais.appendChild(opcao);
-
-
         })
 
         conteudo.append(flex, locaisTitulo, listaLocais);
@@ -274,11 +305,22 @@ formatarData = (evento) =>{
         var mesFim = diaTermino.split("-")[1];
         var diaFim = diaTermino.split("-")[2];
 
+
         return diaInicial + "/" + mesInicial + "/" + anoInicial + " - " + diaFim + "/" + mesFim + "/" + anoFim;
     }
 }
 
 pararDeCarregar = () => {
     loading.remove();
+}
+
+começarACarregarForm = () => {
+    form.className = "escondido";
+    formLoading.classList.remove("escondido");
+}
+
+pararDeCarregarForm = () => {
+    form.classList.remove("escondido");
+    formLoading.className = "escondido";
 }
 

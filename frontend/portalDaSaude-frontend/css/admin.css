@@ -113,9 +113,13 @@ nav p{
     padding: 2em;
 }
 
-input, select{
+input, select, textarea{
     margin-bottom: 1.5em;
     padding: 0.5em;
+}
+
+textarea{
+    resize: none;
 }
 
 label{
@@ -199,6 +203,7 @@ label{
 .valor{
     font-size: 1.25em;
     font-weight: 600;
+    word-break: break-word;
 }
 
 .dropdown_flex{
@@ -370,6 +375,7 @@ h3{
     color: #4b4b4b;
     font-size: .75em;
 }
+
 
 @media only screen and (max-width: 1400px){
     .dropdown-item{
