@@ -180,7 +180,7 @@ gerarModalExcluir = (idCategoria) => {
     modalContent.className = "modal_content";
     var titulo = document.createElement("h2");
     titulo.className = "form_title";
-    titulo.textContent = 'Deseja excluir a categoria '  + categoriaSelecionada.nomeCategoria + '?';
+    titulo.textContent = 'Deseja excluir a categoria "'  + categoriaSelecionada.nomeCategoria + '"?';
     var botoes = document.createElement("div");
     botoes.className = "delete_options";
 

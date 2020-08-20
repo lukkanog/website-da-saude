@@ -258,9 +258,9 @@ preencherConteudo = () => {
         //     form.addEventListener("submit",() => editarLocal(item.idLocal));
         // })
 
-        // $(botaoExcluir).click(function () {
-        //     gerarModalExcluir(item.idLocal);
-        // })
+        $(botaoExcluir).click(function () {
+            gerarModalExcluir(item.idEvento);
+        })
 
         // $(addServico).click(function(){
         //     $("#modal_evento").toggleClass("escondido");
@@ -271,6 +271,74 @@ preencherConteudo = () => {
     })
 }
 
+
+
+gerarModalExcluir = (idEvento) =>{
+    var eventoSelecionado = listaExibida.find(x => x.idEvento == idEvento);
+
+    var modal = document.createElement("div");
+    modal.className = "modal";
+    modal.id = "modal_excluir";
+    var modalContent = document.createElement("div");
+    modalContent.className = "modal_content";
+    var titulo = document.createElement("h2");
+    titulo.className = "form_title";
+    titulo.textContent = 'Deseja excluir "'  + eventoSelecionado.nomeEvento + '"?';
+    var botoes = document.createElement("div");
+    botoes.className = "delete_options";
+
+    var botaoExcluir = document.createElement("button");
+    botaoExcluir.className = "botao";
+    botaoExcluir.id = "botao_excluir";
+    botaoExcluir.textContent = "Excluir";
+
+    var botaoCancelar = document.createElement("button");
+    botaoCancelar.className = "botao";
+    botaoCancelar.id = "botao_cancelar";
+    botaoCancelar.textContent = "Cancelar";
+
+
+    $(botaoCancelar).click(function(){
+        $(this).parent().parent().parent().remove();
+    });
+
+    $(botaoExcluir).click(function(){
+        excluirEvento(idEvento);
+    })
+
+    
+    botoes.append(botaoExcluir, botaoCancelar);
+    modalContent.append(titulo, botoes);
+    modal.appendChild(modalContent);
+    
+    $(modal).insertBefore(section);
+}
+
+
+excluirEvento = async(idEvento) => {
+    event.preventDefault();
+    event.preventDefault();
+
+    let url = "http://localhost:5000/api/eventos/" + idEvento;
+    let token = localStorage.getItem("portalDaSaude-token");
+
+
+    await fetch(url,{
+        method : "DELETE",
+        headers : {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json",
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.erro === undefined){
+            alert(data.mensagem);
+            window.location.reload();
+        }
+    })
+    .catch(error => alert(error))
+}
 
 formatarData = (evento) =>{
     ({dataInicio, dataTermino} = evento);

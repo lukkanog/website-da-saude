@@ -110,13 +110,32 @@
                     <input type="date" required name="data_termino" id="data_termino">
 
                     <label for="descricao">Descrição</label>
-                    <textarea required name="descricao" id="descricao" cols="10" rows="5" form="categoria_form" placeholder="Descreva brevemente a campanha a ser cadastrada"></textarea>
+                    <textarea required name="descricao" id="descricao" cols="10" rows="5" form="evento_form" placeholder="Descreva brevemente a campanha a ser cadastrada"></textarea>
 
                     <input type="submit" value="Salvar" class="submit" id="submit_evento">
                 </form>
                 <div class="escondido form_loading">
                     <div class="loader"></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="modal escondido" id="modal_local">
+            <div class="modal_content">
+                <div class="titulo_e_botao">    
+                    <h2 class="form_title">Local do evento</h2>
+                    <img class="close_icon" src="../../assets/img/add-icon.png" alt="Fechar formulário">
+                </div>
+
+                <form id="local_form" class="admin_form">
+
+                    <label for="local">Local</label>
+                    <select name="local" id="local" required>
+                        <option disabled selected label="Selecione o local"></option>
+                    </select>
+
+                    <input type="submit" value="Salvar" class="submit" id="submit_servico">
+                </form>
             </div>
         </div>
 
