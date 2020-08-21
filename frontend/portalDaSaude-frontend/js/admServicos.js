@@ -251,11 +251,19 @@ gerarModalExcluir = (idServico) =>{
     var modal = document.createElement("div");
     modal.className = "modal";
     modal.id = "modal_excluir";
+
     var modalContent = document.createElement("div");
     modalContent.className = "modal_content";
+
     var titulo = document.createElement("h2");
     titulo.className = "form_title";
     titulo.textContent = 'Deseja excluir o serviço "'  + servicoSelecionado.nomeServico + '"?';
+
+    var aviso = document.createElement("p");
+    aviso.className= "delete-observation";
+    aviso.textContent = "Observação: Não será possível excluir serviço se o mesmo estiver cadastrado em um ou mais locais (verificar página Locais de Atendimento).";
+
+
     var botoes = document.createElement("div");
     botoes.className = "delete_options";
 
@@ -280,7 +288,7 @@ gerarModalExcluir = (idServico) =>{
 
     
     botoes.append(botaoExcluir, botaoCancelar);
-    modalContent.append(titulo, botoes);
+    modalContent.append(titulo, aviso, botoes);
     modal.appendChild(modalContent);
     
     $(modal).insertBefore($("#servicos_cadastrados"));

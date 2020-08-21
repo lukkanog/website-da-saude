@@ -176,11 +176,18 @@ gerarModalExcluir = (idCategoria) => {
     var modal = document.createElement("div");
     modal.className = "modal";
     modal.id = "modal_excluir";
+
     var modalContent = document.createElement("div");
     modalContent.className = "modal_content";
+
     var titulo = document.createElement("h2");
     titulo.className = "form_title";
     titulo.textContent = 'Deseja excluir a categoria "'  + categoriaSelecionada.nomeCategoria + '"?';
+
+    var aviso = document.createElement("p");
+    aviso.className= "delete-observation";
+    aviso.textContent = "Observação: Não será possível excluir a categoria se houverem serviços vinculados a esta.";
+
     var botoes = document.createElement("div");
     botoes.className = "delete_options";
 
@@ -205,7 +212,7 @@ gerarModalExcluir = (idCategoria) => {
 
     
     botoes.append(botaoExcluir, botaoCancelar);
-    modalContent.append(titulo, botoes);
+    modalContent.append(titulo,aviso,  botoes);
     modal.appendChild(modalContent);
     
     $(modal).insertBefore($("#categorias_cadastradas"));

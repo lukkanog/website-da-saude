@@ -6,6 +6,10 @@ const formServico = document.querySelector("#servico_form");
 const inputCep = document.querySelector("#cep");
 const selectBairro = document.querySelector("#bairro");
 const selectTipo = document.querySelector("#tipo_local");
+const deleteServico = document.querySelector("#remover_servico");
+const formLoading = document.querySelector(".form_loading");
+const formServicoLoading = document.querySelector(".form_servico_loading");
+
 
 const selectServico = document.querySelector("#servico");
 const selectSituacao = document.querySelector("#situacao");
@@ -46,6 +50,10 @@ $("#add_button").click(function () {
 $(".close_icon").click(function () {
     // esconde o formulario
     $(this).parent().parent().parent().toggleClass("escondido");
+    
+    if (!deleteServico.classList.contains("escondido")){
+        deleteServico.classList.add("escondido");
+    }
 
     // limpa todos os campos do formulario
     $("#local_form").trigger("reset");
@@ -281,17 +289,23 @@ gerarModalEditarServico = (servico) => {
 
         
     $("#modal_servico").toggleClass("escondido");
+    
+    if (deleteServico.classList.contains("escondido")){
+        deleteServico.classList.remove("escondido")
+    }
 
-    // formServico.removeEventListener("submit",() => cadastrarServico);
     formServico.addEventListener("submit",() => {
-        event.preventDefault();
         editarServico(idLocal);
-        
     });
+
+    // o unbind evita que essa funcao seja chamada multiplas vezes
+    $("#remover_servico").unbind().click(() => excluirServicoDeLocal(servico));
 
 }
 
 async function editarServico(idLocal){
+    event.preventDefault();
+    começarACarregarForm();
 
     let servico = document.querySelector("#servico").value;
     let situacao = document.querySelector("#situacao").value;
@@ -317,14 +331,10 @@ async function editarServico(idLocal){
     })
         .then(response => response.json())
         .then(data => alert(data.mensagem))
-        .catch(error => alert(error))
+        .catch(error => console.log(error))
 
     window.location.reload();
 
-}
-
-async function excluirServico(){
-    
 }
 
 
@@ -336,6 +346,8 @@ preencherModalServico = (local) =>{
 
 
 cadastrarServico = async(local) => {
+    event.preventDefault();
+    começarACarregarForm();
     console.log(local)
     
     let servico = document.querySelector("#servico").value;
@@ -362,16 +374,56 @@ cadastrarServico = async(local) => {
             body: JSON.stringify(requestBody),
         })
             .then(response => response.json())
-            .then(data => alert(data.mensagem))
-            .catch(error => alert(error))
+            .then(data => {
+                if (data.erro === undefined){
+                    alert(data.mensagem);
+                } else{
+                    alert("Ocorreu um erro inesperado: " + data.mensagem);
+                }
+            })
+            .catch(error => console.log(error))
 
         window.location.reload();
     } else {
         alert("Esse serviço já existe nesse local.");
+        pararDeCarregarForm();
     }
     
     
 
+}
+
+excluirServicoDeLocal = async(servico) => {
+    // console.log(servico.idLocal + " - "+  servico.idServico);
+    // console.log("CLICK")
+
+    começarACarregarForm();
+    let token = localStorage.getItem("portalDaSaude-token");
+    let url = "http://localhost:5000/api/servicosprestados/";
+
+    let requestBody = {
+        idLocal : idLocal,
+        idServico : idServico,
+    }
+
+    await fetch (url,{
+        method: "DELETE",
+        headers: {
+            "Authorization" : "Bearer " + token,
+            "Content-type" : "application/json"
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.mensagem);
+        window.location.reload();
+    })
+    .catch(error => {
+        console.log(error);
+        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        // window.location.href = "admin.html";
+    })
 }
 
 
@@ -421,11 +473,18 @@ gerarModalExcluir = (idLocal) =>{
     var modal = document.createElement("div");
     modal.className = "modal";
     modal.id = "modal_excluir";
+
     var modalContent = document.createElement("div");
     modalContent.className = "modal_content";
+
     var titulo = document.createElement("h2");
     titulo.className = "form_title";
     titulo.textContent = 'Deseja excluir o local "'  + localSelecionado.nomeLocal + '"?';
+
+    var aviso = document.createElement("p");
+    aviso.className= "delete-observation";
+    aviso.textContent = "Observação: Não será possível excluir o local se o mesmo conter serviços cadastrados no momento.";
+
     var botoes = document.createElement("div");
     botoes.className = "delete_options";
 
@@ -449,7 +508,7 @@ gerarModalExcluir = (idLocal) =>{
 
     
     botoes.append(botaoExcluir, botaoCancelar);
-    modalContent.append(titulo, botoes);
+    modalContent.append(titulo, aviso, botoes);
     modal.appendChild(modalContent);
     
     $(modal).insertBefore($("#modal_local"));
@@ -598,6 +657,9 @@ pararDeCarregar = () => {
 
 cadastrarLocal = async(event) =>{
     event.preventDefault();
+    começarACarregarForm();
+
+
     let nomeLocal = document.querySelector("#nome_local").value;
     let idTipoLocal = document.querySelector("#tipo_local").value;
     let idBairro = document.querySelector("#bairro").value;
@@ -633,22 +695,22 @@ cadastrarLocal = async(event) =>{
     .then(data => {
         if (data.erro === undefined){
             alert(data.mensagem);
-            window.location.reload();
         } else{
-            // alert("Ocorreu um erro inesperado.")
+            alert("Ocorreu um erro inesperado: " + data.mensagem);
         }
     }) 
     .catch(error => {
         console.log(error);
-        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        // window.location.href = "admin.html";
     })
+    window.location.reload();
 
 }
 
 
 editarLocal = async(id) =>{
     event.preventDefault();
+    começarACarregarForm();
+
     let nomeLocal = document.querySelector("#nome_local").value;
     let idTipoLocal = document.querySelector("#tipo_local").value;
     let idBairro = document.querySelector("#bairro").value;
@@ -685,14 +747,28 @@ editarLocal = async(id) =>{
     .then(data => {
         if (data.erro === undefined){
             alert(data.mensagem);
-            window.location.reload();
         } else{
-            // alert("Ocorreu um erro inesperado.");
+            alert("Ocorreu um erro inesperado: " + data.mensagem);
         }
     })    
     .catch(error => {
         console.log(error);
-        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        // window.location.href = "admin.html";
     })
+
+    window.location.reload();
+}
+
+começarACarregarForm = () => {
+    form.classList.add("escondido");
+    deleteServico.classList.add("escondido");
+    formServico.classList.add("escondido");
+    formLoading.classList.remove("escondido");
+    formServicoLoading.classList.remove("escondido");
+}
+
+pararDeCarregarForm = () => {
+    form.classList.remove("escondido");
+    formLoading.classList.add("escondido");
+    formServico.classList.remove("escondido");
+    formServicoLoading.classList.add("escondido");
 }
