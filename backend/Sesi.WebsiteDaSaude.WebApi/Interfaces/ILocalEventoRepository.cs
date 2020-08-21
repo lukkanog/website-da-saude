@@ -36,5 +36,17 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// </summary>
         /// <param name="localEvento">Objeto com o id do evento e o id do local a serem excluídos.</param>
         void Excluir(LocaisEventos localEvento);
+
+        /// <summary>
+        /// Exclui todos os vínculos entre locais e eventos que contenham o evento passado pelo id.
+        /// </summary>
+        /// <param name="idEvento">Id do evento a ser excluído</param>
+        void ExcluirPorEvento(int idEvento);
+
+        /// <summary>
+        /// Exclui todos os vínculos entre locais e eventos que contenham o local passado pelo id.
+        /// </summary>
+        /// <param name="idLocal">Id do local a ser excluído</param>
+        void ExcluirPorLocal(int idLocal);
     }
 }

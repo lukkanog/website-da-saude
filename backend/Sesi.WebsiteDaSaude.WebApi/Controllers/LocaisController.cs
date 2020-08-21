@@ -13,10 +13,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
     public class LocaisController : ControllerBase
     {
         private ILocalRepository LocalRepository { get; set; }
+        private ILocalEventoRepository LocalEventoRepository { get; set; }
 
         public LocaisController()
         {
             LocalRepository = new LocalRepository();
+            LocalEventoRepository = new LocalEventoRepository();
+
         }
 
         [HttpGet]
@@ -138,6 +141,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
         {
             try
             {
+                LocalEventoRepository.ExcluirPorLocal(id);
                 LocalRepository.Excluir(id);
                 return Ok(new {Mensagem = "Local excluído com sucesso!"});
             }catch (Exception e)

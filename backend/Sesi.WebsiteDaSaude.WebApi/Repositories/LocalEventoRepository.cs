@@ -79,6 +79,29 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
             }
         }
 
+        public void ExcluirPorEvento(int idEvento)
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var listaASerRemovida = ctx.LocaisEventos.Where(x => x.IdEvento == idEvento);
+
+                ctx.LocaisEventos.RemoveRange(listaASerRemovida);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void ExcluirPorLocal(int idLocal)
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var listaASerRemovida = ctx.LocaisEventos.Where(x => x.IdLocal == idLocal);
+
+                ctx.LocaisEventos.RemoveRange(listaASerRemovida);
+                ctx.SaveChanges();
+            }
+        }
+        
+
         public List<LocaisEventos> Listar()
         {
             using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())

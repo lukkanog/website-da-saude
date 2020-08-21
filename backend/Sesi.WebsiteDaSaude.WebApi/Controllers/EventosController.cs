@@ -13,10 +13,12 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
     public class EventosController : ControllerBase
     {
         private IEventoRepository EventoRepository { get; set; }
+        private ILocalEventoRepository LocalEventoRepository { get; set; }
 
         public EventosController()
         {
             EventoRepository = new EventoRepository();
+            LocalEventoRepository = new LocalEventoRepository();
         }
 
         [HttpGet]
@@ -103,6 +105,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
         {
             try
             {
+                LocalEventoRepository.ExcluirPorEvento(id);
                 EventoRepository.Excluir(id);
                 return Ok(new { Mensagem = "Evento excluído com sucesso!" });
 
