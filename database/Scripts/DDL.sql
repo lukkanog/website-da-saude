@@ -80,6 +80,7 @@ CREATE TABLE Locais(
 	IdTipoLocal		INT FOREIGN KEY REFERENCES TiposLocais(IdTipoLocal) NOT NULL,
 	NomeLocal		VARCHAR(255) NOT NULL UNIQUE,
 	Capacidade		INT,
+	Telefone VARCHAR(150),
 
 	IdBairro		INT FOREIGN KEY REFERENCES Bairros(IdBairro) NOT NULL,
 	Cep				VARCHAR(9) NOT NULL,
