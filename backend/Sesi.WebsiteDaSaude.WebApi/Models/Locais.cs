@@ -14,7 +14,11 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         [Required(ErrorMessage = "Informe o nome do local.")]
         [StringLength(255, MinimumLength = 5,ErrorMessage = "O nome do local deve ter no mínimo 5 caracteres, e no máximo 255 caracteres.")]
         public string NomeLocal { get; set; }
+
         public int? Capacidade { get; set; }
+
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "O número de telefone deve ter ao menos 8 caracteres.")]
+        public string Telefone {get;set;}
 
         [Required(ErrorMessage = "Informe o bairro do local")]
         public int IdBairro { get; set; }
