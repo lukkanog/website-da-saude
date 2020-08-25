@@ -49,33 +49,84 @@ async function buscarLocal(id) {
 preencherConteudo = (conteudo) => {
     console.log(conteudo);
     if (conteudo !== null && conteudo !== undefined) {
-        title.textContent = conteudo.local.nomeLocal;
+        ({local} = conteudo);
+
+        title.textContent = local.nomeLocal;
 
         var h2 = document.createElement("h2");
         h2.id = "subtitle";
-        h2.textContent = conteudo.local.nomeLocal;
-        mainContent.insertBefore(h2, divEndereco);
+        h2.textContent = local.nomeLocal;
+        mainContent.insertBefore(h2, sectionPrincipal);
+
+        var divEndereco = document.createElement("div");
+        divEndereco.id = "endereco_group";
+        divEndereco.className = "caracteristica_group";
+        
+        var textoEndereco = document.createElement("p");
+        textoEndereco.textContent = "Endereço";
+        textoEndereco.className = "smaller";
+
+        var valorEndereco = document.createElement("p");
+        valorEndereco.className = "caracteristica";
+        valorEndereco.textContent = local.logradouro + ", " + local.numero;
+
+        divEndereco.append(textoEndereco, valorEndereco);
+        mainContent.insertBefore(divEndereco, sectionPrincipal);
 
 
-        var endereco = document.createElement("p");
-        endereco.className = "caracteristica";
-        endereco.textContent = conteudo.local.logradouro + ", " + conteudo.local.numero;
-        divEndereco.appendChild(endereco);
+        var divCep = document.createElement("div");
+        divCep.id = "cep_group";
+        divCep.className = "caracteristica_group";
+        
+        var textoCep = document.createElement("p");
+        textoCep.textContent = "CEP";
+        textoCep.className = "smaller";
 
-        var cep = document.createElement("p");
-        cep.className = "caracteristica";
-        cep.textContent = conteudo.local.cep;
-        divCep.appendChild(cep);
+        var valorCep = document.createElement("p");
+        valorCep.className = "caracteristica";
+        valorCep.textContent = local.cep;
 
-        var bairro = document.createElement("p");
-        bairro.className = "caracteristica";
-        bairro.textContent = conteudo.local.idBairroNavigation.nomeBairro;
-        divBairro.appendChild(bairro);
+        divCep.append(textoCep, valorCep);
+        mainContent.insertBefore(divCep, sectionPrincipal);
+
+
+        var divBairro = document.createElement("div");
+        divBairro.id = "bairro_group";
+        divBairro.className = "caracteristica_group";
+        
+        var textoBairro = document.createElement("p");
+        textoBairro.textContent = "Bairro";
+        textoBairro.className = "smaller";
+
+        var valorBairro = document.createElement("p");
+        valorBairro.className = "caracteristica";
+        valorBairro.textContent = local.idBairroNavigation.nomeBairro;
+
+        divBairro.append(textoBairro, valorBairro);
+        mainContent.insertBefore(divBairro, sectionPrincipal);
+
+        if (local.telefone !== null && local.telefone !== undefined){
+            var divTelefone = document.createElement("div");
+            divTelefone.id = "telefone_group";
+            divTelefone.className = "caracteristica_group";
+            
+            var textTelefone = document.createElement("p");
+            textTelefone.textContent = "Telefone";
+            textTelefone.className = "smaller";
+    
+            var valorTelefone = document.createElement("p");
+            valorTelefone.className = "caracteristica";
+            valorTelefone.textContent = local.telefone;
+    
+            divTelefone.append(textTelefone, valorTelefone);
+            mainContent.insertBefore(divTelefone, sectionPrincipal);
+        }
+
 
         var linkMaps = document.createElement("a");
-        linkMaps.textContent = "Ver no Google Maps";
+        linkMaps.textContent = "Ver local no Google Maps";
         linkMaps.className = "link_maps";
-        linkMaps.href = gerarUrlMaps(conteudo.local);
+        linkMaps.href = gerarUrlMaps(local);
         linkMaps.target = "_blank";
         mainContent.insertBefore(linkMaps, sectionPrincipal);
 

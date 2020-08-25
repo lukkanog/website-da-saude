@@ -106,9 +106,9 @@ nav p{
 }
 
 .modal_content{
-    margin: auto auto;
+    margin: auto;
     width: 30%;
-    max-height: calc(90vh - 2em);
+    max-height: calc(90vh - 1em);
     background-color: #FFF;
     padding: 2em;
 }

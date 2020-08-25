@@ -81,7 +81,7 @@ async function carregarLocaisEServicos(){
 
 preencherConteudo = () =>{
     listaExibida.forEach(item =>{
-        ({idLocal : id, nomeLocal, cep, logradouro, numero, idBairro, idTipoLocal, capacidade, idBairroNavigation, servicosPrestados : servicos } = item);
+        ({idLocal : id, nomeLocal, cep, logradouro, numero, idBairro, idTipoLocal, capacidade, telefone, idBairroNavigation, servicosPrestados : servicos } = item);
 
         var dropdown = document.createElement("div");
         dropdown.className = "dropdown";
@@ -167,7 +167,25 @@ preencherConteudo = () =>{
         
         divCep.append(cepTexto,cepValor);
 
-        caracteristicasGroup.append(divId,divEndereco,divBairro,divCep)
+        
+
+        caracteristicasGroup.append(divId,divEndereco,divBairro,divCep);
+
+        if (telefone !== null && telefone !== undefined){
+            var divTelefone = document.createElement("div");
+            divTelefone.className = "caracteristica";
+
+            var telefoneTexto = document.createElement("p");
+            telefoneTexto.className = "smaller";
+            telefoneTexto.textContent = "Telefone";
+
+            var telefoneValor = document.createElement("p");
+            telefoneValor.className = "valor";
+            telefoneValor.textContent = telefone;
+            
+            divTelefone.append(telefoneTexto,telefoneValor);
+            caracteristicasGroup.append(divTelefone);
+        }
         
         var opcoesGroup = document.createElement("div");
         opcoesGroup.className = "opcoes";
@@ -590,8 +608,9 @@ preencherTiposDeLocais = (tipos) => {
 }
 
 //criado com o plugin do jquery presente nos assets
-$("#cep").mask("99999-999");
-//
+$("#cep").mask("00000-000");
+$("#telefone").mask("(00) 0000-0000");
+
 
 $("#cep").change(() => {
     let valor = $("#cep").val();
@@ -667,6 +686,8 @@ cadastrarLocal = async(event) =>{
     let logradouro = document.querySelector("#logradouro").value;
     let numero = document.querySelector("#numero").value;
     let capacidade = document.querySelector("#capacidade").value;
+    let telefone = document.querySelector("#telefone").value;
+
 
     let requestBody = {
         nomeLocal : nomeLocal,
@@ -676,6 +697,8 @@ cadastrarLocal = async(event) =>{
         logradouro : logradouro,
         numero : numero,
         capacidade : capacidade == null || capacidade == "" || capacidade == undefined ? null : capacidade,
+        telefone : telefone == null || telefone == "" || telefone == undefined ? null : telefone,
+
     }
 
     console.log(requestBody);
@@ -717,7 +740,6 @@ editarLocal = async(id) =>{
     let cep = document.querySelector("#cep").value;
     let logradouro = document.querySelector("#logradouro").value;
     let numero = document.querySelector("#numero").value;
-    let capacidade = document.querySelector("#capacidade").value;
 
     let requestBody = {
         nomeLocal : nomeLocal,
@@ -727,6 +749,7 @@ editarLocal = async(id) =>{
         logradouro : logradouro,
         numero : numero,
         capacidade : capacidade == null || capacidade == "" || capacidade == undefined ? null : capacidade,
+
     }
 
     let token = localStorage.getItem("portalDaSaude-token");
