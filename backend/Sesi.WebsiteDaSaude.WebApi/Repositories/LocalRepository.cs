@@ -116,6 +116,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                 foreach (var item in lista)
                 {
                     item.IdTipoLocalNavigation.Locais = null;
+                    item.IdBairroNavigation.Locais = null;
+                    item.IdBairroNavigation.Usuarios = null;
                 }
 
                 return lista;
@@ -143,6 +145,8 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     }
                     
                     item.IdTipoLocalNavigation.Locais = null;
+                    item.IdBairroNavigation.Locais = null;
+                    item.IdBairroNavigation.Usuarios = null;
 
                 }
 
@@ -159,6 +163,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     .Include (x => x.IdTipoLocalNavigation)
                     .Include (x => x.IdBairroNavigation)
                     .ToList ();
+                
+                foreach (var item in lista)
+                {
+                    item.IdTipoLocalNavigation.Locais = null;
+                    item.IdBairroNavigation.Locais = null;
+                    item.IdBairroNavigation.Usuarios = null;
+                }
 
                 return lista;
             }
@@ -173,6 +184,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     .Include (x => x.IdTipoLocalNavigation)
                     .Include (x => x.IdBairroNavigation)
                     .ToList ();
+
+                foreach (var item in lista)
+                {
+                    item.IdTipoLocalNavigation.Locais = null;
+                    item.IdBairroNavigation.Locais = null;
+                    item.IdBairroNavigation.Usuarios = null;
+                }
 
                 return lista;
             }        
