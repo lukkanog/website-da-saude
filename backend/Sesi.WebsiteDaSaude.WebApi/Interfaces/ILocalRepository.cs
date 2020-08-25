@@ -62,5 +62,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// </summary>
         /// <param name="id">Id do local a ser excluído.</param>
         void Excluir(int id);
+
+
+        /// <summary>
+        /// Verifica se um local com o nome passado já existe ou não.
+        /// </summary>
+        /// <param name="nomeLocal">Nome do local a ser verificado.</param>
+        /// <returns>True se já existir, False se ainda não existir.</returns>
+        bool LocalJaExiste(string nomeLocal);
     }
 }

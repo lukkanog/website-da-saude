@@ -195,5 +195,16 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                 return lista;
             }        
         }
+
+        public bool LocalJaExiste(string nomeLocal)
+        {
+            using (WebsiteDaSaudeContext ctx = new WebsiteDaSaudeContext())
+            {
+                var localBuscado = ctx.Locais.FirstOrDefault(x => x.NomeLocal.ToLower() == nomeLocal.ToLower());
+                return localBuscado == null ? false : true;
+            }
+        }
+
+
     }
 }

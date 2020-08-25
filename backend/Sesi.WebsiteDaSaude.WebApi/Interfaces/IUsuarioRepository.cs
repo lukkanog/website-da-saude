@@ -19,11 +19,11 @@ namespace Sesi.WebsiteDaSaude.WebApi.Interfaces
         /// <returns>Se encontrado, retorna um usuário. Caso contrário, retorna null</returns>
         Usuarios BuscarPorEmailESenha(LoginViewModel login);
        
-       /// <summary>
-       /// Busca um usuário pelo id do mesmo.
-       /// </summary>
-       /// <param name="id">id do usuário buscado</param>
-       /// <returns>Usuário com o id passado ou nulo caso o mesmo não seja encontrado.</returns>
+        /// <summary>
+        /// Busca um usuário pelo id do mesmo.
+        /// </summary>
+        /// <param name="id">id do usuário buscado</param>
+        /// <returns>Usuário com o id passado ou nulo caso o mesmo não seja encontrado.</returns>
         Usuarios BuscarPorId(int id);
         
         /// <summary>

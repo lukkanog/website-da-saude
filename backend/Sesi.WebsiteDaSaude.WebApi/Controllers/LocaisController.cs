@@ -111,8 +111,13 @@ namespace Sesi.WebsiteDaSaude.WebApi.Controllers
         {
             try
             {
-                LocalRepository.Cadastrar(local);
-                return Ok(new {Mensagem = "Local cadastrado com sucesso!"});
+                if (!LocalRepository.LocalJaExiste(local.NomeLocal))
+                {
+                    LocalRepository.Cadastrar(local);
+                    return Ok(new {Mensagem = "Local cadastrado com sucesso!"});
+                } else{
+                    throw new Exception("Já existe um local cadastrado com esse nome.");
+                }
             }catch (Exception e)
             {
                 return BadRequest(new { Erro = true, Mensagem = e.Message });
