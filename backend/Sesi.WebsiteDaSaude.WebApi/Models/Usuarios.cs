@@ -22,7 +22,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
         public string Email { get; set; }
     
         [Required(ErrorMessage="Informe a senha do usuário")]
-        [StringLength(255,MinimumLength=5)]
+        [StringLength(255,MinimumLength=6)]
         public string Senha { get; set; }
         public int? IdBairro { get; set; }
         public string Cep { get; set; }
