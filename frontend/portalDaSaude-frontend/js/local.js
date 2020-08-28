@@ -47,7 +47,7 @@ async function buscarLocal(id) {
 }
 
 preencherConteudo = (conteudo) => {
-    console.log(conteudo);
+    // console.log(conteudo);
     if (conteudo !== null && conteudo !== undefined) {
         ({local} = conteudo);
 

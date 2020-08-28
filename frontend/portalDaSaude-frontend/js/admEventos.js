@@ -18,7 +18,6 @@ try {
 
 
 $("#add_button").click(function () {
-    console.log("add")
     $("#modal_evento").toggleClass("escondido");
 
     form.addEventListener("submit", cadastrarEvento);
@@ -46,8 +45,6 @@ async function carregarEventos(){
     })
     .catch(error => {
         console.log(error);
-        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        // window.location.href = "admin.html";
     })
 }
 
@@ -276,7 +273,6 @@ preencherModalLocal = (evento) => {
 
 vincularLocal = async(evento) => {
     event.preventDefault();
-    console.log(evento);
     let idEvento = evento.idEvento;
     let idLocal = $("#local").val();
 

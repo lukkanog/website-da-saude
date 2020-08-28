@@ -20,14 +20,9 @@ try{
 
 
 $("#add_button").click(function () {
-    console.log("add")
     $("#modal_servico").toggleClass("escondido");
 
-    // try {
-    //     form.removeEventListener("submit",editarLocal);
-    // } catch (error) {
-        
-    // }
+
     form.addEventListener("submit", cadastrarServico);
 })
 

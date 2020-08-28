@@ -15,7 +15,6 @@ try{
 
 
 $("#add_button").click(function () {
-    console.log("add")
     $("#modal_categoria").toggleClass("escondido");
 
     form.addEventListener("submit", cadastrarCategoria);
@@ -129,7 +128,6 @@ preencherConteudo = (categorias) => {
         });
 
         $(botaoExcluir).click(function () {
-            console.log(item.idCategoria)
             gerarModalExcluir(item.idCategoria);
         });
 

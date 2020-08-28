@@ -34,7 +34,6 @@ cadastrarUsuario = async(event) => {
 
         let token = localStorage.getItem("portalDaSaude-token");
         const url = "http://localhost:5000/api/usuarios";
-        console.log(requestBody);
 
         fetch(url,{
             method: "POST",

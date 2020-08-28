@@ -8,7 +8,6 @@ const mainContent = contents[0];
 carregarServico();
 
 function carregarServico() {
-    console.log("ó o pijamão")
     var id = obterParametro();
     buscarServico(id);
 }
@@ -166,7 +165,6 @@ obterClasseDeSituacao = (situacao) => {
             classe = "demorado";
             break;
         default:
-            console.log("achou a situacao nao rapaiz");
             break;
     }
 

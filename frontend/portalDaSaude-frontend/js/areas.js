@@ -103,7 +103,6 @@ async function carregarAreas(){
 
 
 $(".btn_dropdown").click(function(){
-    console.log("aoba");
     // mostra/ esconde a lista de locais e a descricao
     $(this).parent().children("ul").slideToggle();
 

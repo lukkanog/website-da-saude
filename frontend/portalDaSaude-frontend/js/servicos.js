@@ -5,6 +5,8 @@ const filtroCategoria = document.querySelector("#categorias");
 var servicosIniciais = [];
 var servicosExibidos = [];
 
+var erro = false;
+
 carregarServicos();
 carregarCategorias();
 
@@ -18,8 +20,11 @@ async function carregarServicos(){
     })
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "index.html";
+        if (!erro){
+            erro = true;
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        }
     })
 }
 
@@ -77,8 +82,11 @@ async function carregarCategorias(){
     })
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "index.html";
+        if (!erro){
+            erro = true;
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        }
     })
 }
 

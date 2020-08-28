@@ -34,7 +34,6 @@ try{
 }
 
 $("#add_button").click(function () {
-    console.log("add")
     $("#modal_local").toggleClass("escondido");
 
     // faz com que o formulario seja usado para salvar um novo local e nao editar um existente
@@ -74,8 +73,7 @@ async function carregarLocaisEServicos(){
         })
         .catch(error => {
             console.log(error);
-            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            // window.location.href = "admin.html";
+
         })
 }
 
@@ -334,7 +332,6 @@ async function editarServico(idLocal){
         idSituacao: situacao,
     }
 
-    console.log(requestBody);
 
     let url = "http://localhost:5000/api/ServicosPrestados";
     let token = localStorage.getItem("portalDaSaude-token");
@@ -366,7 +363,6 @@ preencherModalServico = (local) =>{
 cadastrarServico = async(local) => {
     event.preventDefault();
     começarACarregarForm();
-    console.log(local)
     
     let servico = document.querySelector("#servico").value;
     let situacao = document.querySelector("#situacao").value;
@@ -412,8 +408,7 @@ cadastrarServico = async(local) => {
 }
 
 excluirServicoDeLocal = async(servico) => {
-    // console.log(servico.idLocal + " - "+  servico.idServico);
-    // console.log("CLICK")
+
 
     começarACarregarForm();
     let token = localStorage.getItem("portalDaSaude-token");
@@ -439,8 +434,7 @@ excluirServicoDeLocal = async(servico) => {
     })
     .catch(error => {
         console.log(error);
-        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        // window.location.href = "admin.html";
+
     })
 }
 
@@ -486,7 +480,6 @@ async function carregarSituacoes(){
 
 gerarModalExcluir = (idLocal) =>{
     var localSelecionado = listaExibida.find(x => x.idLocal == idLocal);
-    console.log(localSelecionado)
 
     var modal = document.createElement("div");
     modal.className = "modal";
@@ -551,8 +544,7 @@ async function excluirLocal(id){
     })
     .catch(error => {
         console.log(error);
-        // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        // window.location.href = "admin.html";
+
     })
 }
 
@@ -564,8 +556,6 @@ async function carregarBairros() {
         .then(data => preencherBairros(data))
         .catch(error => {
             console.log(error);
-            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            // window.location.href = "admin.html";
         })
 }
 
@@ -590,8 +580,6 @@ async function carregarTipos() {
         .then(data => preencherTiposDeLocais(data))
         .catch(error => {
             console.log(error);
-            // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-            // window.location.href = "admin.html";
         })
 }
 
@@ -701,7 +689,6 @@ cadastrarLocal = async(event) =>{
 
     }
 
-    console.log(requestBody);
 
     let token = localStorage.getItem("portalDaSaude-token");
     let url = "http://localhost:5000/api/locais";
@@ -756,7 +743,6 @@ editarLocal = async(id) =>{
     let url = "http://localhost:5000/api/locais/" + id;
 
 
-    console.log(requestBody)
 
     await fetch (url,{
         method: "PUT",

@@ -5,6 +5,7 @@ const filtroTipo = document.querySelector("#tipos");
 var locaisExibidos;
 var locaisIniciais = [];
 
+var erro = false;
 
 try {
     carregarLocais();
@@ -24,8 +25,11 @@ async function carregarLocais(){
     })
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "index.html";
+        if (!erro){
+            erro = true;
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        }
     })
 }
 
@@ -110,8 +114,11 @@ async function carregarBairros(){
     .then(data => preencherBairros(data))
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "index.html";
+        if (!erro){
+            erro = true;
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        }
     })
 }
 
@@ -134,8 +141,11 @@ async function carregarTipos(){
     .then(data => preencherTiposDeLocais(data))
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
-        window.location.href = "index.html";
+        if (!erro){
+            erro = true;
+            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            window.location.href = "index.html";
+        }
     })
 }
 
