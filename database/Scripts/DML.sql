@@ -119,10 +119,9 @@ INSERT INTO Situacoes (NomeSituacao,Descricao)
 			('Demorado','Atendimento com tempo de espera maior por motivo indefinido')
 GO
 
---OS PROXIMOS TEM APENAS O PROPÓSITO DE TESTAR
-INSERT INTO Usuarios (IdPermissao, NomeUsuario, DataNascimento, Email, Senha, IdBairro, Cep, Logradouro, Numero)
-	VALUES	(2, 'Lucas de Souza','2002-06-20','lucas@email.com','123123',65,'08557450','Rua Francisco Coronado',41),
-			(1, 'Fulano da Silva Pereira','1989-08-16','fulano@email.com','123123',4,'08557-000','Avenida Vital Brasil',898)
+-- INSERIR AQUI INFORMAÇÕES DO PRIMEIRO USUÁRIO ADMINISTRADOR
+INSERT INTO Usuarios (IdPermissao, NomeUsuario, DataNascimento, Email, Senha)
+	VALUES	(2, 'Lucas de Souza','2002-06-20','email@email.com','123123123'),
 GO
 
 INSERT INTO Locais (IdTipoLocal,NomeLocal,IdBairro,Cep,Logradouro,Numero)
