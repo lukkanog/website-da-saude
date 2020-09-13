@@ -25,7 +25,7 @@ form.addEventListener("submit",() =>{
 efetuarLogin = async() =>{
     começarACarregar();
 
-    var url = "http://localhost:5000/api/login";
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/login";
 
     const body = {
         "email" : email.value,

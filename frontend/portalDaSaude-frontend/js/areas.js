@@ -7,7 +7,7 @@ carregarAreas();
 
 
 async function carregarAreas(){
-    var url = "http://localhost:5000/api/categorias/servicos";
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/categorias/servicos";
     fetch(url)
     .then(response => response.json())
     .then(data => {

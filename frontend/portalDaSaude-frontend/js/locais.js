@@ -16,7 +16,7 @@ try {
 }
 
 async function carregarLocais(){
-    var url = "http://localhost:5000/api/locais";
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/locais";
     await fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -108,7 +108,7 @@ pararDeCarregar = () => {
 }
 
 async function carregarBairros(){
-    var url = "http://localhost:5000/api/bairros";
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/bairros";
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherBairros(data))
@@ -135,7 +135,7 @@ preencherBairros = (bairros) =>{
 }
 
 async function carregarTipos(){
-    var url = "http://localhost:5000/api/tiposlocais";
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/tiposlocais";
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherTiposDeLocais(data))

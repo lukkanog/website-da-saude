@@ -29,7 +29,7 @@ function obterParametro() {
 }
 
 async function buscarServico(id) {
-    var url = "http://localhost:5000/api/servicosprestados/servico/" + id;
+    var url = "http://lukkanog-001-site1.ftempurl.com/api/servicosprestados/servico/" + id;
 
     await fetch(url)
         .then(response => response.json())
