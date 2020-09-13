@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>d216e5b2-4a88-4422-8d8b-6e01ac0cca00</UserSecretsId>
   </PropertyGroup>
   <!-- <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App"/>

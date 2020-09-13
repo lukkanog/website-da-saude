@@ -26,3 +26,7 @@ C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\obj\De
 C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.dll
 C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.pdb
+C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Users\USER\Desktop\website-da-saude\backend\Sesi.WebsiteDaSaude.WebApi\obj\Debug\netcoreapp2.2\Sesi.WebsiteDaSaude.WebApi.genruntimeconfig.cache

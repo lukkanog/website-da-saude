@@ -35,7 +35,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-K8F219B\\SQLEXPRESS;Trusted_Connection=True;Initial Catalog=WebsiteDaSaude");
+                optionsBuilder.UseSqlServer("Data Source=SQL5080.site4now.net;Initial Catalog=DB_A674F6_pdsdb;User Id=DB_A674F6_pdsdb_admin;Password=pds-db@20192020");
             }
         }
 
