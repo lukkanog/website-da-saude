@@ -121,7 +121,7 @@ GO
 
 -- INSERIR AQUI INFORMAÇÕES DO PRIMEIRO USUÁRIO ADMINISTRADOR
 INSERT INTO Usuarios (IdPermissao, NomeUsuario, DataNascimento, Email, Senha)
-	VALUES	(2, 'Lucas de Souza','2002-06-20','email@email.com','123123123'),
+	VALUES	(2, 'Lucas de Souza','2002-06-20','email@email.com','123123123')
 GO
 
 INSERT INTO Locais (IdTipoLocal,NomeLocal,IdBairro,Cep,Logradouro,Numero)
