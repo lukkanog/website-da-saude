@@ -272,6 +272,8 @@ preencherConteudo = () =>{
             $("#logradouro").val(item.logradouro);
             $("#numero").val(item.numero);
             item.capacidade == null ? null : $("#capacidade").val(item.capacidade);
+            item.telefone == null ? null : $("#telefone").val(item.telefone);
+
 
             $("#modal_local").toggleClass("escondido");
             // faz com que o formulario nao cadastre, e sim edite o local
@@ -330,6 +332,7 @@ async function editarServico(idLocal){
         idLocal: idLocal,
         idServico: servico,
         idSituacao: situacao,
+        ativo : true,
     }
 
 
@@ -374,6 +377,7 @@ cadastrarServico = async(local) => {
             idLocal: local.idLocal,
             idServico: servico,
             idSituacao: situacao,
+            ativo : true
         }
 
         let url = "http://lukkanog-001-site1.ftempurl.com/api/ServicosPrestados";
@@ -727,7 +731,8 @@ editarLocal = async(id) =>{
     let cep = document.querySelector("#cep").value;
     let logradouro = document.querySelector("#logradouro").value;
     let numero = document.querySelector("#numero").value;
-
+    let telefone = document.querySelector("#telefone").value;
+    
     let requestBody = {
         nomeLocal : nomeLocal,
         idTipoLocal : idTipoLocal,
@@ -735,8 +740,8 @@ editarLocal = async(id) =>{
         cep : cep,
         logradouro : logradouro,
         numero : numero,
+        telefone : telefone,
         capacidade : capacidade == null || capacidade == "" || capacidade == undefined ? null : capacidade,
-
     }
 
     let token = localStorage.getItem("portalDaSaude-token");
