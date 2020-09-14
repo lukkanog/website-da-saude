@@ -13,9 +13,24 @@ main .content{
 
 .paragrafo{
     text-align: justify;
+    margin-bottom: 0.75em;
 }
 
 .titulo_paragrafo{
     font-size: 1.75em;
     margin-bottom: 0.25em;
+}
+
+b{
+    font-weight: bold;
+}
+
+@media only screen  and (max-width: 600px){
+    main .content{
+        width: 90%;
+    }
+
+    .titulo_paragrafo{
+        text-align: left;
+    }
 }
