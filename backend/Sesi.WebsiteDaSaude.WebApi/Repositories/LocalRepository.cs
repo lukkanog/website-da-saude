@@ -73,6 +73,7 @@ namespace Sesi.WebsiteDaSaude.WebApi.Repositories
                     localBuscado.IdBairro = localPassado.IdBairro;
                     localBuscado.Logradouro = localPassado.Logradouro;
                     localBuscado.Numero = localPassado.Numero;
+                    localBuscado.Telefone = localPassado.Telefone;
 
                     if (localBuscado.Cep.Contains("-"))
                     {
