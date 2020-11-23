@@ -33,7 +33,7 @@ cadastrarUsuario = async(event) => {
         }
 
         let token = localStorage.getItem("portalDaSaude-token");
-        const url = "http://noglucass-001-site1.dtempurl.com/api/usuarios";
+        const url = "http://localhost:5000/api/usuarios";
 
         fetch(url,{
             method: "POST",
@@ -68,13 +68,13 @@ limparFormulario = () => {
 
 
 async function carregarBairros() {
-    var url = "http://noglucass-001-site1.dtempurl.com/api/bairros";
+    var url = "http://localhost:5000/api/bairros";
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherBairros(data))
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro ao carregar os bairros cadastrados. Tente novamente mais tarde.");
+            // alert("ocorreu um erro ao carregar os bairros cadastrados. Tente novamente mais tarde.");
             window.location.href = "admin.html";
         })
 }

@@ -25,7 +25,7 @@ form.addEventListener("submit",() =>{
 efetuarLogin = async() =>{
     começarACarregar();
 
-    var url = "http://noglucass-001-site1.dtempurl.com/api/login";
+    var url = "http://localhost:5000/api/login";
 
     const body = {
         "email" : email.value,
@@ -50,7 +50,7 @@ efetuarLogin = async() =>{
     })
     .catch(error =>{
         pararDeCarregar();
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde");
+        // alert("ocorreu um erro inesperado. Tente novamente mais tarde");
     })
 }
 

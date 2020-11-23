@@ -16,7 +16,7 @@ try {
 }
 
 async function carregarLocais(){
-    var url = "http://noglucass-001-site1.dtempurl.com/api/locais";
+    var url = "http://localhost:5000/api/locais";
     await fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -27,7 +27,7 @@ async function carregarLocais(){
         console.log(error);
         if (!erro){
             erro = true;
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         }
     })
@@ -108,7 +108,7 @@ pararDeCarregar = () => {
 }
 
 async function carregarBairros(){
-    var url = "http://noglucass-001-site1.dtempurl.com/api/bairros";
+    var url = "http://localhost:5000/api/bairros";
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherBairros(data))
@@ -116,7 +116,7 @@ async function carregarBairros(){
         console.log(error);
         if (!erro){
             erro = true;
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         }
     })
@@ -135,7 +135,7 @@ preencherBairros = (bairros) =>{
 }
 
 async function carregarTipos(){
-    var url = "http://noglucass-001-site1.dtempurl.com/api/tiposlocais";
+    var url = "http://localhost:5000/api/tiposlocais";
     await fetch(url)
     .then(response => response.json())
     .then(data => preencherTiposDeLocais(data))
@@ -143,7 +143,7 @@ async function carregarTipos(){
         console.log(error);
         if (!erro){
             erro = true;
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         }
     })

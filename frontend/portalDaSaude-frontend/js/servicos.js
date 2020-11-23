@@ -22,7 +22,7 @@ async function carregarServicos(){
         console.log(error);
         if (!erro){
             erro = true;
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         }
     })
@@ -84,7 +84,7 @@ async function carregarCategorias(){
         console.log(error);
         if (!erro){
             erro = true;
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         }
     })

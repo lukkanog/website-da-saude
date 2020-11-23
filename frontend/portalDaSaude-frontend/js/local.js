@@ -31,7 +31,7 @@ function obterParametro() {
 }
 
 async function buscarLocal(id) {
-    var url = "http://noglucass-001-site1.dtempurl.com/api/ServicosPrestados/local/" + id;
+    var url = "http://localhost:5000/api/ServicosPrestados/local/" + id;
     await fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -40,7 +40,7 @@ async function buscarLocal(id) {
         })
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         })
 

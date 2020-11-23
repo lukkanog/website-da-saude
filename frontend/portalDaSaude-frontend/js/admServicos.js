@@ -14,7 +14,7 @@ try{
     carregarServicos();
     carregarCategorias();
 } catch(error){
-    alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+    // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
     window.location.href = "../index.html";
 }
 
@@ -38,7 +38,7 @@ $(".close_icon").click(function () {
 
 
 async function carregarServicos(){
-    let url = "http://noglucass-001-site1.dtempurl.com/api/servicos";
+    let url = "http://localhost:5000/api/servicos";
 
     await fetch(url)
     .then(response => response.json())
@@ -180,7 +180,7 @@ cadastrarServico = async() => {
     event.preventDefault();
     começarACarregarForm();
 
-    let url = "http://noglucass-001-site1.dtempurl.com/api/servicos";
+    let url = "http://localhost:5000/api/servicos";
     let token = localStorage.getItem("portalDaSaude-token");
 
     let requestbody = {
@@ -212,7 +212,7 @@ editarServico = async(idServico) => {
     event.preventDefault();
     começarACarregarForm();
 
-    let url = "http://noglucass-001-site1.dtempurl.com/api/servicos/" + idServico;
+    let url = "http://localhost:5000/api/servicos/" + idServico;
     let token = localStorage.getItem("portalDaSaude-token");
 
     let requestbody = {
@@ -293,7 +293,7 @@ gerarModalExcluir = (idServico) =>{
 excluirServico = async(idServico) => {
     event.preventDefault();
 
-    let url = "http://noglucass-001-site1.dtempurl.com/api/servicos/" + idServico;
+    let url = "http://localhost:5000/api/servicos/" + idServico;
     let token = localStorage.getItem("portalDaSaude-token");
 
 
@@ -317,7 +317,7 @@ excluirServico = async(idServico) => {
 
 
 async function carregarCategorias(){
-    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
+    let url = "http://localhost:5000/api/categorias";
 
     await fetch(url)
     .then(response => response.json())

@@ -9,7 +9,7 @@ var listaExibida = [];
 try{
     carregarCategorias();
 } catch(error){
-    alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+    // alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
     window.location.href = "../index.html";
 }
 
@@ -22,7 +22,7 @@ $("#add_button").click(function () {
 
 
 async function carregarCategorias(){
-    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
+    let url = "http://localhost:5000/api/categorias";
 
     await fetch(url)
     .then(response => response.json())
@@ -142,7 +142,7 @@ cadastrarCategoria = async() => {
     event.preventDefault();
     começarACarregarForm();
 
-    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
+    let url = "http://localhost:5000/api/categorias";
     let token = localStorage.getItem("portalDaSaude-token");
 
     let requestbody = {
@@ -220,7 +220,7 @@ gerarModalExcluir = (idCategoria) => {
 excluirCategoria = async(idCategoria) => {
     event.preventDefault();
 
-    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias/" + idCategoria;
+    let url = "http://localhost:5000/api/categorias/" + idCategoria;
     let token = localStorage.getItem("portalDaSaude-token");
 
 

@@ -7,7 +7,7 @@ carregarAreas();
 
 
 async function carregarAreas(){
-    var url = "http://noglucass-001-site1.dtempurl.com/api/categorias/servicos";
+    var url = "http://localhost:5000/api/categorias/servicos";
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -16,7 +16,7 @@ async function carregarAreas(){
     })
     .catch(error => {
         console.log(error);
-        alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+        // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
         window.location.href = "index.html";
     })
 }

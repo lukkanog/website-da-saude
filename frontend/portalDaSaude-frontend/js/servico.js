@@ -29,7 +29,7 @@ function obterParametro() {
 }
 
 async function buscarServico(id) {
-    var url = "http://noglucass-001-site1.dtempurl.com/api/servicosprestados/servico/" + id;
+    var url = "http://localhost:5000/api/servicosprestados/servico/" + id;
 
     await fetch(url)
         .then(response => response.json())
@@ -39,7 +39,7 @@ async function buscarServico(id) {
         })
         .catch(error => {
             console.log(error);
-            alert("Ocorreu um erro inesperado. Tente novamente mais tarde.");
+            // alert("ocorreu um erro inesperado. Tente novamente mais tarde.");
             window.location.href = "index.html";
         })
 }
