@@ -62,7 +62,7 @@ $(".close_icon").click(function () {
 
 
 async function carregarLocaisEServicos(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/locais/servicos";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/locais/servicos";
     
     await fetch(url)
         .then(response => response.json())
@@ -336,7 +336,7 @@ async function editarServico(idLocal){
     }
 
 
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/ServicosPrestados";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/ServicosPrestados";
     let token = localStorage.getItem("portalDaSaude-token");
 
     await fetch(url, {
@@ -380,7 +380,7 @@ cadastrarServico = async(local) => {
             ativo : true
         }
 
-        let url = "http://lukkanog-001-site1.ftempurl.com/api/ServicosPrestados";
+        let url = "http://noglucass-001-site1.dtempurl.com/api/ServicosPrestados";
         let token = localStorage.getItem("portalDaSaude-token");
 
         await fetch(url, {
@@ -416,7 +416,7 @@ excluirServicoDeLocal = async(servico) => {
 
     começarACarregarForm();
     let token = localStorage.getItem("portalDaSaude-token");
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/servicosprestados/";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/servicosprestados/";
 
     let requestBody = {
         idLocal : idLocal,
@@ -444,7 +444,7 @@ excluirServicoDeLocal = async(servico) => {
 
 
 async function carregarServicos(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/servicos";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/servicos";
 
     await fetch (url)
     .then(response => response.json())
@@ -463,7 +463,7 @@ async function carregarServicos(){
 }
 
 async function carregarSituacoes(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/situacoes";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/situacoes";
 
     await fetch (url)
     .then(response => response.json())
@@ -531,7 +531,7 @@ gerarModalExcluir = (idLocal) =>{
 
 async function excluirLocal(id){
     let token = localStorage.getItem("portalDaSaude-token");
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/locais/" + id;
+    let url = "http://noglucass-001-site1.dtempurl.com/api/locais/" + id;
 
     await fetch (url,{
         method: "DELETE",
@@ -554,7 +554,7 @@ async function excluirLocal(id){
 
 
 async function carregarBairros() {
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/bairros";
+    var url = "http://noglucass-001-site1.dtempurl.com/api/bairros";
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherBairros(data))
@@ -578,7 +578,7 @@ preencherBairros = (bairros) => {
 
 
 async function carregarTipos() {
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/tiposlocais";
+    var url = "http://noglucass-001-site1.dtempurl.com/api/tiposlocais";
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherTiposDeLocais(data))
@@ -695,7 +695,7 @@ cadastrarLocal = async(event) =>{
 
 
     let token = localStorage.getItem("portalDaSaude-token");
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/locais";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/locais";
 
     await fetch (url,{
         method: "POST",
@@ -745,7 +745,7 @@ editarLocal = async(id) =>{
     }
 
     let token = localStorage.getItem("portalDaSaude-token");
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/locais/" + id;
+    let url = "http://noglucass-001-site1.dtempurl.com/api/locais/" + id;
 
 
 

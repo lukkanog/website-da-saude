@@ -22,7 +22,7 @@ $("#add_button").click(function () {
 
 
 async function carregarCategorias(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/categorias";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
 
     await fetch(url)
     .then(response => response.json())
@@ -142,7 +142,7 @@ cadastrarCategoria = async() => {
     event.preventDefault();
     começarACarregarForm();
 
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/categorias";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
     let token = localStorage.getItem("portalDaSaude-token");
 
     let requestbody = {
@@ -220,7 +220,7 @@ gerarModalExcluir = (idCategoria) => {
 excluirCategoria = async(idCategoria) => {
     event.preventDefault();
 
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/categorias/" + idCategoria;
+    let url = "http://noglucass-001-site1.dtempurl.com/api/categorias/" + idCategoria;
     let token = localStorage.getItem("portalDaSaude-token");
 
 

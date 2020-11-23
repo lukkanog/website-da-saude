@@ -34,7 +34,7 @@ $(".close_icon").click(function () {
 
 
 async function carregarEventos(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/eventos/locais";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/eventos/locais";
 
     await fetch(url)
     .then(response => response.json())
@@ -54,7 +54,7 @@ cadastrarEvento = async() => {
     começarACarregarForm();
 
 
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/eventos";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/eventos";
     let token = localStorage.getItem("portalDaSaude-token");
 
     let requestBody = {
@@ -284,7 +284,7 @@ vincularLocal = async(evento) => {
             idEvento : idEvento,
         }
 
-        let url = "http://lukkanog-001-site1.ftempurl.com/api/locaiseventos";
+        let url = "http://noglucass-001-site1.dtempurl.com/api/locaiseventos";
         let token = localStorage.getItem("portalDaSaude-token");
 
         await fetch(url, {
@@ -310,7 +310,7 @@ editarEvento = async(idEvento) => {
     começarACarregarForm();
 
     let token = localStorage.getItem("portalDaSaude-token");
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/eventos/" + idEvento;
+    let url = "http://noglucass-001-site1.dtempurl.com/api/eventos/" + idEvento;
 
     let requestBody = {
         nomeEvento : $("#nome_evento").val(),
@@ -385,7 +385,7 @@ gerarModalExcluir = (idEvento) =>{
 excluirEvento = async(idEvento) => {
     event.preventDefault();
 
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/eventos/" + idEvento;
+    let url = "http://noglucass-001-site1.dtempurl.com/api/eventos/" + idEvento;
     let token = localStorage.getItem("portalDaSaude-token");
 
 
@@ -411,7 +411,7 @@ excluirEvento = async(idEvento) => {
 }
 
 async function carregarLocais(){
-    let url = "http://lukkanog-001-site1.ftempurl.com/api/locais";
+    let url = "http://noglucass-001-site1.dtempurl.com/api/locais";
 
 
     await fetch (url)

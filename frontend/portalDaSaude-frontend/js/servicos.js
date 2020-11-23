@@ -11,7 +11,7 @@ carregarServicos();
 carregarCategorias();
 
 async function carregarServicos(){
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/servicos";
+    var url = "http://noglucass-001-site1.dtempurl.com/api/servicos";
     await fetch(url)
     .then(response =>response.json())
     .then(data => {
@@ -72,7 +72,7 @@ preencherConteudo = (servicos) =>{
 }
 
 async function carregarCategorias(){
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/categorias";
+    var url = "http://noglucass-001-site1.dtempurl.com/api/categorias";
 
     await fetch(url)
     .then(response => response.json())

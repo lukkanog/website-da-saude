@@ -8,7 +8,7 @@ carregarEventos()
 
 
 async function carregarEventos() {
-    const url = "http://lukkanog-001-site1.ftempurl.com/api/locaiseventos";
+    const url = "http://noglucass-001-site1.dtempurl.com/api/locaiseventos";
 
     await fetch(url)
         .then(response => response.json())

@@ -33,7 +33,7 @@ cadastrarUsuario = async(event) => {
         }
 
         let token = localStorage.getItem("portalDaSaude-token");
-        const url = "http://lukkanog-001-site1.ftempurl.com/api/usuarios";
+        const url = "http://noglucass-001-site1.dtempurl.com/api/usuarios";
 
         fetch(url,{
             method: "POST",
@@ -68,7 +68,7 @@ limparFormulario = () => {
 
 
 async function carregarBairros() {
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/bairros";
+    var url = "http://noglucass-001-site1.dtempurl.com/api/bairros";
     await fetch(url)
         .then(response => response.json())
         .then(data => preencherBairros(data))

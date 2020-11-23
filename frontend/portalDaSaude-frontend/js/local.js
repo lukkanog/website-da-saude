@@ -31,7 +31,7 @@ function obterParametro() {
 }
 
 async function buscarLocal(id) {
-    var url = "http://lukkanog-001-site1.ftempurl.com/api/ServicosPrestados/local/" + id;
+    var url = "http://noglucass-001-site1.dtempurl.com/api/ServicosPrestados/local/" + id;
     await fetch(url)
         .then(response => response.json())
         .then(data => {
